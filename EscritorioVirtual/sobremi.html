@@ -3,159 +3,179 @@
 <head>
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
-    <meta name="author" content="Patricia Garcia Fernandez"/>
-    <meta name="description" content="Documento con la información personal"/>
-    <meta name="keywords" content ="Sobre, mí"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Sobre mí</title>
+    <meta name="author" content="Patricia Garcia Fernandez" />
+    <meta name="description" content="Documento con la información personal" />
+    <meta name="keywords" content ="Sobre, mí" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escritorio Virtual - Sobre mí</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="icon" href="multimedia/imagenes/favicon.ico" />
 </head>
 <body>
     <!-- Datos con el contenido que aparece en el navegador -->
-    <h1>Escritorio Virtual</h1>
-    <nav>
-        <a href="index.html" accesskey="H" tabindex="1">Home</a>
-        <a href="agenda.html" accesskey="A" tabindex="2">Agenda</a>
-        <a href="juegos.html" accesskey="J" tabindex="3">Juegos</a>
-        <a href="meteorología.html" accesskey="M" tabindex="4">Meteorología</a>
-        <a href="noticias.html" accesskey="N" tabindex="5">Noticias</a>
-        <a href="sobremi.html" accesskey="S" tabindex="6">Sobre mí</a>
-        <a href="viajes.html" accesskey="V" tabindex="7">Viajes</a>
-    </nav>
+    <header>
+        <h1>Escritorio Virtual</h1>
+        <nav>
+            <a href="index.html" accesskey="I" tabindex="1">Inicio</a>
+            <a href="sobremi.html" accesskey="S" tabindex="6">Sobre mi</a>
+            <a href="noticias.html" accesskey="N" tabindex="5">Noticias</a>
+            <a href="agenda.html" accesskey="A" tabindex="2">Agenda</a>
+            <a href="meteorología.html" accesskey="M" tabindex="4">Meteorología</a>
+            <a href="viajes.html" accesskey="V" tabindex="7">Viajes</a>
+            <a href="juegos.html" accesskey="J" tabindex="3">Juegos</a>
+        </nav>
+    </header>
     <h2>Sobre mí</h2>
-    <h3>Datos personales</h3>
-    <p>Mi nombre es Patricia García Fernández y vivo en Oviedo, Asturias. Mi UO es UO282210, por lo que mi correo profesional es uo282210@uniovi.es mientras que mi correo personal es patriciagarfer16@gmail.com.</p>
-    <p>A nivel universitario estudio Ingeniería Informática del Software. Actualmente estoy en mi último año de carrera y planeo hacer un máster de Project Management, idealmente en Suecia, el próximo curso.</p>
-    <h3>Aficiones</h3>
-    <p>Aunque tengo muchas aficiones, las cinco que destacaría son las siguientes enumeradas.</p>    
-    <ul>
-        <li>
-            Piano. He estudiado música durante 10 años y tengo el título de Técnico de las Enseñanzas de Música en la especialidad de Piano por el <a href="https://conservatorioprofesional.blogspot.com/">Conservatorio Profesional de Música de Oviedo</a>. Aunque ya he acabado el grado, suelo tocar el piano todas las semanas.
-        </li>
-        <li>
-            Escuchar música. Suelo escuchar diversos géneros musicales aunque uno de mis favoritos puede que sea el MoTown.
-        </li>
-        <li>
-            Lectura. Desgraciadamente tengo un imán para las trilogías o sagas largas de libros, por lo que he desarrollado la habilidad de leer varios libros a la vez. De otra manera, no podría variar el género literario. Entre mis favoritos están las novelas con trasfondo histórico, con trasfondo mitológico y libros de Ciencia Ficción y Magia.
-        </li>
-        <li>
-            Viajar. En los últimos años he desarrollado un interés por viajar y conocer culturas, sociedades y costumbres diferentes. A raíz de un viaje a Suecia me ha empezado a atraer mucho la cultura nórdica y por ello planeo realizar mis estudios de Máster allí.
-        </li>
-        <li>
-            Deporte. Desde que era pequeña siempre me ha gustado mucho el deporte, como el fútbol, la natación o el buceo. Suelo ir a la piscina todas las semanas y jugar pachangas con amigos de vez en cuando. En mi opinión, son una muy buena forma de desconectar.
-        </li>
-    </ul>
-    <picture>
-        <source media="(min-width: 800px)"
-        srcset="multimedia/imagenes/estocolmo_big.jpg">
-        <source media="(max-width: 799px)"
-        srcset="multimedia/imagenes/estocolmo_medium.jpg">
-        <source media="(max-width: 465px)"
-        srcset="multimedia/imagenes/estocolmo_small.jpg">
-        <img alt="Imagen de Patricia en Estocolmo"
-        src="multimedia/imagenes/estocolmo.jpg">
-    </picture>
-    <picture>
-        <source media="(min-width: 800px)"
-        srcset="multimedia/imagenes/buceo_big.jpg">
-        <source media="(max-width: 799px)"
-        srcset="multimedia/imagenes/buceo_medium.jpg">
-        <source media="(max-width: 465px)"
-        srcset="multimedia/imagenes/buceo_small.jpg">
-        <img alt="Imagen de Patricia buceando"
-        src="multimedia/imagenes/buceo.jpg"/>
-    </picture>
-    <h3>Cantantes y grupos favoritos</h3>
-    <p>Como dije anteriormente, escucho una gran variedad de géneros musicales por lo que tengo varios cantantes y grupos favoritos. Algunos de ellos son los siguientes.</p>
-    <ol>
-        <li>
-            Cantantes.
-            <ul>
-                <li>Aretha Franklin</li>
-                <li>Kanye West</li>
-                <li>Bad Gyal</li>
-                <li>Mac Miller</li>
-                <li>Rick Astley</li>
-            </ul>
-        </li>
-        <li>
-            Grupos musicales.
-            <ul>
-                <li>ABBA</li>
-                <li>Mecano</li>
-                <li>Queen</li>
-                <li>Leiva</li>
-            </ul>
-        </li>
-    </ol>
-    <video src="multimedia/videos/Never_Gonna_Give_You_Up.mp4" controls preload="auto"></video>
-    <audio src="multimedia/audios/I_Say_A_Little_Prayer.mp3" controls></audio>
-    <audio src="multimedia/audios/A_Rose_Is_Still_a_Rose.mp3" controls></audio>
-    <h3>Asignaturas favoritas</h3>
-    <p>En todo lo que llevo de grado, hay algunas asignaturas que puedo destacar como favoritas o más interesantes. Algunas de ellas son las aquí definidas </p>
-    <dl>
-        <dt>Dirección y Planificación de Proyectos Informáticos</dt>
-            <dd>Perteneciente a la materia de Práctica Profesional. Trata conceptos relativos a la dirección y planificación de proyectos como la gestión de RR.HH, costes, riesgos o calidad.</dd>
-        <dt>Arquitectura del Software</dt>
-            <dd>Perteneciente a la materia Ingeniería del Software. Los contenidos teóricos ahondan en los conceptos, tipos y validación de Arquitecturas del software, mientras que los prácticos están enfocados al desarrollo web utilizando tecnología descentralizada.</dd>
-        <dt>Ingeniería del Proceso Software</dt>
-            <dd>Perteneciente a la materia de Ingeniería del Software. Trata conceptos y metodologías como el Scrum, Proceso unificado y Técnicas de análisis de casos de uso y prototipados de interfaz.</dd>
-        <dt>Computabilidad</dt>
-            <dd>Perteneciente a la materia Fundamentos Informáticos. Sus contenidos son la Lógica de Proposiciones y de Predicados, Modelos de Computación y Funciones Computables, y Resultados Fundamentales y Resolubilidad de Problemas.</dd>
-        <dt>Autómatas y Matemáticas Discretas</dt>
-            <dd>Perteneciente a la materia Fundamentos Informáticos. Se tratan los Lenguajes Regulares y Libres de Contexto, Grafos y Lenguajes REcursivos y Recursivamente Enumerables.</dd>
-    </dl>
-    <h3>Temperaturas en Oviedo</h3>
-    <table>
-        <caption>Temperaturas medias anuales en Oviedo según <a href="https://www.tutiempo.net/clima/ws-80150.html">Clima Oviedo</a></caption>
-        <tr>
-            <td>Año/Temperatura</td>
-                <th>T anual (Cº)</th>
-        </tr>
-        <tr>
-            <th>2012</th>
-            <td>12.7</td>
-        </tr>
-        <tr>
-            <th>2013</th>
-            <td>12.3</td>
-        </tr>
-        <tr>
-            <th>2014</th>
-            <td>13.5</td>
-        </tr>
-        <tr>
-            <th>2015</th>
-            <td>13.4</td>
-        </tr>
-        <tr>
-            <th>2016</th>
-            <td>13.2</td>
-        </tr>
-        <tr>
-            <th>2017</th>
-            <td>13.3</td>
-        </tr>
-        <tr>
-            <th>2018</th>
-            <td>13.1</td>
-        </tr>
-        <tr>
-            <th>2019</th>
-            <td>13.2</td>
-        </tr>
-        <tr>
-            <th>2020</th>
-            <td>13.8</td>
-        </tr>
-        <tr>
-            <th>2021</th>
-            <td>13.0</td>
-        </tr>
-        <tr>
-            <th>2022</th>
-            <td>14.0</td>
-        </tr>
-    </table>
+    <section>
+        <h3>Datos personales</h3>
+        <p>Mi nombre es Patricia García Fernández y vivo en Oviedo, Asturias. Mi UO es UO282210, por lo que mi correo académico es uo282210@uniovi.es mientras que mi correo personal es patriciagarfer16@gmail.com.</p>
+        <p>A nivel universitario estudio Ingeniería Informática del Software. Actualmente estoy en mi último año de carrera y planeo hacer un máster de Project Management, idealmente en Suecia, el próximo curso.</p>
+        <picture>
+            <source media="(min-width: 800px)"
+            srcset="multimedia/imagenes/personal_big.jpg">
+            <source media="(max-width: 799px)"
+            srcset="multimedia/imagenes/personal_medium.jpg">
+            <source media="(max-width: 465px)"
+            srcset="multimedia/imagenes/personal_small.jpg">
+            <img alt="Imagen representativa de la persona Patricia"
+            src="multimedia/imagenes/personal_big.jpg">
+        </picture>
+    </section>
+    <section>
+        <h3>Aficiones</h3>
+        <p>Aunque tengo muchas aficiones, las cinco que destacaría son las siguientes enumeradas.</p>    
+        <ul>
+            <li>
+                Piano.
+            </li>
+            <li>
+                Escuchar música.
+            </li>
+            <li>
+                Lectura.
+            </li>
+            <li>
+                Viajar.
+            </li>
+            <li>
+                Deporte.
+            </li>
+        </ul>
+        <picture>
+            <source media="(min-width: 800px)"
+            srcset="multimedia/imagenes/estocolmo_big.jpg" >
+            <source media="(max-width: 799px)"
+            srcset="multimedia/imagenes/estocolmo_medium.jpg" >
+            <source media="(max-width: 465px)"
+            srcset="multimedia/imagenes/estocolmo_small.jpg" >
+            <img alt="Imagen de Patricia en Estocolmo"
+            src="multimedia/imagenes/estocolmo_medium.jpg" >
+        </picture>
+        <picture>
+            <source media="(min-width: 800px)"
+            srcset="multimedia/imagenes/buceo_big.jpg" >
+            <source media="(max-width: 799px)"
+            srcset="multimedia/imagenes/buceo_medium.jpg" >
+            <source media="(max-width: 465px)"
+            srcset="multimedia/imagenes/buceo_small.jpg" >
+            <img alt="Imagen de Patricia buceando"
+            src="multimedia/imagenes/buceo_medium.jpg" />
+        </picture>
+    </section>
+    <section>
+        <h3>Cantantes y grupos favoritos</h3>
+        <p>Como dije anteriormente, escucho una gran variedad de géneros musicales por lo que tengo varios cantantes y grupos favoritos. Algunos de ellos son los siguientes.</p>
+        <ol>
+            <li>Aretha Franklin
+                <ul>
+                    <li>I say a Little Prayer</li>
+                    <li>A Rose is still a Rose</li>
+                    <li>Respect</li>
+                </ul>
+            </li>
+            <li>Kanye West</li>
+            <li>Bad Gyal</li>
+            <li>Mac Miller</li>
+            <li>Rick Astley</li>
+        </ol>
+        <audio controls>
+            <source src="multimedia/audios/I_Say_A_Little_Prayer.mp3" type="audio/mp3" />
+            <source src="multimedia/audios/I_Say_A_Little_Prayer.wav" type="audio/wav" />
+        </audio>
+        <video controls preload="auto">
+            <source src="multimedia/videos/never_gonna_give_you_up.mp4" type="video/mp4" />
+            <source src="multimedia/videos/never_gonna_give_you_up.webm" type="video/webm" />
+        </video>
+    </section>
+    <section>
+        <h3>Asignaturas favoritas</h3>
+        <p>En todo lo que llevo de grado, hay algunas asignaturas que puedo destacar como favoritas o más interesantes. Algunas de ellas son las aquí definidas </p>
+        <dl>
+            <dt>Dirección y Planificación de Proyectos Informáticos</dt>
+                <dd>Perteneciente a la materia de Práctica Profesional. Trata conceptos relativos a la dirección y planificación de proyectos como la gestión de RR.HH, costes, riesgos o calidad.</dd>
+            <dt>Arquitectura del Software</dt>
+                <dd>Perteneciente a la materia Ingeniería del Software. Los contenidos teóricos ahondan en los conceptos, tipos y validación de Arquitecturas del software, mientras que los prácticos están enfocados al desarrollo web utilizando tecnología descentralizada.</dd>
+            <dt>Ingeniería del Proceso Software</dt>
+                <dd>Perteneciente a la materia de Ingeniería del Software. Trata conceptos y metodologías como el Scrum, Proceso unificado y Técnicas de análisis de casos de uso y prototipados de interfaz.</dd>
+            <dt>Computabilidad</dt>
+                <dd>Perteneciente a la materia Fundamentos Informáticos. Sus contenidos son la Lógica de Proposiciones y de Predicados, Modelos de Computación y Funciones Computables, y Resultados Fundamentales y Resolubilidad de Problemas.</dd>
+            <dt>Autómatas y Matemáticas Discretas</dt>
+                <dd>Perteneciente a la materia Fundamentos Informáticos. Se tratan los Lenguajes Regulares y Libres de Contexto, Grafos y Lenguajes Recursivos y Recursivamente Enumerables.</dd>
+        </dl>
+    </section>
+    <article>
+        <h2>Temperaturas en Oviedo</h2>
+        <table>
+            <caption>Temperaturas medias anuales<a href="https://www.tutiempo.net/clima/ws-80150.html">(Clima Oviedo)</a></caption>
+            <tr>
+                <th id="año" scope="col">Año</td>
+                <th id="temperatura_anual" scope="col">T anual (Cº)</th>
+            </tr>
+            <tr>
+                <th id="2012" scope="row" headers="año">2012</th>
+                <td headers="2012 temperatura_anual">12.7</td>
+            </tr>
+            <tr>
+                <th id="2013" scope="row" headers="año">2013</th>
+                <td headers="2013 temperatura_anual">12.3</td>
+            </tr>
+            <tr>
+                <th id="2014" scope="row" headers="año">2014</th>
+                <td headers="2014 temperatura_anual">13.5</td>
+            </tr>
+            <tr>
+                <th id="2015" scope="row" headers="año">2015</th>
+                <td headers="2015 temperatura_anual">13.4</td>
+            </tr>
+            <tr>
+                <th id="2016" scope="row" headers="año">2016</th>
+                <td headers="2016 temperatura_anual">13.2</td>
+            </tr>
+            <tr>
+                <th id="2017" scope="row" headers="año">2017</th>
+                <td headers="2017 temperatura_anual">13.3</td>
+            </tr>
+            <tr>
+                <th id="2018" scope="row" headers="año">2018</th>
+                <td headers="2018 temperatura_anual">13.1</td>
+            </tr>
+            <tr>
+                <th id="2019" scope="row" headers="año">2019</th>
+                <td headers="2019 temperatura_anual">13.2</td>
+            </tr>
+            <tr>
+                <th id="2020" scope="row" headers="año">2020</th>
+                <td headers="2020 temperatura_anual">13.8</td>
+            </tr>
+            <tr>
+                <th id="2021" scope="row" headers="año">2021</th>
+                <td headers="2021 temperatura_anual">13.0</td>
+            </tr>
+            <tr>
+                <th id="2022" scope="row" headers="año">2022</th>
+                <td headers="2022 temperatura_anual">14.0</td>
+            </tr>
+        </table>
+    </article>
 </body>
 </html>
