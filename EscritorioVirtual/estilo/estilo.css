@@ -1,1 +1,16 @@
 /* Patricia García Fernández UO282210*/
+
+/* 
+Trebuchet sans serif para contenido
+Times New Roman serif para encabezados
+
+*/
+
+/*Especificidad 001*/
+body {
+    font-family:'Trebuchet MS', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, Times, serif
+}
