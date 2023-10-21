@@ -74,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
     /*Especificidad 001*/
     h1 {
         font-size: 1.6em; /**/
-        width: 30%
+        width: min-content;
     } 
 
     /*Especificidad 001*/
@@ -105,7 +105,7 @@ h1, h2, h3, h4, h5, h6 {
     /*Especificidad 001*/
     h1 {
         font-size: 1.4em; /*4*16px = 64px*/
-        width: 30%
+        width: min-content;
     } 
     
     /*Especificidad 001*/
