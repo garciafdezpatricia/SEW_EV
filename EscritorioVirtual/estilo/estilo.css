@@ -4,13 +4,197 @@
 Trebuchet sans serif para contenido
 Times New Roman serif para encabezados
 
+ESPECIFICIDAD [ID] [CLASES|ATRIBUTOS|:PSEUDOCLASES] [ELEMENTOS|::PSEUDOELEMENTOS]
+
+Paleta de colores:
+Misty blue - #E8EEF2
+Blue gray - #738FA7
+Midnight blue - #0C4160
+Dark blue - #071330
+
+Tamaño movil: hasta 465px
+Tamaño tablet: hasta 799px
+Tamaño ordenador: a partir de 800px
 */
 
 /*Especificidad 001*/
 body {
     font-family:'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    color: #071330;
 }
 
+/*Especificidad 001*/
+header {
+    background-color: #E8EEF2;
+}
+
+/*Especificidad 001, 001, 001, 001, 001, 001*/
 h1, h2, h3, h4, h5, h6 {
-    font-family: Georgia, Times, serif
+    font-family: Georgia, serif;
+    font-weight: 700;
+    /*color heredado de body Dark blue*/
+    /*background-color heredado de body Misty blue*/
+}
+
+@media (min-width: 800px) {
+    /*Especificidad 001*/
+    h1 {
+        font-size: 2em; /**/
+        width: 30%
+    } 
+
+    /*Especificidad 001*/
+    h2 {
+        font-size: 1.6em;
+    }
+
+    /*Especificidad 001*/
+    h3 {
+        font-size: 1.2em;
+    }
+
+    /*Especificidad 011*/
+    section:first-of-type {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1em
+    }
+
+    /*Especificidad 012*/
+    section:first-of-type p {
+        width: 50%;
+        text-align: justify;
+    }
+}
+
+@media (min-width: 466px) and (max-width: 799px) {
+    /*Especificidad 001*/
+    h1 {
+        font-size: 1.6em; /**/
+        width: 30%
+    } 
+
+    /*Especificidad 001*/
+    h2 {
+        font-size: 1.2em;
+    }
+
+    /*Especificidad 001*/
+    h3 {
+        font-size: 1em;
+    }
+
+    /*Especificidad 011*/
+    section:first-of-type {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1em
+    }
+    /*Especificidad 012*/
+    section:first-of-type p {
+        width: min-content;
+        text-align: justify;
+    }
+}
+
+@media (max-width: 465px) {
+    /*Especificidad 001*/
+    h1 {
+        font-size: 1.4em; /*4*16px = 64px*/
+        width: 30%
+    } 
+    
+    /*Especificidad 001*/
+    h2 {
+        font-size: 1em;
+    }
+
+    /*Especificidad 001*/
+    h3 {
+        font-size: 1em;
+    }
+    /*Especificidad 011*/
+    section:first-of-type {
+        display: flex;
+        flex-direction: column;
+        gap: 1em
+    }
+    /*Especificidad 012*/
+    section:first-of-type p {
+        width: 100%;
+    }
+}
+/*Especificidad 011*/
+h3:first-of-type  {
+    margin-bottom: .2em;
+    display:block;
+    flex: 100%
+}
+/*Especificidad 001*/
+a {
+    text-decoration: none;
+}
+/*Especificidad 011*/
+a:visited {
+    color: #0C4160;
+}
+
+/*Especificidad 011*/
+a:link {
+    color: #071330;
+}
+
+/*Especificidad 001*/
+ul {
+    list-style-type: "▸";
+}
+/*Especificidad 001*/
+li {
+    padding-bottom: 0.2em;
+}
+/*Especificidad 013*/
+ol ul:first-of-type li {
+    list-style-type: "▹";
+    color: #071330;
+}
+
+/*Especificidad 012*/
+ul li:nth-child(3) {
+    color: #0C4160;
+}
+
+/*Especificidad 001*/
+ol {
+    list-style-type: upper-roman;    
+}
+/*Especificidad 001*/
+dt {
+    background-color: #E8EEF2;
+    color: #071330;
+    font-weight: 600;
+    width: fit-content;
+    padding: .2em .4em;
+}
+/*Especificidad 001*/
+dd {
+    padding-top: 0.4em;
+    padding-bottom: 1em;
+}
+/*Especificidad 001*/
+caption {
+    font-weight: 600;
+}
+/*Especificidad 001*/
+th {
+    background-color: #E8EEF2;
+    color: #071330;
+}
+/*Especificidad 001*/
+td {
+    display: flex;
+    justify-content: center;
 }

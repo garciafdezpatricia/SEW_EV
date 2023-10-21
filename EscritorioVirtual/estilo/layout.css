@@ -1,0 +1,22 @@
+/*hoja con reglas para aplicar el posicionamiento especifico al encabezado del proyecto*/
+
+/*Especificidad 001*/
+header {
+    padding: .2em 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 2em;
+}
+
+/*Especificidad 001*/
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1.4em;
+    justify-items: end;
+    overflow-x: auto;
+    width: 70%;
+    margin-left: auto;
+}
