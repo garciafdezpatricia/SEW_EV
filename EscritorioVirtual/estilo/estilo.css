@@ -1,6 +1,6 @@
-/* Patricia García Fernández UO282210*/
-
 /* 
+Patricia García Fernández UO282210
+
 Trebuchet sans serif para contenido
 Times New Roman serif para encabezados
 
@@ -35,7 +35,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: Georgia, serif;
     font-weight: 700;
     /*color heredado de body Dark blue*/
-    /*background-color heredado de body Misty blue*/
 }
 
 @media (min-width: 800px) {
@@ -174,7 +173,6 @@ ol {
 /*Especificidad 001*/
 dt {
     background-color: #E8EEF2;
-    color: #071330;
     font-weight: 600;
     width: fit-content;
     padding: .2em .4em;
@@ -191,7 +189,6 @@ caption {
 /*Especificidad 001*/
 th {
     background-color: #E8EEF2;
-    color: #071330;
 }
 /*Especificidad 001*/
 td {
