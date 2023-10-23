@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 465px) {
     /*Especificidad 001*/
     h1 {
-        font-size: 1.4em; /*4*16px = 64px*/
+        font-size: 1.4em;
         width: min-content;
     } 
     
