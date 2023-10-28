@@ -7,13 +7,13 @@
     <fecha-inicio>1 Septiembre 2023</fecha-inicio>
     <hora-inicio>9.00h</hora-inicio>
     <medio-transporte>A pie</medio-transporte>
-    <tiempo-duracion>4 horas 13 minutos</tiempo-duracion>
+    <tiempo-duracion>8 horas</tiempo-duracion>
     <agencia>Sin agencia</agencia>
-    <descripcion>Bonita ruta para divisar el Valle de Theth</descripcion>
+    <descripcion>Ruta para divisar el valle del Theth, el valle de Valbona junto con su parque natural y cascadas</descripcion>
     <personas-adecuadas>Sin niños</personas-adecuadas>
-    <lugar-inicio>Theth</lugar-inicio>
-    <direccion-inicio>Centro ciudad</direccion-inicio>
-    <coordenadas longitud="19.76" latitud="42.40" altitud="2679"></coordenadas>
+    <lugar-inicio>Valbona</lugar-inicio>
+    <direccion-inicio>Bunkers de Valbona</direccion-inicio>
+    <coordenadas longitud="42.446872" latitud="19.882660" altitud="950"></coordenadas>
     <referencias>
         <referencia>https://es.wikiloc.com/rutas-senderismo/valle-de-theth-okol-y-ki-shtrazes-desde-theth-78816286</referencia>
         <referencia>https://es.wikiloc.com/rutas-senderismo/valle-de-theth-okol-y-ki-shtrazes-desde-theth-78816286</referencia>
@@ -22,30 +22,146 @@
     <recomendacion>9</recomendacion>
     <hitos>
         <hito>
-            <nombre>Molino de agua</nombre>
-            <descripcion>Bonito molino de agua</descripcion>
-            <coordenadas longitud="19.76" latitud="42.40" altitud="2400"></coordenadas>
-            <distancia-hito-anterior unidad="1.2km"></distancia-hito-anterior>
+            <nombre>Rrethi i Jubanit</nombre>
+            <descripcion>Mirador de Rrethi i Jubanit</descripcion>
+            <coordenadas longitud="42.440471" latitud="19.871763" altitud="1229"></coordenadas>
+            <distancia-hito-anterior unidad="1.13km"></distancia-hito-anterior>
             <galeria-fotos>
-                <foto>Theth_Albania.jpg</foto>
+                <foto>rrethijubanit.jpg</foto>
             </galeria-fotos>
         </hito>
         <hito>
-            <nombre>Cascada</nombre>
-            <descripcion>Cascada del valle de Theth</descripcion>
-            <coordenadas longitud="19.76" latitud="42.40" altitud="2300"></coordenadas>
-            <distancia-hito-anterior unidad="1.2"></distancia-hito-anterior>
+            <nombre>Valle de Valbona</nombre>
+            <descripcion>Valle de Valbona</descripcion>
+            <coordenadas longitud="42.426770" latitud="19.873006" altitud="990"></coordenadas>
+            <distancia-hito-anterior unidad="1.5km"></distancia-hito-anterior>
             <galeria-fotos>
-                <foto>Theth_Albania.jpg</foto>
+                <foto>valbonavalley.jpg</foto>
             </galeria-fotos>
         </hito>
         <hito>
-            <nombre>Ventana en la montaña</nombre>
-            <descripcion>Bonita ventana en la ladera de la montaña</descripcion>
-            <coordenadas longitud="" latitud="" altitud=""></coordenadas>
-            <distancia-hito-anterior unidad=""></distancia-hito-anterior>
+            <nombre>Livadhi i Shkëmbit</nombre>
+            <descripcion>Zona de senderismo</descripcion>
+            <coordenadas longitud="42.420257" latitud="19.865781" altitud="1022"></coordenadas>
+            <distancia-hito-anterior unidad="0.9km"></distancia-hito-anterior>
             <galeria-fotos>
-                <foto>Theth_Albania.jpg</foto>
+                <foto>livadhi.jpg</foto>
+            </galeria-fotos>
+        </hito>
+        <hito>
+            <nombre>Ujëvara e Rrogamit</nombre>
+            <descripcion>Cascada de Ujëvara e Rrogamit</descripcion>
+            <coordenadas longitud="42.407887" latitud="19.826642" altitud="1305"></coordenadas>
+            <distancia-hito-anterior unidad="3.4km"></distancia-hito-anterior>
+            <galeria-fotos>
+                <foto>rrogamitWaterfall.jpg</foto>
+            </galeria-fotos>
+        </hito>
+        <hito>
+            <nombre>Theth</nombre>
+            <descripcion>Villa de Theth</descripcion>
+            <coordenadas longitud="42.404576" latitud="19.768166" altitud="820"></coordenadas>
+            <distancia-hito-anterior unidad="4.8km"></distancia-hito-anterior>
+            <galeria-fotos>
+                <foto>theth.jpg</foto>
+            </galeria-fotos>
+        </hito>
+    </hitos>
+</ruta>
+
+<ruta tipo="Gastronómica">
+    <nombre>Ruta gastronómica en Tirana</nombre>
+    <fecha-inicio>14 de Abril</fecha-inicio>
+    <hora-inicio>8.00h</hora-inicio>
+    <medio-transporte>A pie</medio-transporte>
+    <tiempo-duracion>6-8 horas</tiempo-duracion>
+    <agencia>Sin agencia</agencia>
+    <descripcion>Ruta gastronómica en Tirana: desayuno, almuerzo y comida</descripcion>
+    <personas-adecuadas>Gente con ganas de comer</personas-adecuadas>
+    <lugar-inicio>Tirana</lugar-inicio>
+    <direccion-inicio>Spicy Restaurante, Rruga Liqeni i Thate, Tirana</direccion-inicio>
+    <coordenadas longitud="41.307617" latitud="19.812073" altitud="121"></coordenadas>
+    <referencias>
+        <referencia>https://www.tripadvisor.es/Restaurant_Review-g294446-d25152778-Reviews-Spicy_Restaurant-Tirana_Tirana_County.html</referencia>
+        <referencia>https://es.restaurantguru.com/Spicy-Restaurant-Tirana</referencia>
+        <referencia>https://al.sluurpy.com/tirana/restaurant/8657885/spicy-restaurant</referencia>
+    </referencias>
+    <recomendacion>9</recomendacion>
+    <hitos>
+        <hito>
+            <nombre>Spicy Restaurant</nombre>
+            <descripcion>Restaurante de comida mediterránea</descripcion>
+            <coordenadas longitud="41.307617" latitud="19.812073" altitud="121"></coordenadas>
+            <distancia-hito-anterior unidad="0km"></distancia-hito-anterior>
+            <galeria-fotos>
+                <foto>spicy.jpg</foto>
+            </galeria-fotos>
+        </hito>
+        <hito>
+            <nombre>Otium Restaurant</nombre>
+            <descripcion>Restaurante de comida europea con opciones sin gluten</descripcion>
+            <coordenadas longitud="41.321814" latitud="19.814207" altitud="107"></coordenadas>
+            <distancia-hito-anterior unidad="3.7km"></distancia-hito-anterior>
+            <galeria-fotos>
+                <foto>otium.jpg</foto>
+            </galeria-fotos>
+        </hito>
+        <hito>
+            <nombre>Oda Restaurant</nombre>
+            <descripcion>Restaurante de comida tradicional albanesa</descripcion>
+            <coordenadas longitud="41.331429" latitud="19.824662" altitud="118"></coordenadas>
+            <distancia-hito-anterior unidad="1.9km"></distancia-hito-anterior>
+            <galeria-fotos>
+                <foto>oda.jpg</foto>
+            </galeria-fotos>
+        </hito>
+    </hitos>
+</ruta>
+
+<ruta tipo="Cultural">
+    <nombre>Ruta de visita de los lugares emblemáticos de Tirana</nombre>
+    <fecha-inicio>26 de Noviembre</fecha-inicio>
+    <hora-inicio>9.00h</hora-inicio>
+    <medio-transporte>A pie</medio-transporte>
+    <tiempo-duracion>6 horas</tiempo-duracion>
+    <agencia>Sin agencia</agencia>
+    <descripcion>Ruta de museos y sitios emblemáticos de la ciudad de Tirana</descripcion>
+    <personas-adecuadas>Personas con aguante</personas-adecuadas>
+    <lugar-inicio>Tirana</lugar-inicio>
+    <direccion-inicio>Plaza Skanderbeg</direccion-inicio>
+    <coordenadas longitud="41.328444" latitud="19.817940" altitud="108"></coordenadas>
+    <referencias>
+        <referencia>https://www.viajeroscallejeros.com/que-ver-en-tirana-albania/</referencia>
+        <referencia>https://www.lamochilademama.com/que-ver-en-tirana-dos-dias/</referencia>
+        <referencia>https://mochilaexpres.com/que-ver-hacer-en-tirana/</referencia>
+    </referencias>
+    <recomendacion>7</recomendacion>
+    <hitos>
+        <hito>
+            <nombre>Museo Histórico Nacional</nombre>
+            <descripcion>Museo más grande que ver en Albania</descripcion>
+            <coordenadas longitud="41.307617" latitud="19.812073" altitud="121"></coordenadas>
+            <distancia-hito-anterior unidad="0.65km"></distancia-hito-anterior>
+            <galeria-fotos>
+                <foto>museo.jpg</foto>
+            </galeria-fotos>
+        </hito>
+        <hito>
+            <nombre>Mezquita de Et'hem Bey</nombre>
+            <descripcion>Mezquita del siglo XVIII en el centro de la ciudad</descripcion>
+            <coordenadas longitud="41.327671" latitud="19.818895" altitud="112"></coordenadas>
+            <distancia-hito-anterior unidad="0.55km"></distancia-hito-anterior>
+            <galeria-fotos>
+                <foto>ethembey.jpg</foto>
+            </galeria-fotos>
+        </hito>
+        <hito>
+            <nombre>Mezquita Namazgah</nombre>
+            <descripcion>Mezquita más grande de los Balcanes y uno de los edificios más impresionantes que ver en Tirana</descripcion>
+            <coordenadas longitud="41.325597" latitud="19.824506" altitud="111"></coordenadas>
+            <distancia-hito-anterior unidad="0.7km"></distancia-hito-anterior>
+            <galeria-fotos>
+                <foto>namazgah.jpg</foto>
             </galeria-fotos>
         </hito>
     </hitos>
