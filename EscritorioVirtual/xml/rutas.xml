@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rutas SYSTEM "rutas.dtd">
+<rutas>
+
+<ruta tipo="Senderismo">
+    <nombre>Valle de Theth</nombre>
+    <fecha-inicio>1 Septiembre 2023</fecha-inicio>
+    <hora-inicio>9.00h</hora-inicio>
+    <medio-transporte>A pie</medio-transporte>
+    <tiempo-duracion>4 horas 13 minutos</tiempo-duracion>
+    <agencia>Sin agencia</agencia>
+    <descripcion>Bonita ruta para divisar el Valle de Theth</descripcion>
+    <personas-adecuadas>Sin niños</personas-adecuadas>
+    <lugar-inicio>Theth</lugar-inicio>
+    <direccion-inicio>Centro ciudad</direccion-inicio>
+    <coordenadas longitud="19.76" latitud="42.40" altitud="2679"></coordenadas>
+    <referencias>
+        <referencia>https://es.wikiloc.com/rutas-senderismo/valle-de-theth-okol-y-ki-shtrazes-desde-theth-78816286</referencia>
+        <referencia>https://es.wikiloc.com/rutas-senderismo/valle-de-theth-okol-y-ki-shtrazes-desde-theth-78816286</referencia>
+        <referencia>https://www.turismoalbania.es/theth/</referencia>
+    </referencias>
+    <recomendacion>9</recomendacion>
+    <hitos>
+        <hito>
+            <nombre>Molino de agua</nombre>
+            <descripcion>Bonito molino de agua</descripcion>
+            <coordenadas longitud="19.76" latitud="42.40" altitud="2400"></coordenadas>
+            <distancia-hito-anterior unidad="1.2km"></distancia-hito-anterior>
+            <galeria-fotos>
+                <foto>Theth_Albania.jpg</foto>
+            </galeria-fotos>
+        </hito>
+        <hito>
+            <nombre>Cascada</nombre>
+            <descripcion>Cascada del valle de Theth</descripcion>
+            <coordenadas longitud="19.76" latitud="42.40" altitud="2300"></coordenadas>
+            <distancia-hito-anterior unidad="1.2"></distancia-hito-anterior>
+            <galeria-fotos>
+                <foto>Theth_Albania.jpg</foto>
+            </galeria-fotos>
+        </hito>
+        <hito>
+            <nombre>Ventana en la montaña</nombre>
+            <descripcion>Bonita ventana en la ladera de la montaña</descripcion>
+            <coordenadas longitud="" latitud="" altitud=""></coordenadas>
+            <distancia-hito-anterior unidad=""></distancia-hito-anterior>
+            <galeria-fotos>
+                <foto>Theth_Albania.jpg</foto>
+            </galeria-fotos>
+        </hito>
+    </hitos>
+</ruta>
+
+</rutas>
