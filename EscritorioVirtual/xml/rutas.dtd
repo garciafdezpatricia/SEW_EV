@@ -11,15 +11,15 @@
 <!ELEMENT lugar-inicio (#PCDATA)>
 <!ELEMENT direccion-inicio (#PCDATA)>
 <!ELEMENT coordenadas (#PCDATA)>
-<!ELEMENT referencias (referencia, referencia, referencia, referencia*)>
+<!ELEMENT referencias (referencia+)>
 <!ELEMENT referencia (#PCDATA)>
 <!ELEMENT recomendacion (#PCDATA)>
-<!ELEMENT hitos (hito, hito, hito, hito*)>
+<!ELEMENT hitos (hito+)>
 <!ELEMENT hito (nombre, descripcion, coordenadas, distancia-hito-anterior, galeria-fotos, galeria-videos?)>
 <!ELEMENT distancia-hito-anterior (#PCDATA)>
-<!ELEMENT galeria-fotos (foto, foto?, foto?, foto?, foto?)>
+<!ELEMENT galeria-fotos (foto+)>
 <!ELEMENT foto (#PCDATA)>
-<!ELEMENT galeria-videos (video?, video?, video?)>
+<!ELEMENT galeria-videos (video*)>
 <!ELEMENT video (#PCDATA)>
 <!ATTLIST ruta
     tipo CDATA #REQUIRED>

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE rutas SYSTEM "rutas.dtd">
-<rutas>
+<rutas xmlns="http://www.uniovi.es" xsi:SchemaLocation="http://www.uniovi.es rutas.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 <ruta tipo="Senderismo">
     <nombre>Valle de Theth</nombre>
-    <fecha-inicio>1 Septiembre 2023</fecha-inicio>
-    <hora-inicio>9.00h</hora-inicio>
+    <fecha-inicio>2023-09-01</fecha-inicio>
+    <hora-inicio>2023-09-01T09:00:00</hora-inicio>
     <medio-transporte>A pie</medio-transporte>
-    <tiempo-duracion>8 horas</tiempo-duracion>
+    <tiempo-duracion>PT8h</tiempo-duracion>
     <agencia>Sin agencia</agencia>
     <descripcion>Ruta para divisar el valle del Theth, el valle de Valbona junto con su parque natural y cascadas</descripcion>
     <personas-adecuadas>Sin niños</personas-adecuadas>
@@ -40,7 +39,7 @@
             </galeria-fotos>
         </hito>
         <hito>
-            <nombre>Livadhi i Shkëmbit</nombre>
+            <nombre>Livadhi i Shkembit</nombre>
             <descripcion>Zona de senderismo</descripcion>
             <coordenadas longitud="42.420257" latitud="19.865781" altitud="1022"></coordenadas>
             <distancia-hito-anterior unidad="km">0.9</distancia-hito-anterior>
@@ -49,8 +48,8 @@
             </galeria-fotos>
         </hito>
         <hito>
-            <nombre>Ujëvara e Rrogamit</nombre>
-            <descripcion>Cascada de Ujëvara e Rrogamit</descripcion>
+            <nombre>Ujevara e Rrogamit</nombre>
+            <descripcion>Cascada de Ujevara e Rrogamit</descripcion>
             <coordenadas longitud="42.407887" latitud="19.826642" altitud="1305"></coordenadas>
             <distancia-hito-anterior unidad="km">3.4</distancia-hito-anterior>
             <galeria-fotos>
@@ -71,10 +70,10 @@
 
 <ruta tipo="Gastronómica">
     <nombre>Ruta gastronómica en Tirana</nombre>
-    <fecha-inicio>14 de Abril</fecha-inicio>
-    <hora-inicio>8.00h</hora-inicio>
+    <fecha-inicio>2023-04-14</fecha-inicio>
+    <hora-inicio>2023-04-14T09:00:00</hora-inicio>
     <medio-transporte>A pie</medio-transporte>
-    <tiempo-duracion>6-8 horas</tiempo-duracion>
+    <tiempo-duracion>PT8H</tiempo-duracion>
     <agencia>Sin agencia</agencia>
     <descripcion>Ruta gastronómica en Tirana: desayuno, almuerzo y comida</descripcion>
     <personas-adecuadas>Gente con ganas de comer</personas-adecuadas>
@@ -120,10 +119,10 @@
 
 <ruta tipo="Cultural">
     <nombre>Ruta de visita de los lugares emblemáticos de Tirana</nombre>
-    <fecha-inicio>26 de Noviembre</fecha-inicio>
-    <hora-inicio>9.00h</hora-inicio>
+    <fecha-inicio>2023-11-26</fecha-inicio>
+    <hora-inicio>2023-11-26T05:00:00</hora-inicio>
     <medio-transporte>A pie</medio-transporte>
-    <tiempo-duracion>6 horas</tiempo-duracion>
+    <tiempo-duracion>PT6H</tiempo-duracion>
     <agencia>Sin agencia</agencia>
     <descripcion>Ruta de museos y sitios emblemáticos de la ciudad de Tirana</descripcion>
     <personas-adecuadas>Personas con aguante</personas-adecuadas>
@@ -138,7 +137,7 @@
     <recomendacion>7</recomendacion>
     <hitos>
         <hito>
-            <nombre>Museo Histórico Nacional</nombre>
+            <nombre>Museo Historico Nacional</nombre>
             <descripcion>Museo más grande que ver en Albania</descripcion>
             <coordenadas longitud="41.307617" latitud="19.812073" altitud="121"></coordenadas>
             <distancia-hito-anterior unidad="km">0.65</distancia-hito-anterior>
