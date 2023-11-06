@@ -1,4 +1,9 @@
-/*hoja con reglas para aplicar el posicionamiento especifico al encabezado del proyecto*/
+/*
+PATRICIA GARCÍA FERNÁNDEZ - UO282210
+
+Hoja con reglas para aplicar el posicionamiento especifico al encabezado del proyecto
+
+*/
 
 /*Especificidad 001*/
 header {
@@ -15,7 +20,21 @@ nav {
     flex-direction: row;
     gap: 1.4em;
     justify-items: end;
+    align-items: center;
     overflow-x: auto;
     width: 70%;
     margin-left: auto;
+}
+
+@media (max-width: 465px) {
+    /*Especificidad 001*/
+    header {
+        flex-direction: column;
+    }
+
+    /*Especificidad 001*/
+    nav {
+        flex-direction: column;     
+        margin-left: 0;
+    }
 }

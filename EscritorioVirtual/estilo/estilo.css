@@ -1,16 +1,16 @@
 /* 
-Patricia García Fernández UO282210
+PATRICIA GARCÍA FERNÁNDEZ - UO282210
 
 Trebuchet sans serif para contenido
-Times New Roman serif para encabezados
+Georgia serif para encabezados
 
 ESPECIFICIDAD [ID] [CLASES|ATRIBUTOS|:PSEUDOCLASES] [ELEMENTOS|::PSEUDOELEMENTOS]
 
 Paleta de colores:
-Misty blue - #E8EEF2
+Misty blue - #E8EEF2 --> azul del nav, de los dt y de llos th
 Blue gray - #738FA7
-Midnight blue - #0C4160
-Dark blue - #071330
+Midnight blue - #0C4160 --> links visited y destacado en lista
+Dark blue - #071330 --> textos
 
 Tamaño movil: hasta 465px
 Tamaño tablet: hasta 799px
@@ -37,116 +37,48 @@ h1, h2, h3, h4, h5, h6 {
     /*color heredado de body Dark blue*/
 }
 
-@media (min-width: 800px) {
-    /*Especificidad 001*/
-    h1 {
-        font-size: 2em; /**/
-        width: 30%
-    } 
-
-    /*Especificidad 001*/
-    h2 {
-        font-size: 1.6em;
-    }
-
-    /*Especificidad 001*/
-    h3 {
-        font-size: 1.2em;
-    }
-
-    /*Especificidad 011*/
-    section:first-of-type {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1em
-    }
-
-    /*Especificidad 012*/
-    section:first-of-type p {
-        width: 50%;
-        text-align: justify;
-    }
+/*Especificidad 001*/
+video {
+    width: 60%;
+    height: auto;
 }
 
-@media (min-width: 466px) and (max-width: 799px) {
-    /*Especificidad 001*/
-    h1 {
-        font-size: 1.6em; /**/
-        width: min-content;
-    } 
-
-    /*Especificidad 001*/
-    h2 {
-        font-size: 1.2em;
-    }
-
-    /*Especificidad 001*/
-    h3 {
-        font-size: 1em;
-    }
-
-    /*Especificidad 011*/
-    section:first-of-type {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1em
-    }
-    /*Especificidad 012*/
-    section:first-of-type p {
-        width: min-content;
-        text-align: justify;
-    }
+/*Especificidad 001*/
+audio {
+    width: 60%;
 }
-
-@media (max-width: 465px) {
-    /*Especificidad 001*/
-    h1 {
-        font-size: 1.4em;
-        width: min-content;
-    } 
-    
-    /*Especificidad 001*/
-    h2 {
-        font-size: 1em;
-    }
-
-    /*Especificidad 001*/
-    h3 {
-        font-size: 1em;
-    }
-    /*Especificidad 011*/
-    section:first-of-type {
-        display: flex;
-        flex-direction: column;
-        gap: 1em
-    }
-    /*Especificidad 012*/
-    section:first-of-type p {
-        width: 100%;
-    }
+/*Especificidad 001*/
+p {
+    margin: 0; /*Anular el valor del agente de usuario*/
 }
 /*Especificidad 011*/
 h3:first-of-type  {
     margin-bottom: .2em;
-    display:block;
     flex: 100%
 }
 /*Especificidad 001*/
 a {
-    text-decoration: none;
+    text-decoration: none; /*quitar el subrayado de los enlaces*/
 }
 /*Especificidad 011*/
 a:visited {
     color: #0C4160;
 }
-
 /*Especificidad 011*/
 a:link {
-    color: #071330;
+    color: #071330; /*hereda el mismo color de body pero el agente de usuario le pone un color por defecto*/
 }
-
+/*Especificidad 012, 011*/
+nav a:hover, a:hover {
+    /*Cambiar el color de fondo y el de la letra cuando se hace hover por los enlaces*/
+    color:#E8EEF2;
+    background-color: #071330;
+}
+/*Especificidad 012*/
+nav a:hover {
+    padding: .5em;
+    border-radius: 15px;
+}
 /*Especificidad 001*/
 ul {
     list-style-type: "▸";
@@ -160,12 +92,10 @@ ol ul:first-of-type li {
     list-style-type: "▹";
     color: #071330;
 }
-
 /*Especificidad 012*/
 ul li:nth-child(3) {
     color: #0C4160;
 }
-
 /*Especificidad 001*/
 ol {
     list-style-type: upper-roman;    
@@ -194,4 +124,94 @@ th {
 td {
     display: flex;
     justify-content: center;
+}
+
+@media (min-width: 800px) {
+    /*Especificidad 001*/
+    h1 {
+        font-size: 2em;
+        width: 30%
+    } 
+    /*Especificidad 001*/
+    h2 {
+        font-size: 1.6em;
+    }
+    /*Especificidad 001*/
+    h3 {
+        font-size: 1.2em;
+    }
+    /*Especificidad 011*/
+    section:first-of-type {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1em
+    }
+    /*Especificidad 012*/
+    section:first-of-type p {
+        width: 45%;
+    }
+}
+
+@media (min-width: 465px) and (max-width: 799px) {
+    /*Especificidad 001*/
+    h1 {
+        font-size: 1.6em;
+        width: min-content;
+    } 
+    /*Especificidad 001*/
+    h2 {
+        font-size: 1.2em;
+    }
+    /*Especificidad 001*/
+    h3 {
+        font-size: 1em;
+    }
+    /*Especificidad 011*/
+    section:first-of-type {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1em
+    }
+    /*Especificidad 012*/
+    section:first-of-type p {
+        width: min-content;
+    }
+}
+
+@media (max-width: 465px) {
+    /*Especificidad 001*/
+    h1 {
+        font-size: 1.4em;
+        width: fit-content;
+        text-align: center;
+    } 
+    /*Especificidad 001*/
+    h2 {
+        font-size: 1em;
+    }
+    /*Especificidad 001*/
+    h3 {
+        font-size: 1em;
+    }
+    /*Especificidad 011*/
+    section:first-of-type {
+        display: flex;
+        flex-direction: column;
+        gap: 1em
+    }
+    /*Especificidad 012*/
+    section:first-of-type p {
+        width: 100%;
+    }
+    /*Especificidad 001*/
+    video {
+        width: 100%;
+        height: auto;
+    }
+    /*Especificidad 001*/
+    audio {
+        width: 100%;
+    }
 }
