@@ -29,12 +29,13 @@ nav {
 @media (max-width: 465px) {
     /*Especificidad 001*/
     header {
-        flex-direction: column;
+        flex-direction: column; /*Redefiniendo la dirección del flex, antes row ahora column*/
+        gap: .5em; /*Redefiniendo el gap de 2em a .5em*/
     }
 
     /*Especificidad 001*/
     nav {
-        flex-direction: column;     
-        margin-left: 0;
+        flex-direction: column;     /*Redefiniendo la dirección del flex, antes row ahora column */
+        margin-left: 0; /* Redefiniendo margin-left, antes auto ahora 0 */
     }
 }

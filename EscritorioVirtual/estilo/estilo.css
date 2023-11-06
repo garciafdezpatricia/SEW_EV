@@ -19,15 +19,17 @@ Tamaño ordenador: a partir de 800px
 
 /*Especificidad 001*/
 body {
+    /*Hereda el color de fondo del agente de usuario*/
     font-family:'Trebuchet MS', sans-serif;
     font-weight: 400;
     font-size: 1em;
-    color: #071330;
+    color: #071330; /*El color que habría por defecto es el del agente de usuario*/
 }
 
 /*Especificidad 001*/
 header {
-    background-color: #E8EEF2;
+    /*Hereda el color de body*/
+    background-color: #E8EEF2; /*El color que habría por defecto sería el del agente de usuario (body no tiene ninguno especificado)*/
 }
 
 /*Especificidad 001, 001, 001, 001, 001, 001*/
@@ -36,13 +38,24 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     /*color heredado de body Dark blue*/
 }
-
+/*Especificidad 001*/
+h1 {
+    font-size: 2em;
+    width: 30%
+} 
+/*Especificidad 001*/
+h2 {
+    font-size: 1.6em;
+}
+/*Especificidad 001*/
+h3 {
+    font-size: 1.2em;
+}
 /*Especificidad 001*/
 video {
     width: 60%;
     height: auto;
 }
-
 /*Especificidad 001*/
 audio {
     width: 60%;
@@ -56,28 +69,44 @@ h3:first-of-type  {
     margin-bottom: .2em;
     flex: 100%
 }
+/*Especificidad 011*/
+section:first-of-type {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em
+}
+/*Especificidad 012*/
+section:first-of-type p {
+    width: 45%;
+}
 /*Especificidad 001*/
 a {
-    text-decoration: none; /*quitar el subrayado de los enlaces*/
+    text-decoration: none; /*quitar el subrayado de los enlaces por defecto del agente de usario*/
 }
 /*Especificidad 011*/
 a:visited {
-    color: #0C4160;
+    /*Hereda el color de fondo del agente de usuario*/
+    color: #0C4160; /*Hereda el color de body pero el agente de usuario le pone uno por defecto al ser visitado*/
 }
 /*Especificidad 011*/
 a:link {
-    color: #071330; /*hereda el mismo color de body pero el agente de usuario le pone un color por defecto*/
+    /*Hereda el color de fondo del agente de usuario*/
+    color: #071330; /*Hereda el mismo color de body pero el agente de usuario le pone un color por defecto*/
 }
 /*Especificidad 012, 011*/
 nav a:hover, a:hover {
     /*Cambiar el color de fondo y el de la letra cuando se hace hover por los enlaces*/
-    color:#E8EEF2;
-    background-color: #071330;
+    color:#E8EEF2; /*Hereda el color de body pero queremos hacer el efecto inverso*/
+    background-color: #071330; /*Hereda el color del agente de usuario (body no tiene ninguno especificado)*/
 }
 /*Especificidad 012*/
 nav a:hover {
-    padding: .5em;
     border-radius: 15px;
+}
+/*Especificidad 002*/
+nav a {
+    padding: .5em;
 }
 /*Especificidad 001*/
 ul {
@@ -90,11 +119,13 @@ li {
 /*Especificidad 013*/
 ol ul:first-of-type li {
     list-style-type: "▹";
-    color: #071330;
+    color: #071330; /*Por el selector siguiente, si el li es el 3, se pondria en el color #0C4160. Como solo se quiere que sea diferente el color del tercer li de la primera lista no ordenada, este selector, al ser más específico, prevalece sobre el siguiente en el caso del tercer li de una lista no ordenada anidada dentro de una ordenada*/
+    /*Hereda el color de fondo del agente de usuario*/
 }
 /*Especificidad 012*/
 ul li:nth-child(3) {
-    color: #0C4160;
+    /*Hereda el color de fondo del agente de usuario*/
+    color: #0C4160; /*Hereda el color de body pero se quiere que sea este*/
 }
 /*Especificidad 001*/
 ol {
@@ -102,8 +133,9 @@ ol {
 }
 /*Especificidad 001*/
 dt {
-    background-color: #E8EEF2;
-    font-weight: 600;
+    /*Hereda el color del agente de usuario*/
+    background-color: #E8EEF2; /*Hereda el color del agente de usuario (body no lo tiene especificado) */
+    font-weight: 600; /*Redefiniendo el weight 400 de body */
     width: fit-content;
     padding: .2em .4em;
 }
@@ -114,104 +146,67 @@ dd {
 }
 /*Especificidad 001*/
 caption {
-    font-weight: 600;
+    font-weight: 600; /*Redefiniendo el weight 400 de body*/
 }
 /*Especificidad 001*/
 th {
-    background-color: #E8EEF2;
+    /*Hereda el color del agente de usuario*/
+    background-color: #E8EEF2; /*Hereda el color del agente de usuario (body no lo tiene especificado) */
 }
 /*Especificidad 001*/
 td {
     display: flex;
     justify-content: center;
 }
-
-@media (min-width: 800px) {
-    /*Especificidad 001*/
-    h1 {
-        font-size: 2em;
-        width: 30%
-    } 
-    /*Especificidad 001*/
-    h2 {
-        font-size: 1.6em;
-    }
-    /*Especificidad 001*/
-    h3 {
-        font-size: 1.2em;
-    }
-    /*Especificidad 011*/
-    section:first-of-type {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1em
-    }
-    /*Especificidad 012*/
-    section:first-of-type p {
-        width: 45%;
-    }
-}
-
 @media (min-width: 465px) and (max-width: 799px) {
     /*Especificidad 001*/
     h1 {
-        font-size: 1.6em;
-        width: min-content;
+        font-size: 1.6em; /*Redefiniendo el 2em*/
+        width: min-content; /*Redefiniendo el 30%*/
     } 
     /*Especificidad 001*/
     h2 {
-        font-size: 1.2em;
+        font-size: 1.2em; /*Redefiniendo el 1.6em*/
     }
     /*Especificidad 001*/
     h3 {
-        font-size: 1em;
-    }
-    /*Especificidad 011*/
-    section:first-of-type {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1em
+        font-size: 1em; /*Redefiniendo el 1.2em*/
     }
     /*Especificidad 012*/
     section:first-of-type p {
-        width: min-content;
+        width: min-content; /*Redefiniendo el 45%*/
     }
 }
 
 @media (max-width: 465px) {
     /*Especificidad 001*/
     h1 {
-        font-size: 1.4em;
-        width: fit-content;
-        text-align: center;
+        font-size: 1.4em; /*Redefiniendo el 2em*/
+        width: fit-content; /*Redefiniendo el width de 30%*/
+        text-align: center; /*Añadiendo el text align*/
     } 
     /*Especificidad 001*/
     h2 {
-        font-size: 1em;
+        font-size: 1em; /*Redefiniendo el 1.6em*/
     }
     /*Especificidad 001*/
     h3 {
-        font-size: 1em;
+        font-size: 1em; /*Redefiniendo el 1.2em*/
     }
     /*Especificidad 011*/
     section:first-of-type {
-        display: flex;
-        flex-direction: column;
-        gap: 1em
+        flex-direction: column; /*Redefiniendo la direccion de row a column*/
     }
     /*Especificidad 012*/
     section:first-of-type p {
-        width: 100%;
+        width: 100%; /*Redefiniendo el width de 45% */
     }
     /*Especificidad 001*/
     video {
-        width: 100%;
-        height: auto;
+        width: 100%; /*Redefiniendo el width del 60%*/
     }
     /*Especificidad 001*/
     audio {
-        width: 100%;
+        width: 100%; /*Redefiniendo el width del 60%*/
     }
 }

@@ -78,8 +78,8 @@
     <descripcion>Ruta gastronómica en Tirana: desayuno, almuerzo y comida</descripcion>
     <personas-adecuadas>Gente con ganas de comer</personas-adecuadas>
     <lugar-inicio>Tirana</lugar-inicio>
-    <direccion-inicio>Spicy Restaurante, Rruga Liqeni i Thate, Tirana</direccion-inicio>
-    <coordenadas longitud="41.307617" latitud="19.812073" altitud="121"></coordenadas>
+    <direccion-inicio>Plaza Skanderbeg</direccion-inicio>
+    <coordenadas longitud="41.328444" latitud="19.817940" altitud="108"></coordenadas>
     <referencias>
         <referencia>https://www.tripadvisor.es/Restaurant_Review-g294446-d25152778-Reviews-Spicy_Restaurant-Tirana_Tirana_County.html</referencia>
         <referencia>https://es.restaurantguru.com/Spicy-Restaurant-Tirana</referencia>
@@ -91,7 +91,7 @@
             <nombre>Spicy Restaurant</nombre>
             <descripcion>Restaurante de comida mediterránea</descripcion>
             <coordenadas longitud="41.307617" latitud="19.812073" altitud="121"></coordenadas>
-            <distancia-hito-anterior unidad="km">0</distancia-hito-anterior>
+            <distancia-hito-anterior unidad="km">5</distancia-hito-anterior>
             <galeria-fotos>
                 <foto>spicy.jpg</foto>
             </galeria-fotos>

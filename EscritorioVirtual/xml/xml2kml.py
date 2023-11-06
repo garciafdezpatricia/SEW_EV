@@ -66,13 +66,14 @@ Patricia García Fernández. Universidad de Oviedo
 
         # Escribe la cabecera del archivo de salida
         prologoKML(salida, nombreArchivo)
-
+        # coordenadas de la direccion de inicio de la ruta
         coordenadas = ruta.find('.//{http://www.uniovi.es}coordenadas')
         longitud = coordenadas.get('longitud')
         latitud = coordenadas.get('latitud')
         altitud = coordenadas.get('altitud')
         salida.write(latitud + "," + longitud + "," + altitud + "\n")
 
+        # coordenadas de cada hito de la ruta
         hitos = ruta.findall('.//{http://www.uniovi.es}hitos/{http://www.uniovi.es}hito')
         for hito in hitos:
             coordenadas = hito.find('.//{http://www.uniovi.es}coordenadas')

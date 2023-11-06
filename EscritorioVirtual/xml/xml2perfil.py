@@ -3,7 +3,6 @@ import xml.etree.ElementTree as ET
 
 def prologoSVG(archivo, nombre):
     """ Escribe en el archivo de salida el prólogo del archivo SVG para crear una polilyne"""
-
     archivo.write('<?xml version="1.0" encoding="UTF-8"?>\n')
     archivo.write('<svg xmlns="http://www.w3.org/2000/svg" version="2.0">\n')
     archivo.write('<polyline points = "')
@@ -65,9 +64,9 @@ Patricia García Fernández. Universidad de Oviedo
             coordenadas = hito.find('.//{http://www.uniovi.es}coordenadas')
             altitud = coordenadas.get('altitud')
             distancia = hito.find('.//{http://www.uniovi.es}distancia-hito-anterior')
-            incrementoX += float(distancia.text)*100
-            salida.write(str(incrementoX) + "," + str(float(comienzoAltitud) - float(altitud)/10) + "\n")
-        salida.write(str(incrementoX+30) + "," + comienzoAltitud + "\n")
+            incrementoX += float(distancia.text)*100 # multiplicar por cien porque la distancia entre un hito y otro esta en 0.1km (no se ve casi)
+            salida.write(str(incrementoX) + "," + str(float(comienzoAltitud) - float(altitud)/10) + "\n") # dividir entre 10 porque la altitud a veces es de 1500, no entra
+        salida.write(str(incrementoX+30) + "," + comienzoAltitud + "\n") # poner el ultimo punto final para que la línea sea recta
         salida.write(str(comienzoPoligonoX) + "," + comienzoAltitud)
         epilogoPolilineaSVG(salida)
 
@@ -80,13 +79,12 @@ Patricia García Fernández. Universidad de Oviedo
             distancia = hito.find('.//{http://www.uniovi.es}distancia-hito-anterior')
             incrementoX += float(distancia.text)*100
             textoSVG(salida, str(incrementoX), comienzoTexto, nombre.text)
-        textoSVG(salida, str(incrementoX+30), comienzoTexto, "Final")
-
+        textoSVG(salida, str(incrementoX+30), comienzoTexto, "Final") #ponerle el texto al último punto final para que la línea sea recta
+        # Esribe el epilogo del archivo de salida
         epilogoSVG(salida)
         salida.close()
     archivo.close()
 
-    # Esribe el epilogo del archivo de salida
 
 if __name__ == "__main__":
     main()
