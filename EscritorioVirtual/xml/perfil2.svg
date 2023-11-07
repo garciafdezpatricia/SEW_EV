@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="2.0">
 <polyline points = "100,150
+100,139.2
 600.0,137.9
 970.0,139.3
 1160.0,138.2
-1190.0,150
+1160.0,150
 100,150"
 style="fill:white;stroke:red;stroke-width=4" />
 <text x="100" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-Inicio
+Plaza Skanderbeg
 </text>
 <text x="600.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Spicy Restaurant
@@ -18,8 +19,5 @@ Otium Restaurant
 </text>
 <text x="1160.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Oda Restaurant
-</text>
-<text x="1190.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-Final
 </text>
 </svg>

@@ -19,29 +19,29 @@ Tamaño ordenador: a partir de 800px
 
 /*Especificidad 001*/
 body {
-    /*Hereda el color de fondo del agente de usuario*/
     font-family:'Trebuchet MS', sans-serif;
     font-weight: 400;
     font-size: 1em;
-    color: #071330; /*El color que habría por defecto es el del agente de usuario*/
+    /*Los colores de primer plano y de fondo que habría por defecto son los del agente de usuario*/
+    background-color: #FFFFFF;
+    color: #071330;
 }
 
 /*Especificidad 001*/
 header {
-    /*Hereda el color de body*/
-    background-color: #E8EEF2; /*El color que habría por defecto sería el del agente de usuario (body no tiene ninguno especificado)*/
+    /*Hereda el color de primer plano de body #071330*/
+    background-color: #E8EEF2; /*El color que hereda es el #FFFFFF de body*/
 }
 
 /*Especificidad 001, 001, 001, 001, 001, 001*/
 h1, h2, h3, h4, h5, h6 {
     font-family: Georgia, serif;
     font-weight: 700;
-    /*color heredado de body Dark blue*/
+    /*Colores de primer plano y de fondo heredados de body #071330 #FFFFFF respectivamente*/
 }
 /*Especificidad 001*/
 h1 {
     font-size: 2em;
-    width: 30%
 } 
 /*Especificidad 001*/
 h2 {
@@ -60,21 +60,10 @@ video {
 audio {
     width: 60%;
 }
-/*Especificidad 001*/
-p {
-    margin: 0; /*Anular el valor del agente de usuario*/
-}
 /*Especificidad 011*/
 h3:first-of-type  {
     margin-bottom: .2em;
     flex: 100%
-}
-/*Especificidad 011*/
-section:first-of-type {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1em
 }
 /*Especificidad 012*/
 section:first-of-type p {
@@ -82,27 +71,27 @@ section:first-of-type p {
 }
 /*Especificidad 001*/
 a {
-    text-decoration: none; /*quitar el subrayado de los enlaces por defecto del agente de usario*/
+    text-decoration: none; /*quitar el subrayado por defecto de los enlaces*/
 }
 /*Especificidad 011*/
 a:visited {
-    /*Hereda el color de fondo del agente de usuario*/
-    color: #0C4160; /*Hereda el color de body pero el agente de usuario le pone uno por defecto al ser visitado*/
+    /*Hereda el color de fondo de body #FFFFFF */
+    color: #0C4160; /*Hereda el color de primer plano de body #071330 pero el agente de usuario le pone uno por defecto al ser visitado*/
 }
 /*Especificidad 011*/
 a:link {
-    /*Hereda el color de fondo del agente de usuario*/
-    color: #071330; /*Hereda el mismo color de body pero el agente de usuario le pone un color por defecto*/
+    /*Hereda el color de fondo de body #FFFFFF */
+    color: #071330; /*Hereda el mismo color #071330 de primer plano de body pero por si el agente de usuario le pone un color por defecto*/
 }
 /*Especificidad 012, 011*/
 nav a:hover, a:hover {
-    /*Cambiar el color de fondo y el de la letra cuando se hace hover por los enlaces*/
-    color:#E8EEF2; /*Hereda el color de body pero queremos hacer el efecto inverso*/
-    background-color: #071330; /*Hereda el color del agente de usuario (body no tiene ninguno especificado)*/
+    /*Cambiar el color de fondo y el de primer plano cuando se hace hover por los enlaces*/
+    color:#E8EEF2; /*Hereda el color de body #071330 pero se quiere hacer el efecto inverso */
+    background-color: #071330; /*Hereda el color fondo de body #FFFFFF */
 }
 /*Especificidad 012*/
 nav a:hover {
-    border-radius: 15px;
+    border-radius: 1em;
 }
 /*Especificidad 002*/
 nav a {
@@ -119,13 +108,11 @@ li {
 /*Especificidad 013*/
 ol ul:first-of-type li {
     list-style-type: "▹";
-    color: #071330; /*Por el selector siguiente, si el li es el 3, se pondria en el color #0C4160. Como solo se quiere que sea diferente el color del tercer li de la primera lista no ordenada, este selector, al ser más específico, prevalece sobre el siguiente en el caso del tercer li de una lista no ordenada anidada dentro de una ordenada*/
-    /*Hereda el color de fondo del agente de usuario*/
 }
-/*Especificidad 012*/
-ul li:nth-child(3) {
-    /*Hereda el color de fondo del agente de usuario*/
-    color: #0C4160; /*Hereda el color de body pero se quiere que sea este*/
+/*Especificidad 023*/
+section:nth-of-type(2) ul li:nth-child(3) {
+    /*Hereda el color de fondo #FFFFFF de body*/
+    color: #0C4160; /*Hereda el color de body #071330 pero se quiere que sea este*/
 }
 /*Especificidad 001*/
 ol {
@@ -133,10 +120,10 @@ ol {
 }
 /*Especificidad 001*/
 dt {
-    /*Hereda el color del agente de usuario*/
-    background-color: #E8EEF2; /*Hereda el color del agente de usuario (body no lo tiene especificado) */
+    /*Hereda el color de primer plano de body #071330*/
+    background-color: #E8EEF2; /*Hereda el color de body #FFFFFF */
     font-weight: 600; /*Redefiniendo el weight 400 de body */
-    width: fit-content;
+    width: fit-content; /*Para que la caja se ajuste al elemento y no quede un relleno en toda la linea*/
     padding: .2em .4em;
 }
 /*Especificidad 001*/
@@ -150,19 +137,14 @@ caption {
 }
 /*Especificidad 001*/
 th {
-    /*Hereda el color del agente de usuario*/
-    background-color: #E8EEF2; /*Hereda el color del agente de usuario (body no lo tiene especificado) */
+    /*Hereda el color de primer plano #071330 de body*/
+    background-color: #E8EEF2; /*Hereda el color de fondo #FFFFFF de body */
 }
-/*Especificidad 001*/
-td {
-    display: flex;
-    justify-content: center;
-}
+
 @media (min-width: 465px) and (max-width: 799px) {
     /*Especificidad 001*/
     h1 {
         font-size: 1.6em; /*Redefiniendo el 2em*/
-        width: min-content; /*Redefiniendo el 30%*/
     } 
     /*Especificidad 001*/
     h2 {
@@ -182,7 +164,6 @@ td {
     /*Especificidad 001*/
     h1 {
         font-size: 1.4em; /*Redefiniendo el 2em*/
-        width: fit-content; /*Redefiniendo el width de 30%*/
         text-align: center; /*Añadiendo el text align*/
     } 
     /*Especificidad 001*/
@@ -192,10 +173,6 @@ td {
     /*Especificidad 001*/
     h3 {
         font-size: 1em; /*Redefiniendo el 1.2em*/
-    }
-    /*Especificidad 011*/
-    section:first-of-type {
-        flex-direction: column; /*Redefiniendo la direccion de row a column*/
     }
     /*Especificidad 012*/
     section:first-of-type p {

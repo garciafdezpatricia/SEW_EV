@@ -12,6 +12,7 @@ header {
     flex-direction: row;
     align-items: center;
     gap: 2em;
+    justify-content: space-between;
 }
 
 /*Especificidad 001*/
@@ -22,8 +23,19 @@ nav {
     justify-items: end;
     align-items: center;
     overflow-x: auto;
-    width: 70%;
-    margin-left: auto;
+}
+
+/*Especificidad 011*/
+section:first-of-type {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em
+}
+/*Especificidad 001*/
+td {
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 465px) {
@@ -36,6 +48,10 @@ nav {
     /*Especificidad 001*/
     nav {
         flex-direction: column;     /*Redefiniendo la dirección del flex, antes row ahora column */
-        margin-left: 0; /* Redefiniendo margin-left, antes auto ahora 0 */
+    }
+
+    /*Especificidad 011*/
+    section:first-of-type {
+        flex-direction: column; /*Redefiniendo la direccion de row a column*/
     }
 }

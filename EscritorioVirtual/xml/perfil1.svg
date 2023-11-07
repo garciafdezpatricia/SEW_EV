@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="2.0">
 <polyline points = "100,150
+100,55.0
 213.0,27.099999999999994
 363.0,51.0
 453.0,47.8
 793.0,19.5
 1273.0,68.0
-1303.0,150
+1273.0,150
 100,150"
 style="fill:white;stroke:red;stroke-width=4" />
 <text x="100" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-Inicio
+Bunkers de Valbona
 </text>
 <text x="213.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Rrethi i Jubanit
@@ -26,8 +27,5 @@ Ujevara e Rrogamit
 </text>
 <text x="1273.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
 Theth
-</text>
-<text x="1303.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
-Final
 </text>
 </svg>

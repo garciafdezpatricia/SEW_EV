@@ -55,8 +55,10 @@ Patricia García Fernández. Universidad de Oviedo
         #Escribe la polilinea
         comienzoPoligonoX = 100
         coordenadas = ruta.find('.//{http://www.uniovi.es}coordenadas')
-        comienzoAltitud = "150" #coordenadas.get('altitud')
+        comienzoAltitud = "150"
         salida.write(str(comienzoPoligonoX) + "," + comienzoAltitud + "\n")
+        altitudRuta = coordenadas.get("altitud")
+        salida.write(str(comienzoPoligonoX) + "," + str(float(comienzoAltitud) - float(altitudRuta)/10) + "\n")
 
         hitos = ruta.findall('.//{http://www.uniovi.es}hitos/{http://www.uniovi.es}hito')
         incrementoX = comienzoPoligonoX
@@ -66,20 +68,20 @@ Patricia García Fernández. Universidad de Oviedo
             distancia = hito.find('.//{http://www.uniovi.es}distancia-hito-anterior')
             incrementoX += float(distancia.text)*100 # multiplicar por cien porque la distancia entre un hito y otro esta en 0.1km (no se ve casi)
             salida.write(str(incrementoX) + "," + str(float(comienzoAltitud) - float(altitud)/10) + "\n") # dividir entre 10 porque la altitud a veces es de 1500, no entra
-        salida.write(str(incrementoX+30) + "," + comienzoAltitud + "\n") # poner el ultimo punto final para que la línea sea recta
+        salida.write(str(incrementoX) + "," + comienzoAltitud + "\n") # poner el ultimo punto final para que la línea sea recta
         salida.write(str(comienzoPoligonoX) + "," + comienzoAltitud)
         epilogoPolilineaSVG(salida)
 
         comienzoTexto = "155"
         #Escribe el texto de la polilinea de cada hito
-        textoSVG(salida, str(comienzoPoligonoX), comienzoTexto, "Inicio")
+        textoSVG(salida, str(comienzoPoligonoX), comienzoTexto, ruta.find('.//{http://www.uniovi.es}direccion-inicio').text)
         incrementoX = comienzoPoligonoX
         for hito in hitos:
             nombre = hito.find('.//{http://www.uniovi.es}nombre')
             distancia = hito.find('.//{http://www.uniovi.es}distancia-hito-anterior')
             incrementoX += float(distancia.text)*100
             textoSVG(salida, str(incrementoX), comienzoTexto, nombre.text)
-        textoSVG(salida, str(incrementoX+30), comienzoTexto, "Final") #ponerle el texto al último punto final para que la línea sea recta
+        # textoSVG(salida, str(incrementoX), comienzoTexto, "Final") #ponerle el texto al último punto final para que la línea sea recta
         # Esribe el epilogo del archivo de salida
         epilogoSVG(salida)
         salida.close()
