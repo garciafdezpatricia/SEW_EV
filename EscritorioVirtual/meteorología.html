@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico" />
+    <script src="js/pais.js"></script>
 </head>
 <body>
     <header>
@@ -26,6 +27,17 @@
         </nav>
     </header>
     <h2>Meteorología</h2>
-    <p>En desarrollo</p>
+    <script>
+        pais = new Pais("Albania", "Tirana", 1000000);
+        pais.relleno()
+        document.write("<p>");
+        document.write(pais.getNombrePais())
+        document.write(" es un país de Europa del Este cuya capital es ")
+        document.write(pais.getNombreCapital())
+        document.write(".</p>")
+        document.write("<p>Su poblacion, forma de gobierno y religión mayoritaria son las siguientes:</p>")
+        document.write(pais.getInformacionSecundaria())
+        pais.coordenadasPais();
+    </script>
 </body>
 </html>
