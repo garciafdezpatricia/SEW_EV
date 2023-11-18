@@ -61,16 +61,44 @@ class Memoria {
         this.secondCard = null;
     }
 
+    createElements() {
+        for (let i = 0; i < this.elements.length; i++){
+            let item = this.elements[i]
+            document.write('<article data-element="' + item.element +
+             '" data-state="abajo" >')
+            document.write('<h3>Tarjeta de memoria</h3>')
+            document.write('<img src="' + item.source + '" alt="' + item.element + '" />')
+            document.write('</article>')
+        }
+        this.addEventListeners()
+    }
+
+    addEventListeners() {
+        const tarjetas = document.querySelectorAll("article[data-state]")
+        tarjetas.forEach( (article) => {
+            article.addEventListener("click", this.flipCard.bind(this, article))
+        })
+        
+    }
+
+    flipCard(card) {
+        card.setAttribute('data-state', 'flip');
+        card.style.transform = "rotateY(180deg)";
+    }
+
     shuffleElements() {
         for (let i = this.elements.length - 1; i > 0; i--) {
-            let j = Math.floor(MAth.random() * (i + 1));
+            let j = Math.floor(Math.random() * (i + 1));
             [this.elements[i], this.elements[j]] = [this.elements[j], this.elements[i]]
         }
     }
 
     unflipCards() {
         this.lockBoard = true;
-        // para voltear las que esten boca arriba hay que hacer un queryselector pa los articles que tengan el data-state flipped (mirar los estados por si acaso)
+        const flippedCards = document.querySelectorAll("article[data-state='flip']");
+        flippedCards.forEach((card) => {
+            card.dataset.state = 'abajo';
+        })
     }
 
     resetBoard() {
@@ -78,5 +106,20 @@ class Memoria {
         this.secondCard = null;
         this.hasFlippedCard = false;
         this.lockBoard = false;
+    }
+
+    checkForMatch() {
+        this.firstCard === this.secondCard ? this.disableCards() : this.unflipCards();
+    }
+
+    disableCards() {
+        // modificar el valor del atributo data-state a revealed en las 
+        // firstCard y secondCard
+        let query = "article[data-element='" + this.firstCard + '"]';
+        const matchedCards = document.querySelectorAll(query)
+        matchedCards.forEach((card) => {
+            card.dataset.state = 'revealed'
+        })
+        this.resetBoard()
     }
 }

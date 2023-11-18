@@ -1,0 +1,35 @@
+section:first-of-type {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+section:first-of-type h3 {
+    flex: 100%;
+}
+
+section:first-of-type article {
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    background-color: #738FA7;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+section:first-of-type article[data-state='flip'] {
+    transform: rotateY(180deg)
+}
+
+section:first-of-type article img {
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+section:first-of-type article h3 {
+    backface-visibility: hidden;
+}

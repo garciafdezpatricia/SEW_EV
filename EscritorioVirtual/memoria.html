@@ -10,6 +10,7 @@
         <title>Escritorio Virtual - Memorion</title>
         <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
         <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+        <link rel="stylesheet" type="text/css" href="estilo/memorion.css" />
         <link rel="icon" href="multimedia/imagenes/favicon.ico" />
         <script src="js/memoria.js"></script>
     </head>
@@ -28,12 +29,20 @@
         </nav>
     </header>
     <h2>Memorion</h2>
-    <section>
+    <article>
         <h3>Salón de juegos</h3>
         <p>Pulsa en los siguientes enlaces para acceder a los juegos especificados</p>
         <ul>
             <li><a href="memoria.html" accesskey="C" tabindex="8">Memorion</a></li>
         </ul>
+    </article>
+    <section>
+        <h3>Juego de memoria</h3>
+        <script>
+            let juego = new Memoria()
+            juego.shuffleElements()
+            juego.createElements()
+        </script>
     </section>
     </body>
 </html>
