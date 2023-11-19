@@ -25,7 +25,7 @@ section:first-of-type article {
     align-items: center;
     padding: 2em .5em;
     border-radius: .5em;
-    box-shadow: 1px 2px 5px #071330;
+    box-shadow: 0.1em 0.14em 0.36em #071330;
     cursor: pointer;
 }
 /*Especificidad 022, 022*/

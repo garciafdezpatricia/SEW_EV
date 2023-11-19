@@ -79,7 +79,7 @@ class Sudoku {
                    celda.textContent = value;
                 celda.setAttribute("data-state", "correct");
                 this.boardInArray[parseInt(fila)][parseInt(columna)] = parseInt(value)
-                if (isSudokuCompleted()){
+                if (this.isSudokuCompleted()){
                     window.alert("¡Bien hecho! ¡Sudoku completado!")
                 }
             }
