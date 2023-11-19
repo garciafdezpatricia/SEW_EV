@@ -21,6 +21,10 @@ section:first-of-type article[data-state='flip'] {
     transform: rotateY(180deg)
 }
 
+section:first-of-type article[data-state='abajo'] {
+    transform: rotateY(0deg)
+}
+
 section:first-of-type article img {
     width: 60%;
     height: auto;

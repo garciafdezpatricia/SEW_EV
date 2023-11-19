@@ -59,6 +59,9 @@ class Memoria {
         this.firstCard = null;
         // indica cual es la segunda carta a la que se ha dado la vuelta en esta interaccion
         this.secondCard = null;
+        this.shuffleElements()
+        this.createElements()
+        this.addEventListeners()
     }
 
     createElements() {
@@ -70,7 +73,6 @@ class Memoria {
             document.write('<img src="' + item.source + '" alt="' + item.element + '" />')
             document.write('</article>')
         }
-        this.addEventListeners()
     }
 
     addEventListeners() {
@@ -81,16 +83,29 @@ class Memoria {
         
     }
 
-    flipCard(card) {
-        card.setAttribute('data-state', 'flip');
-        card.style.transform = "rotateY(180deg)";
-    }
-
     shuffleElements() {
         for (let i = this.elements.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
             [this.elements[i], this.elements[j]] = [this.elements[j], this.elements[i]]
         }
+    }
+
+    flipCard(card) {
+        if (this.lockBoard || card.getAttribute('data-state') === 'revealed' || card === this.firstCard) {
+            return;
+        }
+        else {
+            card.setAttribute('data-state', 'flip');
+            if (!this.hasFlippedCard){
+                this.hasFlippedCard = true;
+                this.firstCard = card;
+            }
+            else {
+                this.secondCard = card;
+                this.checkForMatch()
+            }
+        }
+        
     }
 
     unflipCards() {
@@ -99,6 +114,9 @@ class Memoria {
         flippedCards.forEach((card) => {
             card.dataset.state = 'abajo';
         })
+        setTimeout(() => {
+            this.resetBoard();
+        }, 2000)
     }
 
     resetBoard() {
@@ -109,17 +127,13 @@ class Memoria {
     }
 
     checkForMatch() {
-        this.firstCard === this.secondCard ? this.disableCards() : this.unflipCards();
+        this.firstCard.getAttribute('data-element') === this.secondCard.getAttribute('data-element') ? this.disableCards() : this.unflipCards();
     }
 
     disableCards() {
-        // modificar el valor del atributo data-state a revealed en las 
-        // firstCard y secondCard
-        let query = "article[data-element='" + this.firstCard + '"]';
-        const matchedCards = document.querySelectorAll(query)
-        matchedCards.forEach((card) => {
-            card.dataset.state = 'revealed'
-        })
+        // modificar el valor del atributo data-state a revealed en firstCard y secondCard
+        this.firstCard.dataset.state = 'revealed';
+        this.secondCard.dataset.state = 'revealed';
         this.resetBoard()
     }
 }
