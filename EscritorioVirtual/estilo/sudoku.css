@@ -1,0 +1,35 @@
+main {
+    width: 50vw;
+    height: 50vw;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0;
+    border: 2px solid black;
+}
+
+main p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .2em;
+    margin: 0;
+    border: 1px solid gray;
+}
+
+main p[data-state="blocked"] {
+    color: #738FA7;
+}
+
+main p[data-state="clicked"] {
+    box-shadow: 0px 0px 7px black;
+    border: 1px solid #738FA7;
+}
+
+main p:nth-child(3n + 3){ 
+    border-right: 2px solid black;
+}
+
+main p:nth-child(n + 19):nth-child(-n + 27), 
+main p:nth-child(n + 46):nth-child(-n + 54) {
+    border-bottom: 2px solid black;
+}

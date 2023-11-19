@@ -10,9 +10,9 @@
         <title>Escritorio Virtual - Memorion</title>
         <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
         <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
-        <link rel="stylesheet" type="text/css" href="estilo/memoria.css" />
+        <link rel="stylesheet" type="text/css" href="estilo/sudoku.css" />
         <link rel="icon" href="multimedia/imagenes/favicon.ico" />
-        <script src="js/memoria.js"></script>
+        <script src="js/sudoku.js"></script>
     </head>
     <body>
         <!-- Datos con el contenido que aparece en el navegador -->
@@ -28,7 +28,7 @@
             <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
         </nav>
     </header>
-    <h2>Memorion</h2>
+    <h2>Sudoku</h2>
     <article>
         <h3>Salón de juegos</h3>
         <p>Pulsa en los siguientes enlaces para acceder a los juegos especificados</p>
@@ -37,11 +37,22 @@
             <li><a href="sudoku.html" accesskey="K" tabindex="9">Sudoku</a></li>
         </ul>
     </article>
-    <section>
-        <h3>Juego de memoria</h3>
-        <script>
-            let juego = new Memoria()
-        </script>
-    </section>
+    <main>
+    </main>
     </body>
+    <script>
+        let juego = new Sudoku()
+        juego.paintSudoku()
+        addEventListener("keydown", (event) => {
+            let value =  event.key;
+            const isNumeric = isFinite(value);
+            const isSelectedCell = document.querySelector("p[data-state='clicked']")
+            if (isNumeric && isSelectedCell){
+                juego.introduceNumber(value);
+            }
+            else if (isNumeric && !isSelectedCell){
+                window.alert("¡Debe seleccionar una celda antes de introducir un número!")
+            }
+        })
+    </script>
 </html>

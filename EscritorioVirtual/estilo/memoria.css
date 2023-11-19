@@ -26,6 +26,7 @@ section:first-of-type article {
     padding: 2em .5em;
     border-radius: .5em;
     box-shadow: 1px 2px 5px #071330;
+    cursor: pointer;
 }
 /*Especificidad 022, 022*/
 section:first-of-type article[data-state='flip'], section:first-of-type article[data-state='revealed'] {
