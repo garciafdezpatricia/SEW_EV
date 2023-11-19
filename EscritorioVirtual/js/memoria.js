@@ -91,17 +91,23 @@ class Memoria {
     }
 
     flipCard(card) {
-        if (this.lockBoard || card.getAttribute('data-state') === 'revealed' || card === this.firstCard) {
+        if (this.lockBoard || card.getAttribute('data-state') === 'revealed' || 
+        card === this.firstCard) {
             return;
         }
         else {
             card.setAttribute('data-state', 'flip');
+            console.log("carta fliped")
             if (!this.hasFlippedCard){
+                console.log("primera carta clicada")
                 this.hasFlippedCard = true;
                 this.firstCard = card;
+                console.log(card)
             }
             else {
+                console.log("segunda carta clicada")
                 this.secondCard = card;
+                console.log(card)
                 this.checkForMatch()
             }
         }
@@ -109,14 +115,15 @@ class Memoria {
     }
 
     unflipCards() {
+        console.log("cartas no iguales")
         this.lockBoard = true;
         const flippedCards = document.querySelectorAll("article[data-state='flip']");
-        flippedCards.forEach((card) => {
-            card.dataset.state = 'abajo';
-        })
         setTimeout(() => {
+            flippedCards.forEach((card) => {
+                card.dataset.state = 'abajo';
+            })
             this.resetBoard();
-        }, 2000)
+        }, 1000)
     }
 
     resetBoard() {
@@ -127,10 +134,14 @@ class Memoria {
     }
 
     checkForMatch() {
-        this.firstCard.getAttribute('data-element') === this.secondCard.getAttribute('data-element') ? this.disableCards() : this.unflipCards();
+        console.log("check que sean iguales")
+        this.firstCard.getAttribute('data-element') === this.secondCard.getAttribute('data-element') ? 
+            this.disableCards() 
+            : this.unflipCards();
     }
 
     disableCards() {
+        console.log("cartas iguales")
         // modificar el valor del atributo data-state a revealed en firstCard y secondCard
         this.firstCard.dataset.state = 'revealed';
         this.secondCard.dataset.state = 'revealed';

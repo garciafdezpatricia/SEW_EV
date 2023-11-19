@@ -1,13 +1,20 @@
+/* 
+PATRICIA GARCÍA FERNÁNDEZ - UO282210
+
+ESPECIFICIDAD [ID] [CLASES|ATRIBUTOS|:PSEUDOCLASES] [ELEMENTOS|::PSEUDOELEMENTOS]
+*/
+
+/*Especificidad 011*/
 section:first-of-type {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-
+/*Especificidad 012*/
 section:first-of-type h3 {
     flex: 100%;
 }
-
+/*Especificidad 012*/
 section:first-of-type article {
     flex-basis: 20%;
     display: flex;
@@ -15,16 +22,20 @@ section:first-of-type article {
     background-color: #738FA7;
     transform-style: preserve-3d;
     transition: transform 0.5s;
+    align-items: center;
+    padding: 2em .5em;
+    border-radius: .5em;
+    box-shadow: 1px 2px 5px #071330;
 }
-
-section:first-of-type article[data-state='flip'] {
+/*Especificidad 022, 022*/
+section:first-of-type article[data-state='flip'], section:first-of-type article[data-state='revealed'] {
     transform: rotateY(180deg)
 }
-
+/*Especificidad 022*/
 section:first-of-type article[data-state='abajo'] {
     transform: rotateY(0deg)
 }
-
+/*Especificidad 013*/
 section:first-of-type article img {
     width: 60%;
     height: auto;
@@ -33,7 +44,9 @@ section:first-of-type article img {
     backface-visibility: hidden;
     transform: rotateY(180deg);
 }
-
+/*Especificidad 013*/
 section:first-of-type article h3 {
     backface-visibility: hidden;
+    flex: 0 1 auto;
+    text-align: center;
 }
