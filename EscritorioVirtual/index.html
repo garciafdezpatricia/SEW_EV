@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico" />
+    <script src="js/fondo.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Datos con el contenido que aparece en el navegador -->
@@ -26,7 +28,9 @@
             <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
         </nav>
     </header>
-    <h2>Escritorio Virtual</h2>
-    <p>En desarrollo</p>
 </body>
+<script>
+    let fondo = new Fondo("Albania", "Tirana", "41.311855, 19.820967");
+    fondo.getPhoto();
+</script>
 </html>

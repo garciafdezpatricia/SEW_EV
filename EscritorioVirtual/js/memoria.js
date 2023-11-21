@@ -78,7 +78,7 @@ class Memoria {
     addEventListeners() {
         const tarjetas = document.querySelectorAll("article[data-state]")
         tarjetas.forEach( (article) => {
-            article.addEventListener("click", this.flipCard.bind(this, article))
+            article.addEventListener("click", this.flipCard.bind(article, this))
         })
         
     }
@@ -90,25 +90,20 @@ class Memoria {
         }
     }
 
-    flipCard(card) {
-        if (this.lockBoard || card.getAttribute('data-state') === 'revealed' || 
-        card === this.firstCard) {
+    flipCard(game) {
+        if (game.lockBoard || this.getAttribute('data-state') === 'revealed' || 
+        this === game.firstCard) {
             return;
         }
         else {
-            card.setAttribute('data-state', 'flip');
-            console.log("carta fliped")
-            if (!this.hasFlippedCard){
-                console.log("primera carta clicada")
-                this.hasFlippedCard = true;
-                this.firstCard = card;
-                console.log(card)
+            this.setAttribute('data-state', 'flip');
+            if (!game.hasFlippedCard){
+                game.hasFlippedCard = true;
+                game.firstCard = this;
             }
             else {
-                console.log("segunda carta clicada")
-                this.secondCard = card;
-                console.log(card)
-                this.checkForMatch()
+                game.secondCard = this;
+                game.checkForMatch()
             }
         }
         
