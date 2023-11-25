@@ -141,6 +141,18 @@ th {
     background-color: #E8EEF2; /*Hereda el color de fondo #FFFFFF de body */
 }
 
+section[data-element="meteoPrediction"] {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+section[data-element="meteoPrediction"] article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template
+}
+
 @media (min-width: 465px) and (max-width: 799px) {
     /*Especificidad 001*/
     h1 {

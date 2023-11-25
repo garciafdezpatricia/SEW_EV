@@ -20,7 +20,7 @@ class Fondo {
         .done(function(data) {
             // Verificar si hay al menos una imagen
             if (data.items.length > 0) {
-                // Obtener la primera imagen
+                // Obtener imagen random
                 var firstImage = data.items[Math.floor(Math.random() * 10) + 1];
                 // Crear un elemento de imagen y agregarlo al cuerpo del documento
                 $('body').css('background-image', 'url(' + firstImage.media.m + ')').css('background-size', 'cover');
