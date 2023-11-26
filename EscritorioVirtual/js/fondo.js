@@ -23,7 +23,7 @@ class Fondo {
                 // Obtener imagen random
                 var firstImage = data.items[Math.floor(Math.random() * 10) + 1];
                 // Crear un elemento de imagen y agregarlo al cuerpo del documento
-                $('body').css('background-image', 'url(' + firstImage.media.m + ')').css('background-size', 'cover');
+                $('body').css('background-image', 'url(' + firstImage.media.m + ')').css('background-size', 'cover').css('background-repeat', 'no-repeat');
             }
         });
     }
