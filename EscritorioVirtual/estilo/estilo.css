@@ -149,10 +149,67 @@ section[data-element="meteoPrediction"] {
 
 section[data-element="meteoPrediction"] article {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template
+    grid-template-columns: 2.5fr 1fr;
+    grid-template-rows: repeat(3, .4fr);
+    background-color: #E8EEF2;
+    border-radius: 1em;
+    padding-inline: 1em;
+    padding-bottom: .7em;
 }
 
+section[data-element="meteoPrediction"] article img {
+    grid-row: 1/1;
+    grid-column: 2/-1;
+    width: 55%;
+    height: auto;
+    justify-self: end;
+}
+
+section[data-element="meteoPrediction"] article p[data-element="fecha"] {
+    grid-row: 1/1;
+    grid-column: 1/1;
+    text-align: center;
+    align-self: center;
+    width: 100%;
+    margin: 0;
+}
+
+section[data-element="meteoPrediction"] article p[data-element="temperatura"] {
+    grid-row: 2/2;
+    grid-column: 1/1;
+    width: 100%;
+    margin: 0;
+}
+
+section[data-element="meteoPrediction"] article p[data-element="tiempo"] {
+    grid-row: 3/3;
+    grid-column: 1/-1;
+    width: 100%;
+    margin: 0;
+}
+
+section[data-element="meteoPrediction"] article p[data-element="description"] {
+    grid-row: 4/4;
+    grid-column: 1/-1;
+    width: 100%;
+    margin: 0;
+}
+
+section[data-element="meteoPrediction"] article p[data-element="humedad"] {
+    grid-row: 2/2;
+    grid-column: 2/-1;
+    width: 100%;
+    margin: 0;
+    font-size: .9em
+}
+
+section[data-element="meteoPrediction"] article p[data-element="viento"] {
+    grid-row: 3/3;
+    grid-column: 2/-1;
+    width: 100%;
+    margin: 0;
+    font-size: 0.9em
+}
 @media (min-width: 465px) and (max-width: 799px) {
     /*Especificidad 001*/
     h1 {

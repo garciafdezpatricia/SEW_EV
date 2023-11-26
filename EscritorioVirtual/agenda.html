@@ -10,7 +10,10 @@
     <title>Escritorio Virtual - Agenda</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/agenda.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico" />
+    <script src="js/agenda.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Datos con el contenido que aparece en el navegador -->
@@ -27,6 +30,9 @@
         </nav>
     </header>
     <h2>Agenda</h2>
-    <p>En desarrollo</p>
 </body>
+<script>
+    let agenda = new Agenda();
+    agenda.cargarDatos();
+</script>
 </html>

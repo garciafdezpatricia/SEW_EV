@@ -88,14 +88,37 @@ class Pais {
         // crear url
         this.url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + this.latitud + "&lon=" + this.longitud + "&units=metric&lang=es&appid=" + this.apikey;
 
-        // la llamada a la api devuelve el tiempo cada 3 horas -> de momento vamos a hacer la media y sacar solo una prediccion por dia
 
+        // la llamada a la api devuelve el tiempo cada 3 horas -> de momento vamos a hacer la media y sacar solo una prediccion por dia
         $.ajax({
             dataType: "json",
             url: this.url,
             method: 'GET',
-            success: (datos) => {       
+            success: (datos) => {      
+                    let titulo = $("<h3>").text("Predicciones");
+                    let intro = $("<p>").text("Estas son las predicciones para los próximos días en " + this.nombreCapital + ".");
+                    $("body").append(titulo);
+                    $("body").append(intro);
                     const medias = this.calcularMediaDiaria(datos);
+                    const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+
+                    const mapeoTiempo = {
+                        "Thunderstorm" : "Tormenta eléctrica",
+                        "Drizzle": "Llovizna",
+                        "Rain": "Lluvia",
+                        "Snow": "Nieve",
+                        "Mist": "Neblina",
+                        "Smoke": "Humo",
+                        "Haze": "Calima",
+                        "Dust": "Polvo",
+                        "Fog": "Niebla",
+                        "Sand": "Arena",
+                        "Ash": "Ceniza",
+                        "Squall": "Vientos",
+                        "Tornado": "Tornado",
+                        "Clear": "Despejado",
+                        "Clouds": "Nuboso"
+                    }
 
                     // pintar medias diarias
                     let seccion = $("<section>").attr("data-element", "meteoPrediction");
@@ -105,19 +128,27 @@ class Pais {
                         let icono = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + medias[fecha].icono + "@2x.png")
                         article.append(icono);
 
-                        let temperaturaMin = $("<p>").text(medias[fecha].tempMin);
-                        let temperaturaMax = $("<p>").text(medias[fecha].tempMax);
-                        article.append(temperaturaMin);
-                        article.append(temperaturaMax);
+                        let temperatura = $("<p>").text(medias[fecha].tempMin + "ºC / " + medias[fecha].tempMax+ "ºC");
+                        temperatura.attr("data-element", "temperatura");
+                        article.append(temperatura);
 
-                        let humedad = $("<p>").text("Humedad: " + medias[fecha].humedad);
+                        let humedad = $("<p>").text("Humedad: " + medias[fecha].humedad + "%");
+                        humedad.attr("data-element", "humedad");
                         article.append(humedad);
 
-                        let viento = $("<p>").text("Viento: " + medias[fecha].viento);
+                        let viento = $("<p>").text("Viento: " + medias[fecha].viento + "m/s");
+                        viento.attr("data-element", "viento");
                         article.append(viento);
                         
-                        let date = $("<p>").text(fecha);
-                        article.append(date);                     
+                        let formattedDate = new Date(fecha);
+                        let dia = diasSemana[formattedDate.getDay()]
+                        let date = $("<p>").text(dia + " " + new Date(fecha).toLocaleDateString());
+                        date.attr("data-element", "fecha");
+                        article.append(date);              
+                        
+                        let tiempo = $("<p>").text(mapeoTiempo[medias[fecha].tiempo] + ": " + medias[fecha].descripcion);
+                        tiempo.attr("data-element", "tiempo");
+                        article.append(tiempo);
                         
                         seccion.append(article);
                     })
