@@ -59,8 +59,8 @@
     </main>
     </body>
     <script>
-        let juego = new Crucigrama();
-        juego.paintMathword();
+        let crucigrama = new Crucigrama();
+        crucigrama.paintMathword();
         addEventListener("keydown", (event) => {
             let regexp = /^[1-9+\-*\/]$/;   
             let value =  event.key;
@@ -70,7 +70,7 @@
                 window.alert("¡Debe seleccionar una celda antes!")
             }
             else if (isValid && isSelectedCell){
-                juego.introduceElement(value);
+                crucigrama.introduceElement(value);
             }
             else {
                 window.alert("Solo se pueden introducir valores del 1-9 o +, -, * y /");

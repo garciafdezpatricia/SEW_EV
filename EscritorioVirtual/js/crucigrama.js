@@ -48,7 +48,7 @@ class Crucigrama {
         for (let i = 0; i < this.rows; i++){
             for (let j = 0; j < this.columns; j++) {
                 let position = i + "" + j;
-                let celda = $('<p>').attr("data-element", position);
+                let celda = $('<p>').attr("data-element", position); 
                 $("main").append(celda);
             }
             
