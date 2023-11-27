@@ -49,6 +49,10 @@ class Pais {
         for (let entrada of datos.list){
             // coger la fecha sin la hora
             const fecha = entrada.dt_txt.split(' ')[0];
+            let fechaHoy = new Date().toLocaleDateString()
+            if (new Date(fecha).toLocaleDateString() === fechaHoy){
+                continue;
+            }
             // comprobar si es una nueva fecha
             if (medias[fecha]){
                 // sumar valor
@@ -89,7 +93,7 @@ class Pais {
         this.url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + this.latitud + "&lon=" + this.longitud + "&units=metric&lang=es&appid=" + this.apikey;
 
 
-        // la llamada a la api devuelve el tiempo cada 3 horas -> de momento vamos a hacer la media y sacar solo una prediccion por dia
+        // la llamada a la api devuelve el tiempo cada 3 horas, hacemos la media de las temperaturas para que sea mas fidedigno
         $.ajax({
             dataType: "json",
             url: this.url,

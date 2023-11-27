@@ -1,0 +1,50 @@
+/*Especificidad 001*/
+main {
+    width: 70vw;
+    height: 50vw;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0;
+    border: 0.14em solid #071330;
+}
+
+/*Especificidad 002*/
+main p {
+    margin: 0;
+    text-align: center;
+    border: 0.02em solid #071330;
+}
+
+/*Especificidad 011*/
+p[data-state="empty"] {
+    background-color: #071330;
+}
+/*Especificidad 011*/
+section[data-type=botonera] {
+    display: none;
+}
+
+@media (max-width: 799px){
+    /*Especificidad 011*/
+    section[data-type=botonera] {
+        display: flex;
+        gap: 1em;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-bottom: 2em;
+    }
+    /*Especificidad 012*/
+    section[data-type=botonera] h2 {
+        width: 100%;
+        text-align: center;
+    }
+    /*Especificidad 012*/
+    section[data-type=botonera] button {
+        width: calc(15% - 1em);
+        height: 4em;
+        text-align: center;
+        background-color: #071330;
+        color: #E8EEF2;
+    }
+}

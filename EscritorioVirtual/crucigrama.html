@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!-- Datos que describen el documento -->
+        <meta charset="UTF-8" />
+        <meta name="author" content="Patricia Garcia Fernandez"/>
+        <meta name="description" content="Documento con el juego Crucigrama matemático"/>
+        <meta name="keywords" content ="Juego, Crucigrama"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Escritorio Virtual - Memorion</title>
+        <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+        <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+        <link rel="stylesheet" type="text/css" href="estilo/crucigrama.css" />
+        <link rel="icon" href="multimedia/imagenes/favicon.ico" />
+        <script src="js/crucigrama.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- Datos con el contenido que aparece en el navegador -->
+    <header>
+        <h1>Escritorio Virtual</h1>
+        <nav>
+            <a href="index.html" accesskey="I" tabindex="1">Inicio</a>
+            <a href="sobremi.html" accesskey="S" tabindex="2">Sobre mi</a>
+            <a href="noticias.html" accesskey="N" tabindex="3">Noticias</a>
+            <a href="agenda.html" accesskey="A" tabindex="4">Agenda</a>
+            <a href="meteorología.html" accesskey="M" tabindex="5">Meteorología</a>
+            <a href="viajes.html" accesskey="V" tabindex="6">Viajes</a>
+            <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
+        </nav>
+    </header>
+    <h2>Crucigrama matemático</h2>
+    <article>
+        <h3>Salón de juegos</h3>
+        <p>Pulsa en los siguientes enlaces para acceder a los juegos especificados</p>
+        <ul>
+            <li><a href="memoria.html" accesskey="C" tabindex="8">Memorion</a></li>
+            <li><a href="sudoku.html" accesskey="K" tabindex="9">Sudoku</a></li>
+            <li><a href="crucigrama.html" accesskey="C" tabindex="10">Crucigrama matemático</a></li>
+        </ul>
+    </article>
+    <section data-type="botonera">
+        <h2>Botonera</h2>
+        <button onclick="crucigrama.introduceElement(1)">1</button>
+        <button onclick="crucigrama.introduceElement(2)">2</button>
+        <button onclick="crucigrama.introduceElement(3)">3</button>
+        <button onclick="crucigrama.introduceElement(4)">4</button>
+        <button onclick="crucigrama.introduceElement(5)">5</button>
+        <button onclick="crucigrama.introduceElement(6)">6</button>
+        <button onclick="crucigrama.introduceElement(7)">7</button>
+        <button onclick="crucigrama.introduceElement(8)">8</button>
+        <button onclick="crucigrama.introduceElement(9)">9</button>
+        <button onclick="crucigrama.introduceElement('*')">*</button>
+        <button onclick="crucigrama.introduceElement('+')">+</button>
+        <button onclick="crucigrama.introduceElement('-')">-</button>
+        <button onclick="crucigrama.introduceElement('/')">/</button>
+    </section>
+    <main>
+    </main>
+    </body>
+    <script>
+        let juego = new Crucigrama();
+        juego.paintMathword();
+        addEventListener("keydown", (event) => {
+            let regexp = /^[1-9+\-*\/]$/;   
+            let value =  event.key;
+            const isSelectedCell = $("p[data-state='clicked']");
+            const isValid = regexp.test(value);
+            if (!isSelectedCell){
+                window.alert("¡Debe seleccionar una celda antes!")
+            }
+            else if (isValid && isSelectedCell){
+                juego.introduceElement(value);
+            }
+            else {
+                window.alert("Solo se pueden introducir valores del 1-9 o +, -, * y /");
+            }
+        })
+    </script>
+</html>

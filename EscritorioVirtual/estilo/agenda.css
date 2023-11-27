@@ -13,7 +13,7 @@ body section article {
     border-radius: 1em;
     padding: 1em;
     max-width: 39em;
-    border: 2px solid #071330;
+    border: 0.3em solid #071330;
 }
 
 body button {
