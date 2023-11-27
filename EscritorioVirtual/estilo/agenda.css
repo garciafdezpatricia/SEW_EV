@@ -1,10 +1,11 @@
+/*Especificidad 012*/
 body section:first-of-type {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
 }
-
+/*Especificidad 003*/
 body section article {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -15,31 +16,31 @@ body section article {
     max-width: 39em;
     border: 0.3em solid #071330;
 }
-
+/*Especificidad 002*/
 body button {
     margin-bottom: 2em;
     cursor: pointer;
 }
-
+/*Especificidad 012*/
 article p[data-element="numero"] {
     grid-row: 1/1;
     grid-column: 1/1;
     margin: 0;
     align-self: end;
 }
-
+/*Especificidad 012*/
 article p[data-element="nombreCarrera"] {
     grid-row: 2/2;
     grid-column: 1/-1;
     width: 100%;
 }
-
+/*Especificidad 012*/
 article p[data-element="nombreCircuito"] {
     grid-row: 3/3;
     grid-column: 1/-1;
     width: 100%;
 }
-
+/*Especificidad 012*/
 article p[data-element="coordenadasCircuito"] {
     grid-row: 2/2;
     grid-column: 3/3;
@@ -49,7 +50,7 @@ article p[data-element="coordenadasCircuito"] {
     margin: 0;
     align-self: flex-start;
 }
-
+/*Especificidad 012*/
 article p[data-element="fecha"] {
     grid-row: 1/1;
     grid-column: 2/2;
@@ -58,7 +59,7 @@ article p[data-element="fecha"] {
     margin: 0;
     align-self: end;
 }
-
+/*Especificidad 012*/
 article p[data-element="lugar"] {
     grid-row: 1/1;
     grid-column: 3/3;
@@ -67,7 +68,7 @@ article p[data-element="lugar"] {
     margin: 0;
     align-self: end;
 }
-
+/*Especificidad 012*/
 article a[data-element="enlace"] {
     grid-row: 3/3;
     grid-column: 3/3;
@@ -79,39 +80,40 @@ article a[data-element="enlace"] {
 }
 
 @media (max-width: 465px){
+    /*Especificidad 003*/
     body section article {
         grid-template-rows: repeat(5, .5fr);
     }
-
+    /*Especificidad 012*/
     article p[data-element="numero"] {
         align-self: center;
     }
-
+    /*Especificidad 012*/
     article p[data-element="nombreCarrera"] {
         grid-row: 4/4;
     }
-
+    /*Especificidad 012*/
     article p[data-element="nombreCircuito"] {
         grid-row: 5/5;
     }
-
+    /*Especificidad 012*/
     article p[data-element="coordenadasCircuito"] {
         grid-row: 3/3;
         grid-column: 1/-1;
         text-align: start;
     }
-
+    /*Especificidad 012*/
     article p[data-element="fecha"] {
         grid-column: 2/-1;
         align-self: start;
     }
-
+    /*Especificidad 012*/
     article p[data-element="lugar"] {
         grid-row: 2/2;
         grid-column: 1/-1;
         text-align: start;
     }
-
+    /*Especificidad 012*/
     article a[data-element="enlace"] {
         grid-row: 5/5;
         grid-column: 3/-1;

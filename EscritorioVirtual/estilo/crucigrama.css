@@ -16,6 +16,11 @@ main p {
 }
 
 /*Especificidad 011*/
+p[data-state="clicked"] {
+    box-shadow: 0em 0em .5em #000000;
+    border: 0.14em solid #738FA7;
+}
+/*Especificidad 011*/
 p[data-state="empty"] {
     background-color: #071330;
 }
