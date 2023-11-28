@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico" />
+    <script src="js/noticias.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -25,7 +27,12 @@
             <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
         </nav>
     </header>
-    <h2>Noticias</h2>
-    <p>En desarrollo</p>
+    <main>
+        <h2>Noticias</h2>
+        <input type="file" onchange="noticias.readInputFile(this.files)">
+    </main>
+    <script>
+        let noticias = new Noticias();
+    </script>
 </body>
 </html>
