@@ -1,0 +1,47 @@
+/*Especificidad 011*/
+section[data-element="muro"] {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    padding-top: 1em;
+    gap: 1em;
+}
+/*Especificidad 012*/
+section article[data-element="noticia"] {
+    display: flex;
+    flex-direction: column;
+    border: 0.02em solid #071330;
+    background-color: #E8EEF2;
+    width: 80%;
+    padding: 1em;
+}
+/*Especificidad 013*/
+section article h3[data-element="titulo"] {
+    text-align: center;
+}
+/*Especificidad 013*/
+section article p[data-element="subtitulo"] {
+    text-align: center;
+    margin-top: 0;
+    width: 100%;
+}
+
+section article p[data-element="texto"] {
+    width: 100%;
+}
+/*Especificidad 013*/
+section article p[data-element="autor"] {
+    text-align: end;
+    width: 100%;
+}
+/*Especificidad 011*/
+section[data-element="nuevaNoticia"] {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3em;
+    gap: .5em;
+}
+/*Especificidad 002*/
+main button {
+    cursor: pointer;
+}

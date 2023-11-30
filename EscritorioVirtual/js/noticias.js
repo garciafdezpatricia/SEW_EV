@@ -20,11 +20,13 @@ class Noticias {
                 //La propiedad "result" es donde se almacena el contenido del archivo
                 //Esta propiedad solamente es válida cuando se termina la operación de lectura
                 contenidoArchivo = lector.result;
+                let section = $("<section>").attr("data-element", "muro");
+                $("section[data-element='nuevaNoticia']").before(section);
                 for (let noticia of contenidoArchivo.split("\n")){
                     let contenido = noticia.split("_");
 
-                    let article = $("<article>")
-                    let title = $("<p>").text(contenido[0]).attr("data-element", "titulo");
+                    let article = $("<article>").attr("data-element", "noticia");
+                    let title = $("<h3>").text(contenido[0]).attr("data-element", "titulo");
                     article.append(title);
                     let subtitle = $("<p>").text(contenido[1]).attr("data-element", "subtitulo");
                     article.append(subtitle);
@@ -33,7 +35,7 @@ class Noticias {
                     let author = $("<p>").text(contenido[3]).attr("data-element", "autor");
                     article.append(author);
 
-                    $("main").append(article);
+                    section.append(article);
                 }
             }      
             lector.readAsText(archivo);
@@ -41,6 +43,35 @@ class Noticias {
         else {
             errorArchivo.innerText = "Error : ¡¡¡ Archivo no válido !!!";
             }       
+    }
+
+    addNoticia() {
+        let titulo = $("input[data-element='nuevoTitulo']");
+        let subtitulo = $("input[data-element='nuevoSubtitulo']");
+        let texto = $("input[data-element='nuevoTexto']");
+        let autor = $("input[data-element='nuevoAutor']");
+
+        if (titulo.val() === "" || subtitulo.val() === "" || texto.val() === "" || autor.val() === ""){
+            window.alert("Introduce un titulo, subtitulo, texto y autor para la nueva noticia!");
+        }
+        else {
+            let article = $("<article>").attr("data-element", "noticia");
+            $("section[data-element='muro'] article:last-child").after(article);
+            let title = $("<h3>").text(titulo.val()).attr("data-element", "titulo");
+            article.append(title);
+            let subtitle = $("<p>").text(subtitulo.val()).attr("data-element", "subtitulo");
+            article.append(subtitle);
+            let text = $("<p>").text(texto.val()).attr("data-element", "texto");
+            article.append(text);
+            let author = $("<p>").text(autor.val()).attr("data-element", "autor");
+            article.append(author);
+
+            // reiniciar los inputs
+            titulo.val("");
+            subtitulo.val("");
+            texto.val("");
+            autor.val("");
+        }
     }
 }
 
