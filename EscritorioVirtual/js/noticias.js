@@ -75,10 +75,6 @@ class Noticias {
     }
 }
 
-// un mapa estatico es una imagen. un mapa dinamico es un frame no accesible. puede tener problemas de accesibilidad
-
-// titulo_subtitulo_texto_autor\n
-
 // http://localhost..../viajes.html -> NO, entrar con el protocolo seguro -> https://..../viajes.html
 
 // darle tamaño al contenedor del mapa (width: 100%; height: 50vw);

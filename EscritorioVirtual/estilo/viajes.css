@@ -1,4 +1,10 @@
-main img {
-    width: 65%;
+main section img {
+    width: 60%;
     height: auto;
+    margin-top: 4em;
+}
+
+#dinamico {
+    margin-top: 4em;
+    height: 60vw;
 }

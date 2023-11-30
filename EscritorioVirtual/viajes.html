@@ -29,12 +29,25 @@
             <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
         </nav>
     </header>
-    <main id="ubicacion">
+    <main>
         <h2>Viajes</h2>
-        <button onclick="viajes.getMapaEstaticoGoogle('ubicacion')">Obtener mapa estático</button>
+        <button onclick="viajes.getMapaEstaticoGoogle('estatico')">Obtener mapa estático</button>
+        <section id="estatico"></section>
+        <section id="dinamico"></section>
+        <section data-element="fileUpload">
+            <h3>Carga de archivos</h3>
+            <p>Cargae un archivo XML<input type="file" id="archivoTexto" accept=".xml" onchange="viajes.leerArchivoXML(this.files)"></p>
+        </section>
+        <section data-element="rutas">
+        </section>
     </main>
     <script>
         let viajes = new Viajes();
+        function initMap() {
+            viajes.getMapaDinamicoGoogle();
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOHT5uUmRE7AYHojYkyoz8xALNtuLMAF4&callback=initMap">
     </script>
 </body>
 </html>
