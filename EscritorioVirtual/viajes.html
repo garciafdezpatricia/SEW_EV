@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/favicon.ico" />
+    <script src="js/viajes.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Datos con el contenido que aparece en el navegador -->
@@ -26,7 +28,12 @@
             <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
         </nav>
     </header>
-    <h2>Viajes</h2>
-    <p>En desarrollo</p>
+    <main id="ubicacion">
+        <h2>Viajes</h2>
+        <button onclick="viajes.getMapaEstaticoGoogle('ubicacion')">Obtener mapa estático</button>
+    </main>
+    <script>
+        let viajes = new Viajes();
+    </script>
 </body>
 </html>
