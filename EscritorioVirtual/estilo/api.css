@@ -1,0 +1,55 @@
+section[data-element="listas"] {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 0em;
+    margin: 4em 0em;
+}
+
+section[data-element="to-do"], section[data-element="in-progress"], section[data-element="done"] {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 2em;
+    width: calc(100% / 3);
+    align-items: center;
+    border-left: 0.15em solid #0C4160;
+    border-top: 0.15em solid #0C4160;
+    min-height: 90vh;
+    background-color: #E8EEF2;
+}
+
+section[data-element="done"] {
+    border-right: 0.15em solid #0C4160;
+}
+
+h4 {
+    border-bottom: 0.15em solid #0C4160;
+    margin: 0;
+    padding: 1em 0em;
+    width: 100%;
+    text-align: center;
+    color: #E8EEF2;
+    background-color: #0C4160;
+}
+
+section article[data-element="tarea"] {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1em;
+    border: 0.15em solid #071330;
+    padding: 1em;
+    width: 14em;
+    background-color: #ffffff
+}
+
+section article[data-element="tarea"] p {
+    width: 100%;
+    margin: .4em 0em 0em;
+}
+
+section article[data-element="tarea"] p[data-element="titulo"] {
+    font-weight: 600;
+    padding-bottom: .8em;
+}

@@ -32,17 +32,25 @@
     <main>
         <h2>Viajes</h2>
         <button onclick="viajes.getMapaEstaticoGoogle('estatico')">Obtener mapa estático</button>
-        <section id="estatico"></section>
-        <section id="dinamico"></section>
+        <article id="estatico"></article>
+        <article id="dinamico"></article>
         <section data-element="fileUpload">
             <h3>Carga de archivos</h3>
-            <p>Cargae un archivo XML<input type="file" id="archivoTexto" accept=".xml" onchange="viajes.leerArchivoXML(this.files)"></p>
+            <p>Carga el archivo rutasEsquema.xml para ver su contenido: </p>
+            <input type="file" accept=".xml" onchange="viajes.leerArchivoXML(this.files)">
+            <p>Carga archivos KML para representarlos en el mapa dinámico</p>
+            <input type="file" accept=".kml"  onchange="viajes.leerArchivoKML(this.files)" multiple>
+            <p>Carga archivos SVG para representarlos en el documento</p>
+            <input type="file" accept=".svg"  onchange="viajes.leerArchivoSVG(this.files)" multiple>
+        </section>
+        <section data-element="archivosSVG">
         </section>
         <section data-element="rutas">
         </section>
     </main>
     <script>
         let viajes = new Viajes();
+        
         function initMap() {
             viajes.getMapaDinamicoGoogle();
         }
