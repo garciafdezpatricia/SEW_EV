@@ -1,0 +1,8 @@
+SEW_Validar HTML de TODO el sitio web_IN-PROGRESS
+SSII_Estudiar teoría de redes bayesianas y aprendizaje automático_TO-DO
+CVVS_Acabar reporting de incidencias_IN-PROGRESS
+CVVS_Acabar el seminario_IN-PROGRESS
+SIW_Acabar práctica de Apache Superset_DONE
+IPS_Acabar documentación_DONE
+DS_Estudiar todos los patrones de teoría_TO-DO
+SEW_Hacer bitácora del último seminario_TO-DO
