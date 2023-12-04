@@ -31,7 +31,7 @@ class Sudoku {
     }
 
     createStructure() {
-        let main = document.querySelector('main');
+        let main = document.querySelector('section');
         for (let i = 0; i < this.rows; i++){
             for (let j = 0; j < this.columns; j++) {
                 let celda = document.createElement('p')
@@ -45,7 +45,7 @@ class Sudoku {
 
     paintSudoku() {
         this.createStructure();
-        const main = document.querySelector('main');
+        const main = document.querySelector('section');
         const celdas = main.getElementsByTagName('p');
         for (let i = 0; i < this.rows; i++){
             for (let j = 0; j < this.columns; j++) {

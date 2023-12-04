@@ -99,10 +99,6 @@ class Pais {
             url: this.url,
             method: 'GET',
             success: (datos) => {      
-                    let titulo = $("<h3>").text("Predicciones");
-                    let intro = $("<p>").text("Estas son las predicciones para los próximos días en " + this.nombreCapital + ".");
-                    $("body").append(titulo);
-                    $("body").append(intro);
                     const medias = this.calcularMediaDiaria(datos);
                     const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
 
@@ -126,10 +122,12 @@ class Pais {
 
                     // pintar medias diarias
                     let seccion = $("<section>").attr("data-element", "meteoPrediction");
+                    let titulo = $("<h3>").text("Predicciones");
+                    seccion.append(titulo);
                     Object.keys(medias).forEach((fecha) => {
                         let article = $("<article>");
 
-                        let icono = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + medias[fecha].icono + "@2x.png")
+                        let icono = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + medias[fecha].icono + "@2x.png").attr("alt", "Icono del tiempo");
                         article.append(icono);
 
                         let temperatura = $("<p>").text(medias[fecha].tempMin + "ºC / " + medias[fecha].tempMax+ "ºC");
@@ -146,7 +144,7 @@ class Pais {
                         
                         let formattedDate = new Date(fecha);
                         let dia = diasSemana[formattedDate.getDay()]
-                        let date = $("<p>").text(dia + " " + new Date(fecha).toLocaleDateString());
+                        let date = $("<h4>").text(dia + " " + new Date(fecha).toLocaleDateString());
                         date.attr("data-element", "fecha");
                         article.append(date);              
                         

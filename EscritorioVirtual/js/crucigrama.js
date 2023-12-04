@@ -59,8 +59,8 @@ class Crucigrama {
             for (let j = 0; j < this.columns; j++) {
                 let position = i + "" + j;
                 let celda = $('<p>').attr("data-element", position);
-                // añadir la celda (el parrafo) al main
-                $("main").append(celda);
+                // añadir la celda (el parrafo)
+                $("article[data-element='crucigrama'").append(celda);
             }
             
         }

@@ -5,38 +5,39 @@ ESPECIFICIDAD [ID] [CLASES|ATRIBUTOS|:PSEUDOCLASES] [ELEMENTOS|::PSEUDOELEMENTOS
 */
 
 /*Especificidad 001*/
-main {
-    width: 50vw;
-    height: 50vw;
+main section:first-of-type {
+    width: 80vw;
+    min-height: 80vw;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     gap: 0;
     border: 0.14em solid #000000;
 }
 /*Especificidad 002*/
-main p {
+main section p[data-element] {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: .2em;
     margin: 0;
     border: 0.07em solid #5a5757;
+    width: initial;
 }
 /*Especificidad 012*/
 main p[data-state="blocked"] {
     background-color: #E8EEF2;
 }
 /*Especificidad 012*/
-main p[data-state="clicked"] {
+main section:first-of-type p[data-state="clicked"] {
     box-shadow: 0em 0em .5em #000000;
     border: 0.14em solid #738FA7;
 }
 /*Especificidad 012*/
-main p:nth-child(3n + 3){ 
+main section:first-of-type p:nth-child(3n + 3){ 
     border-right: 0.14em solid #000000;
 }
 /*Especificidad 022, 022*/
-main p:nth-child(n + 19):nth-child(-n + 27), 
-main p:nth-child(n + 46):nth-child(-n + 54) {
+main section:first-of-type p:nth-child(n + 19):nth-child(-n + 27), 
+main section:first-of-type p:nth-child(n + 46):nth-child(-n + 54) {
     border-bottom: 0.14em solid #000000;
 }

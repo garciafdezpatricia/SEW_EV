@@ -21,6 +21,8 @@ class Noticias {
                 //Esta propiedad solamente es válida cuando se termina la operación de lectura
                 contenidoArchivo = lector.result;
                 let section = $("<section>").attr("data-element", "muro");
+                let heading = $("<h3>").text("Muro de noticias");
+                section.append(heading);
                 $("section[data-element='nuevaNoticia']").before(section);
                 for (let noticia of contenidoArchivo.split("\n")){
                     let contenido = noticia.split("_");

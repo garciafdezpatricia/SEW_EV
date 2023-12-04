@@ -8,6 +8,8 @@ class Agenda {
 
     pintarDatos(datos) {
         let section = $("<section>").attr("data-element", "carreras");
+        let heading = $("<h3>").text("Carreras F1");
+        section.append(heading);
         const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
         //Extracción de los datos contenidos en el XML
         $('Race', datos).each( (index, carrera) => {
@@ -19,7 +21,7 @@ class Agenda {
             numCarrera.attr("data-element", "numero");
             article.append(numCarrera);
 
-            let nombreCarrera = $("<p>").text(carreraXML.find("RaceName").text());
+            let nombreCarrera = $("<h4>").text(carreraXML.find("RaceName").text());
             nombreCarrera.attr("data-element", "nombreCarrera");
             article.append(nombreCarrera)
 

@@ -1,7 +1,7 @@
 /*Especificidad 001*/
-main {
+main article[data-element='crucigrama'] {
     width: 70vw;
-    height: 50vw;
+    min-height: 50vw;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     gap: 0;
@@ -9,7 +9,7 @@ main {
 }
 
 /*Especificidad 002*/
-main p {
+main article[data-element='crucigrama'] p {
     margin: 0;
     text-align: center;
     border: 0.02em solid #071330;
