@@ -67,8 +67,12 @@
             let value =  event.key;
             const isSelectedCell = $("p[data-state='clicked']");
             const isValid = regexp.test(value);
+            // algunos teclados no tienen los operadores y tienen que ponerlos con shift
             if (!isSelectedCell){
                 window.alert("¡Debe seleccionar una celda antes!")
+            }
+            else if (value === "Shift"){
+                return;
             }
             else if (isValid && isSelectedCell){
                 crucigrama.introduceElement(value);

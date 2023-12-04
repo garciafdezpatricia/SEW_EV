@@ -5,6 +5,7 @@ class Crucigrama {
     init_time;
     end_time;
     boardInArray;
+    ultimoClicado = null;
 
     constructor() {
         // representa el tablero en dos dimensiones
@@ -15,13 +16,13 @@ class Crucigrama {
         }
 
         //facil
-        // this.board = "4,*,.,=,12,#,#,#,5,#,#,*,#,/,#,#,#,*,4,-,.,=,.,#,15,#,.,*,#,=,#,=,#,/,#,=,.,#,3,#,4,*,.,=,20,=,#,#,#,#,#,=,#,#,8,#,9,-,.,=,3,#,.,#,#,-,#,+,#,#,#,*,6,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,6,#,8,*,.,=,16";
+        this.board = "4,*,.,=,12,#,#,#,5,#,#,*,#,/,#,#,#,*,4,-,.,=,.,#,15,#,.,*,#,=,#,=,#,/,#,=,.,#,3,#,4,*,.,=,20,=,#,#,#,#,#,=,#,#,8,#,9,-,.,=,3,#,.,#,#,-,#,+,#,#,#,*,6,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,6,#,8,*,.,=,16";
         
         //medio
         // this.board = "12,*,.,=,36,#,#,#,15,#,#,*,#,/,#,#,#,*,.,-,.,=,.,#,55,#,.,*,#,=,#,=,#,/,#,=,.,#,15,#,9,*,.,=,45,=,#,#,#,#,#,=,#,#,72,#,20,-,.,=,11,#,.,#,#,-,#,+,#,#,#,*,56,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,12,#,16,*,.,=,32";
         
         // dificil
-        this.board = "4,.,.,=,36,#,#,#,25,#,#,*,#,.,#,#,#,.,.,-,.,=,.,#,15,#,.,*,#,=,#,=,#,.,#,=,.,#,18,#,6,*,.,=,30,=,#,#,#,#,#,=,#,#,56,#,9,-,.,=,3,#,.,#,#,*,#,+,#,#,#,*,20,.,.,=,18,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,18,#,24,.,.,=,72";
+        // this.board = "4,.,.,=,36,#,#,#,25,#,#,*,#,.,#,#,#,.,.,-,.,=,.,#,15,#,.,*,#,=,#,=,#,.,#,=,.,#,18,#,6,*,.,=,30,=,#,#,#,#,#,=,#,#,56,#,9,-,.,=,3,#,.,#,#,*,#,+,#,#,#,*,20,.,.,=,18,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,18,#,24,.,.,=,72";
         
         this.start();
     }
@@ -77,9 +78,7 @@ class Crucigrama {
                 let p = $("p[data-element=" + i + j + "]");
                 // si el valor es 0 -> añadir evento click
                 if (value === 0){
-                   p.click(function(){
-                    p.attr("data-state", "clicked");
-                   });
+                   p.on("click", this.clickListener.bind(p, this));
                 }
                 else{
                     // si es -1, son las casillas que no se usan 
@@ -99,6 +98,15 @@ class Crucigrama {
         }
         // comezar a grabar el tiempo de inicio
         this.init_time = new Date();
+    }
+
+    clickListener(crucigrama) {
+        if (crucigrama.ultimoClicado){
+            $(crucigrama.ultimoClicado).attr("data-state", "");
+        }
+        // el this hace referencia al evento (el parrafo)
+        $(this).attr("data-state", "clicked");
+        crucigrama.ultimoClicado = this;
     }
 
     check_win_condition() {
@@ -202,7 +210,7 @@ class Crucigrama {
             }
         }
         
-        // comprobar si es correcto en vertixcal y horizontal
+        // comprobar si es correcto en vertical y horizontal
         if (expression_col && expression_row){
             celda.text(value);
             celda.attr("data-state", "correct");

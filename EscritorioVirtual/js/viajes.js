@@ -114,15 +114,19 @@ class Viajes {
 
 
     leerArchivoSVG(files) {
+        let heading = $("<h4>").text("Perfiles SVG");
+        let section = $("<section>").attr("data-element", "archivosSVG");
+        section.append(heading);
         for (let i = 0; i < files.length; i++){
             let file = files[i];
             let lector = new FileReader();
             lector.onload = function (evento) {
                 let svg = $(lector.result);
-                $("section[data-element='archivosSVG']").append(svg);
+                section.append(svg);
             }
             lector.readAsText(file);
         }
+        $("main").append(section);
     }
 
     leerArchivoXML(files) {
@@ -135,10 +139,9 @@ class Viajes {
                 lector.readAsText(archivo);
                 lector.onload = function(evento) {
                     let xml = $(lector.result);
-                    if ($('ruta', xml).length > 0){
-                        let titleRutas = $("<h3>").text("Rutas");
-                        $("section[data-element='rutas']").append(titleRutas);
-                    }
+                    let seccion = $("<section>").attr("data-element", "rutas");
+                    let titleRutas = $("<h3>").text("Rutas");
+                    seccion.append(titleRutas);
                     $('ruta', xml).each( (index, ruta) => {
                         const rutaXML = $(ruta);
             
@@ -234,7 +237,8 @@ class Viajes {
                         })
                         article.append(seccionHitos);
 
-                        $("section[data-element='rutas']").append(article);
+                        seccion.append(article);
+                        $("main").append(seccion);
                     });
                 }
             }

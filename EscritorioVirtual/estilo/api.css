@@ -49,7 +49,6 @@ section article[data-element="tarea"] p {
     margin: .4em 0em 0em;
 }
 
-section article[data-element="tarea"] p[data-element="titulo"] {
-    font-weight: 600;
-    padding-bottom: .8em;
+section article[data-element="tarea"] h5[data-element="titulo"] {
+    margin: .5em 0em;
 }

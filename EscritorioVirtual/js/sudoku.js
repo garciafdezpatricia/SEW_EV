@@ -3,6 +3,7 @@ class Sudoku {
     rows = 9;
     columns = 9;
     boardInArray;
+    ultimoClicado = null;
 
     constructor() {
         this.board = "3.4.69.5....27...49.2..4....2..85.198.9...2.551.39..6....8..5.32...46....4.75.9.6";
@@ -54,7 +55,7 @@ class Sudoku {
                 let value = this.boardInArray[i][j];
                 let p = celdas[position];
                 if (value === 0){
-                   p.addEventListener("click", this.clickListener)
+                   p.addEventListener("click", this.clickListener.bind(p, this))
                 }
                 else{
                     p.textContent = value;
@@ -64,9 +65,13 @@ class Sudoku {
         }
     }
 
-    clickListener() {
+    clickListener(sudoku) {
+        if (sudoku.ultimoClicado){
+            sudoku.ultimoClicado.dataset.state = "";
+        }
         // el this hace referencia al evento (el parrafo)
         this.dataset.state = "clicked";
+        sudoku.ultimoClicado = this;
     }
 
     introduceNumber(value) {
