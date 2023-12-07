@@ -5,7 +5,11 @@ main article[data-element='crucigrama'] {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     gap: 0;
-    border: 0.14em solid #071330;
+}
+
+main article[data-element='crucigrama'] h3 {
+    grid-column: 1/-1;
+    grid-row: 1/1;
 }
 
 /*Especificidad 002*/
@@ -25,7 +29,7 @@ p[data-state="clicked"] {
 }
 /*Especificidad 011*/
 p[data-state="empty"] {
-    background-color: #071330;
+    background-color: #071330; /*Hereda el color del primer plano de body (no se ve porque son las celdas que tienen que estar todas pintadas) */
 }
 /*Especificidad 011*/
 section[data-type=botonera] {
@@ -35,7 +39,7 @@ section[data-type=botonera] {
 @media (max-width: 799px){
     /*Especificidad 011*/
     section[data-type=botonera] {
-        display: flex;
+        display: flex; /*Se redefine el display para que la botonera se muestre en los tamaños de movil y tablet */
         gap: 1em;
         justify-content: center;
         align-items: center;

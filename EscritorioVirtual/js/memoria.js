@@ -110,7 +110,6 @@ class Memoria {
     }
 
     unflipCards() {
-        console.log("cartas no iguales")
         this.lockBoard = true;
         const flippedCards = document.querySelectorAll("article[data-state='flip']");
         setTimeout(() => {
@@ -129,14 +128,12 @@ class Memoria {
     }
 
     checkForMatch() {
-        console.log("check que sean iguales")
         this.firstCard.getAttribute('data-element') === this.secondCard.getAttribute('data-element') ? 
             this.disableCards() 
             : this.unflipCards();
     }
 
     disableCards() {
-        console.log("cartas iguales")
         // modificar el valor del atributo data-state a revealed en firstCard y secondCard
         this.firstCard.dataset.state = 'revealed';
         this.secondCard.dataset.state = 'revealed';

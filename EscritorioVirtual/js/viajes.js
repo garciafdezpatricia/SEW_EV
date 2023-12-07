@@ -121,10 +121,10 @@ class Viajes {
             let file = files[i];
             let lector = new FileReader();
             lector.onload = function (evento) {
-                // let svg = $(lector.result);
-                // section.append(svg);
-                let xml = $(lector.result);
-                let svg = xml.find("svg").attr("version", "1.1");
+                let xml = $.parseXML(lector.result);
+                // cambiarle la version al svg para que no de error el validador
+                let svg = $(xml).find("svg");
+                svg.attr("version", "1.1");
                 section.append(svg);
             }
             lector.readAsText(file);

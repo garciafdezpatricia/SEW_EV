@@ -10,7 +10,7 @@ body section article {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(3, .5fr);
-    background-color: #E8EEF2;
+    background-color: #E8EEF2; /*Hereda el color del primer plano de body */
     border-radius: 1em;
     padding: 1em;
     max-width: 39em;
@@ -82,41 +82,41 @@ article a[data-element="enlace"] {
 @media (max-width: 465px){
     /*Especificidad 003*/
     body section article {
-        grid-template-rows: repeat(5, .5fr);
+        grid-template-rows: repeat(5, .5fr); /*Redefinicion por media query */
     }
     /*Especificidad 012*/
     article p[data-element="numero"] {
-        align-self: center;
+        align-self: center; /*Redefinicion por media query */
     }
     /*Especificidad 012*/
     article h4[data-element="nombreCarrera"] {
-        grid-row: 4/4;
+        grid-row: 4/4; /*Redefinicion por media query */
     }
     /*Especificidad 012*/
     article p[data-element="nombreCircuito"] {
-        grid-row: 5/5;
+        grid-row: 5/5; /*Redefinicion por media query */
     }
     /*Especificidad 012*/
     article p[data-element="coordenadasCircuito"] {
-        grid-row: 3/3;
-        grid-column: 1/-1;
-        text-align: start;
+        grid-row: 3/3; /*Redefinicion por media query */
+        grid-column: 1/-1; /*Redefinicion por media query */
+        text-align: start; /*Redefinicion por media query */
     }
     /*Especificidad 012*/
     article p[data-element="fecha"] {
-        grid-column: 2/-1;
-        align-self: start;
+        grid-column: 2/-1; /*Redefinicion por media query */
+        align-self: start; /*Redefinicion por media query */
     }
     /*Especificidad 012*/
     article p[data-element="lugar"] {
-        grid-row: 2/2;
-        grid-column: 1/-1;
-        text-align: start;
+        grid-row: 2/2; /*Redefinicion por media query */
+        grid-column: 1/-1; /*Redefinicion por media query */
+        text-align: start; /*Redefinicion por media query */
     }
     /*Especificidad 012*/
     article a[data-element="enlace"] {
-        grid-row: 5/5;
-        grid-column: 3/-1;
-        align-self: end;
+        grid-row: 5/5; /*Redefinicion por media query */
+        grid-column: 3/-1; /*Redefinicion por media query */
+        align-self: end; /*Redefinicion por media query */
     }
 }

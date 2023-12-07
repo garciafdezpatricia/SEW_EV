@@ -12,7 +12,7 @@ class ListaTareas {
             for (let i = 0; i < this.tasks.length; i++) {
                 let contenido = this.tasks[i];
                 let article = $("<article>").attr("data-element", "tarea").attr('draggable', 'true');
-                let title = $("<h5>").text(contenido[0]).attr("data-element", "titulo");
+                let title = $("<h6>").text(contenido[0]).attr("data-element", "titulo");
                 article.append(title);
                 let text = $("<p>").text(contenido[1]).attr("data-element", "texto");
                 article.append(text);
@@ -54,7 +54,7 @@ class ListaTareas {
             tarea = tarea.trim();
             let article = $("<article>").attr("data-element", "tarea").attr('draggable', 'true');
             let contenido = tarea.split("_");
-            let title = $("<h5>").text(contenido[0]).attr("data-element", "titulo");
+            let title = $("<h6>").text(contenido[0]).attr("data-element", "titulo");
             article.append(title);
             let text = $("<p>").text(contenido[1]).attr("data-element", "texto");
             article.append(text);
@@ -141,7 +141,7 @@ class ListaTareas {
         tareas.each((index, tarea ) => {
             let nodoTarea = $(tarea);
             const taskInfo = [
-                nodoTarea.find('h5[data-element="titulo"]').text(),
+                nodoTarea.find('h6[data-element="titulo"]').text(),
                 nodoTarea.find('p[data-element="texto"]').text(),
                 nodoTarea.attr('data-state')
             ];

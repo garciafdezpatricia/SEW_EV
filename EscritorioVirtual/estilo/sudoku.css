@@ -11,7 +11,11 @@ main section:first-of-type {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     gap: 0;
-    border: 0.14em solid #000000;
+    margin-bottom: 1em;
+}
+
+main section:first-of-type h2 {
+    grid-column: 1/-1;
 }
 /*Especificidad 002*/
 main section p[data-element] {
@@ -26,6 +30,7 @@ main section p[data-element] {
 /*Especificidad 012*/
 main p[data-state="blocked"] {
     background-color: #E8EEF2;
+    /*No se establece color de primer plano porque se hereda de body*/
 }
 /*Especificidad 012*/
 main section:first-of-type p[data-state="clicked"] {
@@ -33,11 +38,21 @@ main section:first-of-type p[data-state="clicked"] {
     border: 0.14em solid #738FA7;
 }
 /*Especificidad 012*/
-main section:first-of-type p:nth-child(3n + 3){ 
+main section:first-of-type p:nth-child(3n + 4) { 
     border-right: 0.14em solid #000000;
 }
 /*Especificidad 022, 022*/
-main section:first-of-type p:nth-child(n + 19):nth-child(-n + 27), 
-main section:first-of-type p:nth-child(n + 46):nth-child(-n + 54) {
+main section:first-of-type p:nth-child(n + 20):nth-child(-n + 28), 
+main section:first-of-type p:nth-child(n + 47):nth-child(-n + 55),
+main section:first-of-type p:nth-last-child(-n + 9) {
     border-bottom: 0.14em solid #000000;
+}
+
+/*Especificidad 012*/
+main section:first-of-type p:nth-child(9n + 2) { 
+    border-left: 0.14em solid #000000;
+}
+
+main section:first-of-type p:nth-child(-n+10) {
+    border-top: 0.14em solid #000000;
 }

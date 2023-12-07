@@ -19,7 +19,7 @@ section:first-of-type article {
     flex-basis: 20%;
     display: flex;
     flex-direction: column;
-    background-color: #738FA7;
+    background-color: #738FA7; /*El color de primer plano se hereda de body */
     transform-style: preserve-3d;
     transition: transform 0.5s;
     align-items: center;
@@ -43,7 +43,6 @@ section:first-of-type article img {
     object-fit: cover;
     transform: rotateY(180deg);
     backface-visibility: hidden;
-    transform: rotateY(180deg);
 }
 /*Especificidad 013*/
 section:first-of-type article h3 {

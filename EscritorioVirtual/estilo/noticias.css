@@ -12,6 +12,7 @@ section article[data-element="noticia"] {
     flex-direction: column;
     border: 0.02em solid #071330;
     background-color: #E8EEF2;
+    /*El color de primer plano se hereda de body*/
     width: 80%;
     padding: 1em;
 }

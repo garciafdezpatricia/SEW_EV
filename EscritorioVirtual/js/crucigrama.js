@@ -126,14 +126,13 @@ class Crucigrama {
         // la diferencia esta en milisegundos
         let dif = this.end_time - this.init_time;
         // calcular segundos
-        let segundos = Math.floor(dif / 1000);
+        let segundos = Math.floor(dif / 1000) % 60;
         // calcular minutos
-        let minutos = Math.floor(segundos / 60);
+        let minutos = Math.floor(dif / (1000 * 60)) % 60;
         // calcular horas
-        let horas = Math.floor(minutos / 60);
+        let horas = Math.floor(dif / (1000 * 60 * 60));
         // retornar el tiempo en horas:minutos:segundos
         return horas + ":" + minutos + ":" + segundos;
-
     }
 
     introduceElement(value) {
@@ -217,7 +216,7 @@ class Crucigrama {
         }
         else{
             this.boardInArray[fila][columna] = 0;
-            // TODO: valor inicial de data-state?? -> remove el data-state
+            celda.removeAttr("data-state");
         }
 
         if (this.check_win_condition()){
