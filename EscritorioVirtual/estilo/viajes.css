@@ -85,10 +85,10 @@ section[data-element="archivosSVG"] h4 {
     text-align: center;
 }
 
-/* section[data-element="archivosSVG"] polyline {
+section[data-element="archivosSVG"] polyline {
     transform: scale(0.6);
 }
 
 section[data-element="archivosSVG"] text {
     transform: scale(0.6);
-} */
+}

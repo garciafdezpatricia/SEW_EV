@@ -22,11 +22,11 @@ class Agenda {
             article.append(numCarrera);
 
             let nombreCarrera = $("<h4>").text(carreraXML.find("RaceName").text());
-            nombreCarrera.attr("data-element", "nombreCarrera");
+            nombreCarrera.attr("data-element", "nombreCarrera").attr("lang", "en");
             article.append(nombreCarrera)
 
             let nombreCircuito = $("<p>").text(carreraXML.find("CircuitName").text());
-            nombreCircuito.attr("data-element", "nombreCircuito");
+            nombreCircuito.attr("data-element", "nombreCircuito").attr("lang", "en");
             article.append(nombreCircuito);
 
             let coordenadasCircuito = $("<p>").text(carreraXML.find("Location").attr("lat") + ", " + carreraXML.find("Location").attr("long"));
@@ -39,7 +39,7 @@ class Agenda {
             article.append(fecha);
 
             let hora = $("<p>").text(carreraXML.find("Locality").text() + ", " + carreraXML.find("Country").text() );
-            hora.attr("data-element", "lugar");
+            hora.attr("data-element", "lugar").attr("lang", "en");
             article.append(hora);
 
             let enlace = $("<a>").attr("href", carreraXML.find("Circuit").attr("url")).attr("data-element", "enlace").text("+Ver más de este circuito")

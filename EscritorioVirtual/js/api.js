@@ -141,7 +141,7 @@ class ListaTareas {
         tareas.each((index, tarea ) => {
             let nodoTarea = $(tarea);
             const taskInfo = [
-                nodoTarea.find('p[data-element="titulo"]').text(),
+                nodoTarea.find('h5[data-element="titulo"]').text(),
                 nodoTarea.find('p[data-element="texto"]').text(),
                 nodoTarea.attr('data-state')
             ];

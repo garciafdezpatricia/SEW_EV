@@ -151,11 +151,11 @@ section[data-element="meteoPrediction"] article {
     display: grid;
     grid-template-columns: 2.5fr 1fr;
     grid-template-rows: repeat(3, .4fr);
-    background-color: #E8EEF2;
+    background-color: #071330;
     border-radius: 1em;
     padding-inline: 1em;
     padding-bottom: .7em;
-    color: #071330;
+    color: #E8EEF2;
 }
 
 section[data-element="meteoPrediction"] article img {
@@ -164,6 +164,7 @@ section[data-element="meteoPrediction"] article img {
     width: 55%;
     height: auto;
     justify-self: end;
+    filter: brightness(4);
 }
 
 section[data-element="meteoPrediction"] article h4[data-element="fecha"] {
