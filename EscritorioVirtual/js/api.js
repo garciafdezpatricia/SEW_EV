@@ -6,6 +6,7 @@ class ListaTareas {
         this.loadFromStorage()
     }
 
+    // para cargar desde el web storage
     loadFromStorage() {
         if (localStorage.getItem('tasks')){
             this.tasks = JSON.parse(localStorage.getItem('tasks'));
