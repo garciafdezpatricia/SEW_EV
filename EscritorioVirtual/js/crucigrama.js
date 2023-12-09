@@ -6,8 +6,12 @@ class Crucigrama {
     end_time;
     boardInArray;
     ultimoClicado = null;
+    nivel;
 
     constructor() {
+        // esto es para el add evnet listener, para que se pueda quitar cuando el crucigrama se acaba y se pueda rellenar el form sin alerts
+        this.boundHandleKeydown = this.handleKeydown.bind(this)
+
         // representa el tablero en dos dimensiones
         this.boardInArray = [];
         // inicializar tablero
@@ -17,12 +21,15 @@ class Crucigrama {
 
         //facil
         this.board = "4,*,.,=,12,#,#,#,5,#,#,*,#,/,#,#,#,*,4,-,.,=,.,#,15,#,.,*,#,=,#,=,#,/,#,=,.,#,3,#,4,*,.,=,20,=,#,#,#,#,#,=,#,#,8,#,9,-,.,=,3,#,.,#,#,-,#,+,#,#,#,*,6,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,6,#,8,*,.,=,16";
+        this.nivel = "Fácil";
         
         //medio
         // this.board = "12,*,.,=,36,#,#,#,15,#,#,*,#,/,#,#,#,*,.,-,.,=,.,#,55,#,.,*,#,=,#,=,#,/,#,=,.,#,15,#,9,*,.,=,45,=,#,#,#,#,#,=,#,#,72,#,20,-,.,=,11,#,.,#,#,-,#,+,#,#,#,*,56,/,.,=,.,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,12,#,16,*,.,=,32";
+        // this.nivel = "Intermedio";
         
         // dificil
         // this.board = "4,.,.,=,36,#,#,#,25,#,#,*,#,.,#,#,#,.,.,-,.,=,.,#,15,#,.,*,#,=,#,=,#,.,#,=,.,#,18,#,6,*,.,=,30,=,#,#,#,#,#,=,#,#,56,#,9,-,.,=,3,#,.,#,#,*,#,+,#,#,#,*,20,.,.,=,18,#,#,#,.,#,#,=,#,=,#,#,#,=,#,#,18,#,24,.,.,=,72";
+        // this.nivel = "Difícil";
         
         this.start();
     }
@@ -223,6 +230,56 @@ class Crucigrama {
             this.end_time = new Date();
             let result = this.calculate_date_difference();
             window.alert(`Has completado el crucigrama en un módico tiempo de ${result}`)
+            this.createRecordForm();
+            removeEventListener("keydown", this.boundHandleKeydown);
         }
+    }
+
+    calculateSeconds() {
+        // la diferencia esta en milisegundos
+        let dif = this.end_time - this.init_time;
+        // calcular segundos
+        return Math.floor(dif / 1000);
+    }
+
+    handleKeydown(event) {
+        let regexp = /^[1-9+\-*\/]$/;   
+        let value =  event.key;
+        const isSelectedCell = $("p[data-state='clicked']");
+        const isValid = regexp.test(value);
+        // algunos teclados no tienen los operadores y tienen que ponerlos con shift
+        if (!isSelectedCell){
+            window.alert("¡Debe seleccionar una celda antes!")
+        }
+        else if (value === "Shift"){
+            return;
+        }
+        else if (isValid && isSelectedCell){
+            this.introduceElement(value);
+        }
+        else {
+            window.alert("Solo se pueden introducir valores del 1-9 o +, -, * y /");
+        }
+    }
+
+    createRecordForm() {
+        // añadir con jquery un formulario debajo del crucigrama cuando se haya completado
+        let form = $("<form>").attr("action", "#").attr("method", "post").attr("name", "record");
+        let nombre = $("<input>").attr("type", "text").attr("name", "nombre").attr("placeholder", "Nombre");
+        form.append(nombre);
+
+        let apellidos = $("<input>").attr("type", "text").attr("name", "apellidos").attr("placeholder", "Apellidos");
+        form.append(apellidos);
+
+        let nivel = $("<input>").attr("type", "text").attr("name", "nivel").attr("value", `${this.nivel}`).attr("readonly", "true");
+        form.append(nivel);
+
+        let tiempo = $("<input>").attr("type", "text").attr("name", "tiempo").attr("value", `${this.calculateSeconds()}`).attr("readonly", "true");
+        form.append(tiempo);
+
+        let boton = $("<input>").attr("type", "submit").attr("value", "Guardar");
+        form.append(boton);
+
+        $('article[data-element="crucigrama"]').after(form);
     }
 }

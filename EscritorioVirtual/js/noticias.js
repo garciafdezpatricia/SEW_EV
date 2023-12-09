@@ -23,6 +23,7 @@ class Noticias {
                 let section = $("<section>").attr("data-element", "muro");
                 let heading = $("<h3>").text("Muro de noticias");
                 section.append(heading);
+                // la seccion va before que la nuevaNoticia
                 $("section[data-element='nuevaNoticia']").before(section);
                 for (let noticia of contenidoArchivo.split("\n")){
                     let contenido = noticia.split("_");

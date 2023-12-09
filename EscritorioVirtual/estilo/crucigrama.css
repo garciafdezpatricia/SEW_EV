@@ -36,6 +36,14 @@ section[data-type=botonera] {
     display: none;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: .7em;
+    padding: 3em 0em;
+}
+
 @media (max-width: 799px){
     /*Especificidad 011*/
     section[data-type=botonera] {
