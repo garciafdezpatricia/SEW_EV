@@ -10,6 +10,7 @@
         public string $nivel;
         public string $tiempo;
         public string $clasificacion = "";
+        public string $mensaje = "";
 
         public function __construct() {
             $this->server = "localhost";
@@ -22,7 +23,7 @@
             $db = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
 
             if ($db->connect_errno) {
-                echo "Error de conexión: " . $db->connect_error;
+                $this->mensaje = "Error de conexión: " . $db->connect_error;
             } else {
                 $consultapre = $db->prepare("INSERT INTO registro (nombre, apellidos, nivel, tiempo) VALUES (?,?,?,?);");
                 $consultapre->bind_param('ssss', $this->nombrePersona, $this->apellidosPersona, $this->nivel, $this->tiempo);
@@ -30,7 +31,7 @@
                 $consultapre->execute();
                 // mostrar mensaje
                 if ($consultapre->affected_rows > 0) {
-                    echo "<p>Resultado añadido!</p>";
+                    $this->mensaje = "<p>Resultado añadido!</p>";
                 }
                 $consultapre->close();
                 $db->close();
@@ -43,17 +44,24 @@
             if ($db->connect_errno) {
                 echo "Error de conexión: " . $db->connect_error;
             } else {
-                $consultapre = $db->prepare("SELECT * FROM registro WHERE nivel LIKE ?;");
+                $consultapre = $db->prepare("SELECT * FROM registro WHERE nivel LIKE ? ORDER BY tiempo ASC;");
                 $consultapre->bind_param('s', $this->nivel);
                 //ejecutar sentencia
                 $consultapre->execute();
                 $resultado = $consultapre->get_result();
                 if ($resultado->fetch_assoc() != NULL) {
                     $resultado->data_seek(0); // se posiciona al inicio del resultado de la búsqueda
-                    $this->clasificacion .= "<ul>";
-                    $this->clasificacion .= "<li>". 'Nombre' ." - ". 'Apellidos' . " - " . 'Nivel'. " - ". 'Tiempo' . "</li>";
+                    $this->clasificacion .= "<ol>";
                     while ($fila = $resultado->fetch_assoc()){
-                        $this->clasificacion .= "<li>". $fila['nombre'] . " - " . $fila['apellidos']." - ". $fila['nivel']." - ". $fila['tiempo'] ."</li>";
+                        $segundosTotales = intval($fila["tiempo"]);
+                        // calcular segundos
+                        $segundos = floor($segundosTotales % 60);
+                        // calcular minutos
+                        $minutos = floor(($segundosTotales % 3600) / 60);
+                        // calcular horas
+                        $horas = floor($segundosTotales / (3600));
+                        // guardar lista
+                        $this->clasificacion .= "<li>". $fila['nombre'] . " - " . $fila['apellidos']." - ". $fila['nivel']." - ". $horas . ":" . $minutos . ":" . $segundos ."</li>";
                     }
                     $this->clasificacion .= "</ul>";
                 }
@@ -144,6 +152,7 @@
         <article data-element="crucigrama">
             <h3>Crucigrama</h3>
         </article>
+        <?php echo $registro->mensaje ?>
         <?php $registro->mostrarClasificacion() ?>
     </main>
     <script>
