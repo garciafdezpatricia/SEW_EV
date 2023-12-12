@@ -8,7 +8,7 @@ main article[data-element='crucigrama'] {
 }
 
 main article[data-element='crucigrama'] h3 {
-    grid-column: 1/-1;
+    grid-column: 1/-1; /*Tengo que redefinir el h3 porque necesito que ocupe todo, no quiero que sea parte del crucigrama*/
     grid-row: 1/1;
 }
 

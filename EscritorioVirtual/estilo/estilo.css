@@ -257,4 +257,8 @@ section[data-element="meteoPrediction"] article p[data-element="viento"] {
     audio {
         width: 100%; /*Redefiniendo el width del 60%*/
     }
+    /*Especificidad 001*/
+    body {
+        min-height: 100vh;
+    }
 }

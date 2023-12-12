@@ -78,6 +78,6 @@ class Noticias {
     }
 }
 
-// http://localhost..../viajes.html -> NO, entrar con el protocolo seguro -> https://..../viajes.html
+// http://localhost..../viajes.php -> NO, entrar con el protocolo seguro -> https://..../viajes.php
 
 // darle tamaño al contenedor del mapa (width: 100%; height: 50vw);

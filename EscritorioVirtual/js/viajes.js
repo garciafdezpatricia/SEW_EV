@@ -3,6 +3,7 @@ class Viajes {
     apikey = "AIzaSyBOHT5uUmRE7AYHojYkyoz8xALNtuLMAF4";
     mapaGeoposicionado;
     colorIndex = 0;
+    curSlide = 3;
 
     constructor() {
         navigator.geolocation.getCurrentPosition(this.procesarPosicion.bind(this), this.verErrores.bind(this));
@@ -17,6 +18,41 @@ class Viajes {
         this.precisionAltitud = posicion.coords.altitudeAccuracy;
         this.rumbo            = posicion.coords.heading;
         this.velocidad        = posicion.coords.speed;
+    }
+
+    carruselSiguiente() {
+        let slides = document.querySelectorAll("img[data-element='carruselImg']");
+        // maximum number of slides
+        let maxSlide = slides.length - 1;
+        // check if current slide is the last and reset current slide
+        if (this.curSlide === maxSlide) {
+            this.curSlide = 0;
+        } else {
+            this.curSlide++;
+        }
+        //   move slide by -100%
+        slides.forEach((slide, indx) => {
+            var trans = 100 * (indx - this.curSlide);
+            $(slide).css('transform', 'translateX(' + trans + '%)')
+        });
+    }
+
+    carruselAnterior() {
+        let slides = document.querySelectorAll("img[data-element='carruselImg']");
+        // maximum number of slides
+        let maxSlide = slides.length - 1;
+        // check if current slide is the first and reset current slide to last
+        if (this.curSlide === 0) {
+            this.curSlide = maxSlide;
+        } else {
+            this.curSlide--;
+        }
+
+        //   move slide by 100%
+        slides.forEach((slide, indx) => {
+            var trans = 100 * (indx - this.curSlide);
+            $(slide).css('transform', 'translateX(' + trans + '%)')
+        });
     }
 
     verErrores(error){

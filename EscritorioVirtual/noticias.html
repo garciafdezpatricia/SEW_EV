@@ -24,7 +24,7 @@
             <a href="noticias.html" accesskey="N" tabindex="3">Noticias</a>
             <a href="agenda.html" accesskey="A" tabindex="4">Agenda</a>
             <a href="meteorología.html" accesskey="M" tabindex="5">Meteorología</a>
-            <a href="viajes.html" accesskey="V" tabindex="6">Viajes</a>
+            <a href="viajes.php" accesskey="V" tabindex="6">Viajes</a>
             <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
         </nav>
     </header>
@@ -33,14 +33,14 @@
         <input type="file" onchange="noticias.readInputFile(this.files)">
         <section data-element="nuevaNoticia">
             <h3>Nueva noticia</h3>
-            <label>Introduce el título de la noticia: </label>
-            <input type="text" data-element="nuevoTitulo"/>
-            <label>Introduce el subtítulo de la noticia: </label>
-            <input type="text" data-element="nuevoSubtitulo"/>
-            <label>Introduce el texto de la noticia: </label>
-            <input type="text" data-element="nuevoTexto"/>
-            <label>Introduce el autor de la noticia: </label>
-            <input type="text" data-element="nuevoAutor"/>
+            <label for="titulo">Introduce el título de la noticia: </label>
+            <input id="titulo" type="text" data-element="nuevoTitulo"/>
+            <label for="subtitulo">Introduce el subtítulo de la noticia: </label>
+            <input id="subtitulo" type="text" data-element="nuevoSubtitulo"/>
+            <label for="texto">Introduce el texto de la noticia: </label>
+            <input id="texto" type="text" data-element="nuevoTexto"/>
+            <label for="autor">Introduce el autor de la noticia: </label>
+            <input id="autor" type="text" data-element="nuevoAutor"/>
             <button type="button" onclick="noticias.addNoticia()">Añadir noticia</button>
         </section>
     </main>
