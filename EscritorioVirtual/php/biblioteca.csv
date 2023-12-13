@@ -1,0 +1,44 @@
+ID_Autor,Nombre,Apellido
+1,J.K.,Rowling
+2,George,R.R.
+3,J.R.R.,Tolkien
+4,Stephen,King
+5,Agatha,Christie
+ID_Editorial,Nombre_Editorial,Direccion
+1,Bloomsbury,123 Diagon Alley
+ID_Libro,Titulo,ID_Autor,ID_Editorial,Stock
+1,Harry Potter and the Philosopher's Stone,1,1,100
+2,Harry Potter and the Chamber of Secrets,1,1,120
+3,Harry Potter and the Prisoner of Azkaban,1,1,80
+4,Game of Thrones,2,1,150
+5,The Hobbit,3,1,90
+6,The Shining,4,1,75
+7,Murder on the Orient Express,5,1,110
+8,And Then There Were None,5,1,95
+9,It,4,1,130
+10,The Da Vinci Code,5,1,105
+11,The Hound of the Baskervilles,5,1,85
+12,Death on the Nile,5,1,100
+13,Hannibal,4,1,70
+14,The Murder of Roger Ackroyd,5,1,120
+15,The Stand,4,1,110
+ID_Cliente,Nombre,Apellido,Direccion
+1,John,Doe,123 Main Street
+2,Jane,Smith,456 Oak Avenue
+3,Bob,Johnson,789 Pine Road
+4,Emily,Williams,101 Elm Lane
+5,Michael,Jones,202 Maple Drive
+6,Susan,Brown,303 Birch Street
+7,David,Miller,404 Cedar Court
+8,Linda,Davis,505 Redwood Lane
+9,Brian,Wilson,606 Spruce Place
+10,Amy,Moore,707 Fir Street
+ID_Prestamo,ID_Cliente,ID_Libro,Fecha_Prestamo,Fecha_Devolucion
+1,1,1,2024-01-01,2024-01-15
+2,2,2,2024-01-02,2024-01-16
+3,3,3,2024-01-03,2024-01-15
+4,4,4,2024-01-02,2024-01-18
+5,5,5,2024-01-01,2024-02-15
+6,6,6,2024-01-06,2024-01-16
+7,7,7,2024-01-02,2024-01-15
+8,8,8,2024-01-08,2024-01-21

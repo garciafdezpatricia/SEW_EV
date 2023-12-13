@@ -1,0 +1,12 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: .7em;
+    padding: 3em 0em;
+}
+
+article[data-element='biblioteca'] {
+    display: flex;
+    flex-direction: column;
+}

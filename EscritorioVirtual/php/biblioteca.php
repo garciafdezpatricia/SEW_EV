@@ -5,6 +5,9 @@ class Biblioteca {
     public string $user;
     public string $pass;
     public string $dbname;
+    public string $librosYautores;
+    public string $librosPrestados = "";
+    public string $librosDisponibles = "";
 
     public function __construct() {
         $this->server = "localhost";
@@ -13,19 +16,27 @@ class Biblioteca {
         $this->dbname = "biblioteca";
     }
     // crear base de datos con tablas
-    public function crearBD() {
-        $conn = $this->crearConexion();
+    public function crearBiblioteca() {
+        $conn = new mysqli($this->server, $this->user, $this->pass);
         if ($conn) {
+            // Si la base de datos "biblioteca" no existe, la crea
+            $sql = "CREATE DATABASE IF NOT EXISTS " . $this->dbname;
+            if ($conn->query($sql) === TRUE) {
+                echo "Base de datos creada exitosamente.";
+            } else {
+                echo "Error al crear la base de datos: " . $conn->error;
+            }    
+            // Selecciona la base de datos "biblioteca"
+            mysqli_select_db($conn, $this->dbname);
             // Lee el contenido de creacion.sql
             $sqlFile = file_get_contents('creacion.sql');
             
             // Ejecuta el contenido del archivo SQL
             if ($conn->multi_query($sqlFile)) {
-                echo "Base de datos creada exitosamente.";
+                echo "Tablas creadas exitosamente.";
             } else {
-                echo "Error al crear la base de datos: " . $conn->error;
+                echo "Error al crear las tablas: " . $conn->error;
             }
-    
             // Cierra la conexión
             $this->cerrarConexion($conn);
         }
@@ -49,9 +60,10 @@ class Biblioteca {
     public function importarCSV($archivo){
         $db = $this->crearConexion();
         $selectedTabla = "";
-        if ($archivo !== false) {
+        ini_set("auto_detect_line_endings", true);
+        if (($handle = fopen($archivo, 'r')) !== false) {
             // Leer los datos del archivo CSV e insertarlos en las tablas
-            while (($fila = fgetcsv($archivo)) !== false) {
+            while ( ($fila = fgetcsv($handle, 2000, ",")) !== false) {
                 // Verificar a qué tabla pertenece la fila
                 $tabla = $fila[0];
                 if ($tabla == 'ID_Autor'){
@@ -71,7 +83,6 @@ class Biblioteca {
                 }
                 else {
                     // insertar en la tabla los valores que hay en la fila
-                    // TODO: quitar el pdo y meter los valores como en crucigrama.php
                     switch ($selectedTabla) {
                         case "autor":
                             $stmt = $db->prepare('INSERT INTO autor (ID_Autor, Nombre, Apellido) VALUES (?, ?, ?)');
@@ -108,24 +119,59 @@ class Biblioteca {
             }
             $db->close();
             // Cerrar el archivo CSV
-            fclose($archivo);
+            fclose($handle);
+            $this->consultarLibrosEnPrestamo();
+            $this->consultarLibrosDisponibles();
         } else {
             echo "Error al abrir el archivo CSV";
         }
     }
 
-    // exportar csv
+    // TODO: exportar csv
 
-    // consultar libros en prestamo (con fecha de inicio y fin de prestamo)
-
+    // consultar libros en prestamo (con fecha fin de prestamo)
+    public function consultarLibrosEnPrestamo() {
+        $db = $this->crearConexion();
+        // Consulta 1: Libros en préstamo con fecha de devolución
+        $query1 = "SELECT l.Titulo AS Libro, p.Fecha_Devolucion FROM libro l JOIN prestamos p ON l.ID_Libro = p.ID_Libro";
+        $result1 = $db->query($query1);
+        if ($result1->num_rows > 0) {
+            $this->librosPrestados .= "<article data-element='biblioteca'><h3>Libros en préstamo</h3><ul>";
+            while ($row = $result1->fetch_assoc()) {
+                $this->librosPrestados .= "<li>Libro: " . $row["Libro"] . " - Fecha de Devolución: " . $row["Fecha_Devolucion"] . "</li>";
+            }
+            $this->librosPrestados .= "</ul></article>";
+        } else {
+            $this->librosPrestados .= "<p>No hay libros en préstamo.</p>";
+        }
+        $db->close();
+        return $this->librosPrestados;
+    }
     // consultar los libros disponibles
+    public function consultarLibrosDisponibles() {
+        $db = $this->crearConexion();
+        // Consulta 1: Libros en préstamo con fecha de devolución
+        $query1 = "SELECT l.Titulo AS Libro FROM libro l LEFT JOIN prestamos p ON l.ID_Libro = p.ID_Libro WHERE p.ID_Prestamo IS NULL OR p.Fecha_Devolucion < CURRENT_DATE";
+        $result1 = $db->query($query1);
+        if ($result1->num_rows > 0) {
+            $this->librosDisponibles .= "<article data-element='biblioteca'><h3>Libros disponibles</h3><ul>";
+            while ($row = $result1->fetch_assoc()) {
+                $this->librosDisponibles .= "<li>Libro: " . $row["Libro"] . "</li>";
+            }
+            $this->librosDisponibles .= "</ul></article>";
+        } else {
+            $this->librosDisponibles .= "<p>No hay libros disponibles.</p>";
+        }
+        $db->close();
+        return $this->librosDisponibles;
+    }
 }
 
+// Acción para importar el SQL para la creación de la base de datos
+$biblioteca = new Biblioteca();
 if (isset($_POST['importar_csv'])) {
-    // Acción para importar el SQL para la creación de la base de datos
-    $biblioteca = new Biblioteca();
     // crear la bd
-    $biblioteca->crearBD();
+    $biblioteca->crearBiblioteca();
     // leer csv y rellenar bd
     $biblioteca->importarCSV($_FILES['importarCSV']['tmp_name']);
 }
@@ -141,12 +187,10 @@ if (isset($_POST['importar_csv'])) {
         <meta name="keywords" content ="Juego, Sudoku"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Escritorio Virtual - Lista de tareas</title>
-        <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
-        <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
-        <link rel="stylesheet" type="text/css" href="estilo/api.css" />
-        <link rel="icon" href="multimedia/imagenes/favicon.ico" />
-        <script src="js/api.js"></script>
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
+        <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
+        <link rel="stylesheet" type="text/css" href="../estilo/biblioteca.css" />
+        <link rel="icon" href="../multimedia/imagenes/favicon.ico" />
     </head>
     <body>
         <!-- Datos con el contenido que aparece en el navegador -->
@@ -173,15 +217,14 @@ if (isset($_POST['importar_csv'])) {
         </ul>
     </article>
     <main>
-        <h2>Consulta de libros</h2>
-        <button onclick="crearBiblioteca()">Crear biblioteca</button>
-        <form action="#" method="post">
+        <h2>Consulta de disponibilidad de libros</h2>
+        <form action="#" method="post" enctype="multipart/form-data">
             <label for="importarCSV">Importar CSV para la carga de datos</label>
             <input id="importarCSV" name="importarCSV" type="file" accept=".csv"/>
             <input type="submit" name="importar_csv" value="Importar">
         </form>
-        <button onclick="consultarLibrosEnPrestamo()">Consultar libros en préstamo</button>
-        <button onclick="consultarLibrosDisponibles()">Consultar libros disponibles</button>
+        <?php echo $biblioteca->librosPrestados ?>
+        <?php echo $biblioteca->librosDisponibles ?>
     </main>
     </body>
 </html>
