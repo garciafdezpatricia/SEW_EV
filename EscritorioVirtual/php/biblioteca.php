@@ -5,7 +5,7 @@ class Biblioteca {
     public string $user;
     public string $pass;
     public string $dbname;
-    public string $librosYautores;
+    public string $mensaje = "";
     public string $librosPrestados = "";
     public string $librosDisponibles = "";
 
@@ -22,9 +22,9 @@ class Biblioteca {
             // Si la base de datos "biblioteca" no existe, la crea
             $sql = "CREATE DATABASE IF NOT EXISTS " . $this->dbname;
             if ($conn->query($sql) === TRUE) {
-                echo "Base de datos creada exitosamente.";
+                $this->mensaje .= "Base de datos creada exitosamente.";
             } else {
-                echo "Error al crear la base de datos: " . $conn->error;
+                $this->mensaje .= "Error al crear la base de datos: " . $conn->error;
             }    
             // Selecciona la base de datos "biblioteca"
             mysqli_select_db($conn, $this->dbname);
@@ -33,9 +33,9 @@ class Biblioteca {
             
             // Ejecuta el contenido del archivo SQL
             if ($conn->multi_query($sqlFile)) {
-                echo "Tablas creadas exitosamente.";
+                $this->mensaje .= "Tablas creadas exitosamente.";
             } else {
-                echo "Error al crear las tablas: " . $conn->error;
+                $this->mensaje .= "Error al crear las tablas: " . $conn->error;
             }
             // Cierra la conexión
             $this->cerrarConexion($conn);
@@ -46,7 +46,7 @@ class Biblioteca {
     public function crearConexion() {
         $conn = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
         if ($conn->connect_errno) {
-            print("Error de conexión: " . $db->connect_error);
+            $this->mensaje .= "Error de conexión: " . $db->connect_error;
         }
         return $conn;
     }
@@ -120,14 +120,84 @@ class Biblioteca {
             $db->close();
             // Cerrar el archivo CSV
             fclose($handle);
-            $this->consultarLibrosEnPrestamo();
-            $this->consultarLibrosDisponibles();
         } else {
-            echo "Error al abrir el archivo CSV";
+            $this->mensaje .= "Error al abrir el archivo CSV";
         }
     }
 
-    // TODO: exportar csv
+    public function exportarCSV() {
+        $conn = $this->crearConexion();
+        // Nombre del archivo CSV de salida
+        $csvFile = 'bibliotecaExportada.csv';
+        // Establecer encabezados para la descarga
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="' . $csvFile . '"');
+        // Abrir el archivo CSV para escritura
+        $file = fopen('php://output', 'w');
+
+        // Exportar datos de la tabla autor
+        $query_autor = "SELECT * FROM autor";
+        $result_autor = $conn->query($query_autor);
+        if ($result_autor->num_rows > 0) {
+            // Encabezados
+            fputcsv($file, array('ID_Autor', 'Nombre', 'Apellido'));
+            // Datos
+            while ($row = $result_autor->fetch_assoc()) {
+                fputcsv($file, $row);
+            }
+        }
+        // Exportar datos de la tabla editorial
+        $query_editorial = "SELECT * FROM editorial";
+        $result_editorial = $conn->query($query_editorial);
+        if ($result_editorial->num_rows > 0) {
+            // Encabezados
+            fputcsv($file, array('ID_Editorial', 'Nombre_Editorial', 'Direccion'));
+
+            // Datos
+            while ($row = $result_editorial->fetch_assoc()) {
+                fputcsv($file, $row);
+            }
+        }
+        // Exportar datos de la tabla libro
+        $query_libro = "SELECT * FROM libro";
+        $result_libro = $conn->query($query_libro);
+        if ($result_libro->num_rows > 0) {
+            // Encabezados
+            fputcsv($file, array('ID_Libro', 'Titulo', 'ID_Autor', 'ID_Editorial', 'Stock'));
+
+            // Datos
+            while ($row = $result_libro->fetch_assoc()) {
+                fputcsv($file, $row);
+            }
+        }
+        // Exportar datos de la tabla cliente
+        $query_cliente = "SELECT * FROM cliente";
+        $result_cliente = $conn->query($query_cliente);
+        if ($result_cliente->num_rows > 0) {
+            // Encabezados
+            fputcsv($file, array('ID_Cliente', 'Nombre', 'Apellido', 'Direccion'));
+
+            // Datos
+            while ($row = $result_cliente->fetch_assoc()) {
+                fputcsv($file, $row);
+            }
+        }
+        // Exportar datos de la tabla prestamos
+        $query_prestamos = "SELECT * FROM prestamos";
+        $result_prestamos = $conn->query($query_prestamos);
+        if ($result_prestamos->num_rows > 0) {
+            // Encabezados
+            fputcsv($file, array('ID_Prestamo', 'ID_Cliente', 'ID_Libro', 'Fecha_Prestamo', 'Fecha_Devolucion'));
+
+            // Datos
+            while ($row = $result_prestamos->fetch_assoc()) {
+                fputcsv($file, $row);
+            }
+        }
+        // Cerrar el archivo y la conexión a la base de datos
+        fclose($file);
+        $conn->close();
+    }
 
     // consultar libros en prestamo (con fecha fin de prestamo)
     public function consultarLibrosEnPrestamo() {
@@ -174,6 +244,11 @@ if (isset($_POST['importar_csv'])) {
     $biblioteca->crearBiblioteca();
     // leer csv y rellenar bd
     $biblioteca->importarCSV($_FILES['importarCSV']['tmp_name']);
+    // mostrar disponibilidad de la biblioteca
+    $biblioteca->consultarLibrosEnPrestamo();
+    $biblioteca->consultarLibrosDisponibles();
+    // descargar datos insertados en la bd
+    $biblioteca->exportarCSV();
 }
 ?>
 
@@ -219,10 +294,11 @@ if (isset($_POST['importar_csv'])) {
     <main>
         <h2>Consulta de disponibilidad de libros</h2>
         <form action="#" method="post" enctype="multipart/form-data">
-            <label for="importarCSV">Importar CSV para la carga de datos</label>
+            <label for="importarCSV">Importar CSV para la carga de datos y descargar datos insertados</label>
             <input id="importarCSV" name="importarCSV" type="file" accept=".csv"/>
             <input type="submit" name="importar_csv" value="Importar">
         </form>
+        <?php echo $biblioteca->mensaje ?>
         <?php echo $biblioteca->librosPrestados ?>
         <?php echo $biblioteca->librosDisponibles ?>
     </main>
