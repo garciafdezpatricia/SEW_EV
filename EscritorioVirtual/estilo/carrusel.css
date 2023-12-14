@@ -32,7 +32,7 @@ article[data-element="carrusel"] {
     border-radius: 50%;
     z-index: 10;
     cursor: pointer;
-    background-color: #fff;
+    background-color: #fff; /*Hereda el color de primer plano de body*/
   }
   article[data-element="carrusel"] button:active {
     transform: scale(1.1);

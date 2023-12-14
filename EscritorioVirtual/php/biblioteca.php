@@ -248,7 +248,7 @@ if (isset($_POST['importar_csv'])) {
     $biblioteca->consultarLibrosEnPrestamo();
     $biblioteca->consultarLibrosDisponibles();
     // descargar datos insertados en la bd
-    $biblioteca->exportarCSV();
+    //$biblioteca->exportarCSV();
 }
 ?>
 
@@ -272,23 +272,24 @@ if (isset($_POST['importar_csv'])) {
     <header>
         <h1>Escritorio Virtual</h1>
         <nav>
-            <a href="index.html" accesskey="I" tabindex="1">Inicio</a>
-            <a href="sobremi.html" accesskey="S" tabindex="2">Sobre mi</a>
-            <a href="noticias.html" accesskey="N" tabindex="3">Noticias</a>
-            <a href="agenda.html" accesskey="A" tabindex="4">Agenda</a>
-            <a href="meteorología.html" accesskey="M" tabindex="5">Meteorología</a>
-            <a href="viajes.php" accesskey="V" tabindex="6">Viajes</a>
-            <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
+            <a href="../index.html" accesskey="I" tabindex="1">Inicio</a>
+            <a href="../sobremi.html" accesskey="S" tabindex="2">Sobre mi</a>
+            <a href="../noticias.html" accesskey="N" tabindex="3">Noticias</a>
+            <a href="../agenda.html" accesskey="A" tabindex="4">Agenda</a>
+            <a href="../meteorología.html" accesskey="M" tabindex="5">Meteorología</a>
+            <a href="../viajes.php" accesskey="V" tabindex="6">Viajes</a>
+            <a href="../juegos.html" accesskey="J" tabindex="7">Juegos</a>
         </nav>
     </header>
     <article>
         <h2>Salón de juegos</h2>
         <p>Pulsa en los siguientes enlaces para acceder a los juegos especificados</p>
         <ul>
-            <li><a href="memoria.html" accesskey="C" tabindex="8">Memorion</a></li>
-            <li><a href="sudoku.html" accesskey="K" tabindex="9">Sudoku</a></li>
-            <li><a href="crucigrama.php" accesskey="C" tabindex="10">Crucigrama matemático</a></li>
-            <li><a href="api.html" accesskey="T" tabindex="11">Lista de tareas</a></li>
+            <li><a href="../memoria.html" accesskey="C" tabindex="8">Memorion</a></li>
+            <li><a href="../sudoku.html" accesskey="K" tabindex="9">Sudoku</a></li>
+            <li><a href="../crucigrama.php" accesskey="C" tabindex="10">Crucigrama matemático</a></li>
+            <li><a href="../api.html" accesskey="T" tabindex="11">Lista de tareas</a></li>
+            <li><a href="biblioteca.php" accesskey="B" tabindex="12">Biblioteca</a></li>
         </ul>
     </article>
     <main>
@@ -298,9 +299,8 @@ if (isset($_POST['importar_csv'])) {
             <input id="importarCSV" name="importarCSV" type="file" accept=".csv"/>
             <input type="submit" name="importar_csv" value="Importar">
         </form>
-        <?php echo $biblioteca->mensaje ?>
-        <?php echo $biblioteca->librosPrestados ?>
         <?php echo $biblioteca->librosDisponibles ?>
+        <?php echo $biblioteca->librosPrestados ?>
     </main>
     </body>
 </html>

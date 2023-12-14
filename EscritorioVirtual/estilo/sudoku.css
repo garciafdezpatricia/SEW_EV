@@ -29,8 +29,7 @@ main section p[data-element] {
 }
 /*Especificidad 012*/
 main p[data-state="blocked"] {
-    background-color: #E8EEF2;
-    /*No se establece color de primer plano porque se hereda de body*/
+    background-color: #E8EEF2; /*No se establece color de primer plano porque se hereda de body*/
 }
 /*Especificidad 012*/
 main section:first-of-type p[data-state="clicked"] {

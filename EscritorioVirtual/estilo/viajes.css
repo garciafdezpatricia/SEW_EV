@@ -67,8 +67,7 @@ section[data-element="galeria"] img {
 }
 
 main section[data-element="rutas"] article[data-element="infoRuta"] li {
-    color: #071330;
-    /*No se establece el color de fondo porque lo hereda de body*/
+    color: #071330; /*No se establece el color de fondo porque lo hereda de body*/
 }
 
 section[data-element="archivosSVG"] {
