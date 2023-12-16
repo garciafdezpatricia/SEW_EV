@@ -8,6 +8,7 @@ class Biblioteca {
     public string $mensaje = "";
     public string $librosPrestados = "";
     public string $librosDisponibles = "";
+    public string $librosDeAutor = "";
 
     public function __construct() {
         $this->server = "localhost";
@@ -21,7 +22,7 @@ class Biblioteca {
         if ($conn) {
             // Si la base de datos "biblioteca" no existe, la crea
             $sql = "CREATE DATABASE IF NOT EXISTS " . $this->dbname;
-            if ($conn->query($sql) === TRUE) {
+            if ($conn->multi_query($sql) === TRUE) {
                 $this->mensaje .= "Base de datos creada exitosamente.";
             } else {
                 $this->mensaje .= "Error al crear la base de datos: " . $conn->error;
@@ -31,7 +32,7 @@ class Biblioteca {
             // Lee el contenido de creacion.sql
             $sqlFile = file_get_contents('creacion.sql');
             
-            // Ejecuta el contenido del archivo SQL
+            // Ejecuta el contenido del archivo SQL (creación de tablas)
             if ($conn->multi_query($sqlFile)) {
                 $this->mensaje .= "Tablas creadas exitosamente.";
             } else {
@@ -42,7 +43,7 @@ class Biblioteca {
         }
     }
     
-    // crear conexion
+    // crear conexion a la base de datos biblioteca
     public function crearConexion() {
         $conn = new mysqli($this->server, $this->user, $this->pass, $this->dbname);
         if ($conn->connect_errno) {
@@ -82,35 +83,35 @@ class Biblioteca {
                     $selectedTabla = "prestamo";
                 }
                 else {
-                    // insertar en la tabla los valores que hay en la fila
+                    // insertar en la tabla los valores que hay en la fila, ignorando los IDs porque son autoincrementales
                     switch ($selectedTabla) {
                         case "autor":
-                            $stmt = $db->prepare('INSERT INTO autor (ID_Autor, Nombre, Apellido) VALUES (?, ?, ?)');
-                            $stmt->bind_param('sss', $fila[0], $fila[1], $fila[2]);
+                            $stmt = $db->prepare('INSERT INTO autor (Nombre, Apellido) VALUES (?, ?)');
+                            $stmt->bind_param('ss', $fila[1], $fila[2]);
                             $stmt->execute();
                             $stmt->close();
                             break;
                         case "editorial":
-                            $stmt = $db->prepare('INSERT INTO editorial (ID_Editorial, Nombre_Editorial, Direccion) VALUES (?, ?, ?)');
-                            $stmt->bind_param('sss', $fila[0], $fila[1], $fila[2]);
+                            $stmt = $db->prepare('INSERT INTO editorial (Nombre_Editorial, Direccion) VALUES (?, ?)');
+                            $stmt->bind_param('ss', $fila[1], $fila[2]);
                             $stmt->execute();
                             $stmt->close();
                             break;
                         case "libro":
-                            $stmt = $db->prepare('INSERT INTO libro (ID_Libro, Titulo, ID_Autor, ID_Editorial, Stock) VALUES (?, ?, ?, ?, ?)');
-                            $stmt->bind_param('sssss', $fila[0], $fila[1], $fila[2], $fila[3], $fila[4]);
+                            $stmt = $db->prepare('INSERT INTO libro (Titulo, ID_Autor, ID_Editorial, Stock) VALUES (?, ?, ?, ?)');
+                            $stmt->bind_param('ssss', $fila[1], $fila[2], $fila[3], $fila[4]);
                             $stmt->execute();
                             $stmt->close();
                             break;
                         case "cliente":
-                            $stmt = $db->prepare('INSERT INTO cliente (ID_Cliente, Nombre, Apellido, Direccion) VALUES (?, ?, ?, ?)');
-                            $stmt->bind_param('ssss', $fila[0], $fila[1], $fila[2], $fila[3]);
+                            $stmt = $db->prepare('INSERT INTO cliente (Nombre, Apellido, Direccion) VALUES (?, ?, ?)');
+                            $stmt->bind_param('sss', $fila[1], $fila[2], $fila[3]);
                             $stmt->execute();
                             $stmt->close();
                             break;
                         case "prestamo":
-                            $stmt = $db->prepare('INSERT INTO prestamos (ID_Prestamo, ID_Cliente, ID_Libro, Fecha_Prestamo, Fecha_Devolucion) VALUES (?, ?, ?, ?, ?)');
-                            $stmt->bind_param('sssss', $fila[0], $fila[1], $fila[2], $fila[3], $fila[4]);
+                            $stmt = $db->prepare('INSERT INTO prestamos (ID_Cliente, ID_Libro, Fecha_Prestamo, Fecha_Devolucion) VALUES (?, ?, ?, ?)');
+                            $stmt->bind_param('ssss', $fila[1], $fila[2], $fila[3], $fila[4]);
                             $stmt->execute();
                             $stmt->close();
                             break;
@@ -197,12 +198,13 @@ class Biblioteca {
         // Cerrar el archivo y la conexión a la base de datos
         fclose($file);
         $conn->close();
+        exit;
     }
 
     // consultar libros en prestamo (con fecha fin de prestamo)
     public function consultarLibrosEnPrestamo() {
         $db = $this->crearConexion();
-        // Consulta 1: Libros en préstamo con fecha de devolución
+        // consulta: Libros en préstamo con fecha de devolución
         $query1 = "SELECT l.Titulo AS Libro, p.Fecha_Devolucion FROM libro l JOIN prestamos p ON l.ID_Libro = p.ID_Libro";
         $result1 = $db->query($query1);
         if ($result1->num_rows > 0) {
@@ -220,7 +222,7 @@ class Biblioteca {
     // consultar los libros disponibles
     public function consultarLibrosDisponibles() {
         $db = $this->crearConexion();
-        // Consulta 1: Libros en préstamo con fecha de devolución
+        // Consulta: libros disponibles teniendo en cuenta la fecha actual
         $query1 = "SELECT l.Titulo AS Libro FROM libro l LEFT JOIN prestamos p ON l.ID_Libro = p.ID_Libro WHERE p.ID_Prestamo IS NULL OR p.Fecha_Devolucion < CURRENT_DATE";
         $result1 = $db->query($query1);
         if ($result1->num_rows > 0) {
@@ -235,10 +237,38 @@ class Biblioteca {
         $db->close();
         return $this->librosDisponibles;
     }
+
+    // consultar los libros de un autor
+    public function consultarPorAutor($autor) {
+        $db = $this->crearConexion();
+        // Consulta: libros en la biblioteca por autor
+        $query1 = "SELECT libro.Titulo FROM libro JOIN autor ON libro.ID_Autor = autor.ID_Autor WHERE LOWER(autor.Nombre) LIKE LOWER(?) OR LOWER(autor.Apellido) LIKE LOWER(?);";
+        $stmt = $db->prepare($query);
+        // Vincular los parámetros: se pone % por si no es el nombre completo 
+        $param = "%{$autor}%";
+        $stmt->bind_param("ss", $param, $param);
+        // Ejecutar la consulta
+        $stmt->execute();
+        // Obtener los resultados
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            $this->librosDeAutor .= "<article data-element='librosAutor'><h3>Libros del autor</h3><ul>";
+            while ($row = $result->fetch_assoc()) {
+                $this->librosDeAutor .= "<li>Libro: " . $row["Titulo"] . "</li>";
+            }
+            $this->librosDeAutor .= "</ul></article>";
+        } else {
+            $this->librosDeAutor .= "<p>No hay libros de ese autor.</p>";
+        }
+        $stmt->close();
+        $db->close();
+        return $this->librosDeAutor;
+    }
 }
 
-// Acción para importar el SQL para la creación de la base de datos
+// crear biblioteca
 $biblioteca = new Biblioteca();
+// el post para importar el csv
 if (isset($_POST['importar_csv'])) {
     // crear la bd
     $biblioteca->crearBiblioteca();
@@ -247,8 +277,16 @@ if (isset($_POST['importar_csv'])) {
     // mostrar disponibilidad de la biblioteca
     $biblioteca->consultarLibrosEnPrestamo();
     $biblioteca->consultarLibrosDisponibles();
+}
+// el post para exportar el csv
+if (isset($_POST['exportar_csv'])) {
     // descargar datos insertados en la bd
-    //$biblioteca->exportarCSV();
+    $biblioteca->exportarCSV();
+}
+// el post para consultar libros por autor
+if (isset($_POST['consultar_por_autor'])) {
+    // descargar datos insertados en la bd
+    $biblioteca->consultarPorAutor($_POST["autor"]);
 }
 ?>
 
@@ -258,10 +296,10 @@ if (isset($_POST['importar_csv'])) {
         <!-- Datos que describen el documento -->
         <meta charset="UTF-8" />
         <meta name="author" content="Patricia Garcia Fernandez"/>
-        <meta name="description" content="Documento con el juego del Sudoku"/>
-        <meta name="keywords" content ="Juego, Sudoku"/>
+        <meta name="description" content="Documento para consultas a una biblioteca"/>
+        <meta name="keywords" content ="Biblioteca, Consultas"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Escritorio Virtual - Lista de tareas</title>
+        <title>Escritorio Virtual - Biblioteca</title>
         <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
         <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
         <link rel="stylesheet" type="text/css" href="../estilo/biblioteca.css" />
@@ -299,8 +337,19 @@ if (isset($_POST['importar_csv'])) {
             <input id="importarCSV" name="importarCSV" type="file" accept=".csv"/>
             <input type="submit" name="importar_csv" value="Importar">
         </form>
+        <form action="#" method="post" >
+            <label for="exportarCSV">Exportar datos de la biblioteca</label>
+            <input id="exportarCSV" type="submit" name="exportar_csv" value="Exportar"></input>
+        </form>
+        <form action="#" method="post">
+            <label for="autor">Nombre del autor</label>
+            <input id="autor" name="autor" type="text" placeholder="J.K Rowling, Tolkien..."/>
+            <label for="consultarPorAutor">Consultar libros disponibles</label>
+            <input id="consultarPorAutor" type="submit" name="consultar_por_autor" value="Buscar"></input>
+        </form>
         <?php echo $biblioteca->librosDisponibles ?>
         <?php echo $biblioteca->librosPrestados ?>
+        <?php echo $biblioteca->librosDeAutor ?>
     </main>
     </body>
 </html>

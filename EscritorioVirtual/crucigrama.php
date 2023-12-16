@@ -1,4 +1,14 @@
 <?php
+
+/*
+    CREATE TABLE `registro` (
+ `nombre` varchar(300) NOT NULL,
+ `apellidos` varchar(300) NOT NULL,
+ `nivel` varchar(300) NOT NULL,
+ `tiempo` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+
+*/
     class Record {
         public string $server;
         public string $user;
