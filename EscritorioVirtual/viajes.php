@@ -66,8 +66,8 @@
     <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <meta name="author" content="Patricia Garcia Fernandez"/>
-    <meta name="description" content="Documento para realizar en otros módulos de la asignatura"/>
-    <meta name="keywords" content ="Viajes"/>
+    <meta name="description" content="Documento con información sobre Albania"/>
+    <meta name="keywords" content ="Viajes, Albania"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Escritorio Virtual - Viajes</title>
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
@@ -102,7 +102,7 @@
         ?>
         <button onclick="viajes.getMapaEstaticoGoogle('estatico')">Obtener mapa estático</button>
         <figure id="estatico"></figure>
-        <figure id="dinamico"></figure>
+        <figure data-element="dinamico" id="dinamico"></figure>
         <section data-element="fileUpload">
             <h3>Carga de archivos</h3>
             <p>Carga el archivo rutasEsquema.xml para ver su contenido: </p>

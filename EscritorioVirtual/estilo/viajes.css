@@ -1,32 +1,44 @@
+/* 
+PATRICIA GARCÍA FERNÁNDEZ - UO282210
+
+ESPECIFICIDAD [ID] [CLASES|ATRIBUTOS|:PSEUDOCLASES] [ELEMENTOS|::PSEUDOELEMENTOS]
+*/
+
+/*Especificidad 003*/
 main section img {
     width: 60%;
     height: auto;
     margin-top: 4em;
 }
-
-#dinamico {
+/*Especificidad 002*/
+figure img {
+    width: 80%;
+    height: auto;
+}
+/*Especificidad 011*/
+figure[data-element="dinamico"] {
     margin-top: 4em;
     height: 60vw;
 }
-
+/*Especificidad 011*/
 section[data-element="fileUpload"] {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     gap: 0.5em;
 }
-
+/*Especificidad 012*/
 section[data-element="fileUpload"] p {
     width: 100%;
 }
-
+/*Especificidad 011*/
 section[data-element="rutas"] {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1em;
 }
-
+/*Especificidad 011*/
 article[data-element="infoRuta"] {
     display: flex;
     flex-direction: column;
@@ -34,15 +46,15 @@ article[data-element="infoRuta"] {
     padding: 1em;
     width: 80%;
 }
-
+/*Especificidad 012*/
 article[data-element="infoRuta"] p {
     margin: 0.2em;
 }
-
+/*Especificidad 022*/
 article[data-element="infoRuta"] h4[data-element="nombre-ruta"] {
     align-self: center;
 }
-
+/*Especificidad 011*/
 section[data-element="galeria"] {
     display: flex;
     flex-direction: row;
@@ -51,44 +63,44 @@ section[data-element="galeria"] {
     gap: 0em;
     overflow: auto;
 }
-
+/*Especificidad 002*/
 section h4 {
     margin: 1.2em;
 }
-
+/*Especificidad 012*/
 section[data-element="galeria"] h4 {
     flex: 100%;
 }
-
+/*Especificidad 012*/
 section[data-element="galeria"] img {
     width: 50%;
     height: auto;
     margin: 0;
 }
-
+/*Especificidad 024*/
 main section[data-element="rutas"] article[data-element="infoRuta"] li {
     color: #071330; /*No se establece el color de fondo porque lo hereda de body*/
 }
-
+/*Especificidad 011*/
 section[data-element="archivosSVG"] {
     display: flex;
     flex-direction: column;
 }
-
+/*Especificidad 012*/
 section[data-element="archivosSVG"] svg {
     width: 80%;
     height: 35vh;
     overflow: hidden;
 }
-
+/*Especificidad 012*/
 section[data-element="archivosSVG"] h4 {
     text-align: center;
 }
-
+/*Especificidad 012*/
 section[data-element="archivosSVG"] polyline {
     transform: scale(0.6);
 }
-
+/*Especificidad 012*/
 section[data-element="archivosSVG"] text {
     transform: scale(0.6);
 }

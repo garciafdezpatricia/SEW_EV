@@ -1,3 +1,9 @@
+/* 
+PATRICIA GARCÍA FERNÁNDEZ - UO282210
+
+ESPECIFICIDAD [ID] [CLASES|ATRIBUTOS|:PSEUDOCLASES] [ELEMENTOS|::PSEUDOELEMENTOS]
+*/
+
 /*Especificidad 012*/
 body section:first-of-type {
     display: flex;

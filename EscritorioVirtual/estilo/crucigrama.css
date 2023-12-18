@@ -1,4 +1,10 @@
-/*Especificidad 001*/
+/* 
+PATRICIA GARCÍA FERNÁNDEZ - UO282210
+
+ESPECIFICIDAD [ID] [CLASES|ATRIBUTOS|:PSEUDOCLASES] [ELEMENTOS|::PSEUDOELEMENTOS]
+*/
+
+/*Especificidad 012*/
 main article[data-element='crucigrama'] {
     width: 70vw;
     min-height: 50vw;
@@ -6,13 +12,13 @@ main article[data-element='crucigrama'] {
     grid-template-columns: repeat(9, 1fr);
     gap: 0;
 }
-
+/*Especificidad 013*/
 main article[data-element='crucigrama'] h3 {
     grid-column: 1/-1; /*Tengo que redefinir el grid porque necesito que ocupe todo, no quiero que sea parte del crucigrama*/
     grid-row: 1/1;
 }
 
-/*Especificidad 002*/
+/*Especificidad 013*/
 main article[data-element='crucigrama'] p {
     margin: 0;
     text-align: center;
@@ -35,7 +41,7 @@ p[data-state="empty"] {
 section[data-type=botonera] {
     display: none;
 }
-
+/*Especificidad 001*/
 form {
     display: flex;
     flex-direction: column;

@@ -5,7 +5,7 @@
  `nombre` varchar(300) NOT NULL,
  `apellidos` varchar(300) NOT NULL,
  `nivel` varchar(300) NOT NULL,
- `tiempo` varchar(300) NOT NULL
+ `tiempo` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
 
 */
@@ -36,7 +36,7 @@
                 $this->mensaje = "Error de conexión: " . $db->connect_error;
             } else {
                 $consultapre = $db->prepare("INSERT INTO registro (nombre, apellidos, nivel, tiempo) VALUES (?,?,?,?);");
-                $consultapre->bind_param('ssss', $this->nombrePersona, $this->apellidosPersona, $this->nivel, $this->tiempo);
+                $consultapre->bind_param('sssi', $this->nombrePersona, $this->apellidosPersona, $this->nivel, $this->tiempo);
                 //ejecutar sentencia
                 $consultapre->execute();
                 // mostrar mensaje
@@ -54,7 +54,7 @@
             if ($db->connect_errno) {
                 echo "Error de conexión: " . $db->connect_error;
             } else {
-                $consultapre = $db->prepare("SELECT * FROM registro WHERE nivel LIKE ? ORDER BY tiempo ASC;");
+                $consultapre = $db->prepare("SELECT * FROM registro WHERE nivel LIKE ? ORDER BY tiempo ASC LIMIT 10;");
                 $consultapre->bind_param('s', $this->nivel);
                 //ejecutar sentencia
                 $consultapre->execute();
@@ -95,7 +95,7 @@
             $registro->nombrePersona = $_POST["nombre"];
             $registro->apellidosPersona = $_POST["apellidos"];
             $registro->nivel = $_POST["nivel"];
-            $registro->tiempo = $_POST["tiempo"];
+            $registro->tiempo = intval($_POST["tiempo"]);
             $registro->connectDB();
             $registro->cogerResultados();
     }
@@ -139,6 +139,7 @@
             <li><a href="sudoku.html" accesskey="K" tabindex="9">Sudoku</a></li>
             <li><a href="crucigrama.php" accesskey="C" tabindex="10">Crucigrama matemático</a></li>
             <li><a href="api.html" accesskey="T" tabindex="11">Lista de tareas</a></li>
+            <li><a href="php/biblioteca.php" accesskey="B" tabindex="12">Biblioteca</a></li>
         </ul>
     </article>
     <main>

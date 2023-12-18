@@ -243,7 +243,7 @@ class Biblioteca {
         $db = $this->crearConexion();
         // Consulta: libros en la biblioteca por autor
         $query1 = "SELECT libro.Titulo FROM libro JOIN autor ON libro.ID_Autor = autor.ID_Autor WHERE LOWER(autor.Nombre) LIKE LOWER(?) OR LOWER(autor.Apellido) LIKE LOWER(?);";
-        $stmt = $db->prepare($query);
+        $stmt = $db->prepare($query1);
         // Vincular los parámetros: se pone % por si no es el nombre completo 
         $param = "%{$autor}%";
         $stmt->bind_param("ss", $param, $param);
@@ -287,6 +287,12 @@ if (isset($_POST['exportar_csv'])) {
 if (isset($_POST['consultar_por_autor'])) {
     // descargar datos insertados en la bd
     $biblioteca->consultarPorAutor($_POST["autor"]);
+}
+// el post para consultar libros
+if (isset($_POST['consulta_inicial'])) {
+    // mostrar disponibilidad de la biblioteca
+    $biblioteca->consultarLibrosEnPrestamo();
+    $biblioteca->consultarLibrosDisponibles();
 }
 ?>
 
@@ -342,10 +348,13 @@ if (isset($_POST['consultar_por_autor'])) {
             <input id="exportarCSV" type="submit" name="exportar_csv" value="Exportar"></input>
         </form>
         <form action="#" method="post">
-            <label for="autor">Nombre del autor</label>
+            <label for="autor">Consultar libros del autor:</label>
             <input id="autor" name="autor" type="text" placeholder="J.K Rowling, Tolkien..."/>
-            <label for="consultarPorAutor">Consultar libros disponibles</label>
             <input id="consultarPorAutor" type="submit" name="consultar_por_autor" value="Buscar"></input>
+        </form>
+        <form action="#" method="post">
+            <label for="consultaInicial">Consultar libros</label>
+            <input id="consultaInicial" type="submit" name="consulta_inicial" value="Buscar"></input>
         </form>
         <?php echo $biblioteca->librosDisponibles ?>
         <?php echo $biblioteca->librosPrestados ?>

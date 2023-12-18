@@ -1,15 +1,23 @@
+/* 
+PATRICIA GARCÍA FERNÁNDEZ - UO282210
+
+ESPECIFICIDAD [ID] [CLASES|ATRIBUTOS|:PSEUDOCLASES] [ELEMENTOS|::PSEUDOELEMENTOS]
+*/
+
+
+/*Especificidad 011*/
 section[data-element="listas"] {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0em;
     margin: 4em 0em;
 }
-
+/*Especificidad 012*/
 section[data-element="listas"] h4 {
     grid-column: 1/-1;
     grid-row: 1/1;
 }
-
+/*Especificidad 011, 011, 011*/
 section[data-element="to-do"], section[data-element="in-progress"], section[data-element="done"] {
     display: flex;
     flex-direction: column;
@@ -22,11 +30,11 @@ section[data-element="to-do"], section[data-element="in-progress"], section[data
     background-color: #E8EEF2; /*El color del primer plano se hereda de body (no se escribe nada porque estas son las columnas del tablero de tareas */
     grid-row: 2/2;
 }
-
+/*Especificidad 011*/
 section[data-element="done"] {
     border-right: 0.15em solid #0C4160;
 }
-
+/*Especificidad 001*/
 h5 {
     border-bottom: 0.15em solid #0C4160;
     margin: 0;
@@ -36,7 +44,7 @@ h5 {
     color: #E8EEF2;
     background-color: #0C4160;
 }
-
+/*Especificidad 012*/
 section article[data-element="tarea"] {
     display: flex;
     flex-direction: column;
@@ -46,12 +54,20 @@ section article[data-element="tarea"] {
     width: 14em;
     background-color: #ffffff /*Hereda el color de body */
 }
-
+/*Especificidad 013*/
 section article[data-element="tarea"] p {
     width: 100%;
     margin: .4em 0em 0em;
 }
-
+/*Especificidad 023*/
 section article[data-element="tarea"] h6[data-element="titulo"] {
     margin: .5em 0em;
+}
+
+@media (max-width: 799px) {
+    /*Especificidad 011*/
+    section[data-element="listas"] {
+        display: flex; /*Antes era un grid*/
+        flex-direction: column;
+    }
 }

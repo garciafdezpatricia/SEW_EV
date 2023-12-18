@@ -42,7 +42,7 @@ td {
     /*Especificidad 001*/
     header {
         flex-direction: column; /*Redefiniendo la dirección del flex, antes row ahora column*/
-        gap: .5em; /*Redefiniendo el gap de 2em a .5em*/
+        gap: .5em; /*Redefiniendo el gap de fila y columna de 2em a .5em*/
     }
 
     /*Especificidad 001*/

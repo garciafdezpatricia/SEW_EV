@@ -9,14 +9,15 @@ section:first-of-type {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 0.5em; /*Modificando el valor de estilo.css*/
 }
 /*Especificidad 012*/
-section:first-of-type h3 {
-    flex: 100%;
+section:first-of-type h2 {
+    flex: 100%; /*Que ocupe toda la primera fila*/
 }
 /*Especificidad 012*/
 section:first-of-type article {
-    flex-basis: 20%;
+    width: calc(20% - 1em); /*menos el padding y margenes de los lados*/
     display: flex;
     flex-direction: column;
     background-color: #738FA7; /*El color de primer plano se hereda de body */

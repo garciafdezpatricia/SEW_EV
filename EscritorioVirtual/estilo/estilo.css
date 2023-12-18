@@ -140,13 +140,13 @@ th {
     /*Hereda el color de primer plano #071330 de body*/
     background-color: #E8EEF2; /*Hereda el color de fondo #FFFFFF de body */
 }
-
+/*Especificidad 011*/
 section[data-element="meteoPrediction"] {
     display: flex;
     flex-direction: row;
     width: 100%;
 }
-
+/*Especificidad 012*/
 section[data-element="meteoPrediction"] article {
     display: grid;
     grid-template-columns: 2.5fr 1fr;
@@ -157,57 +157,57 @@ section[data-element="meteoPrediction"] article {
     padding-bottom: .7em;
     color: #E8EEF2;
 }
-
+/*Especificidad 013*/
 section[data-element="meteoPrediction"] article img {
-    grid-row: 1/1;
-    grid-column: 2/-1;
+    grid-row: 1/1; /*Para que este en la primera fila*/
+    grid-column: 2/-1; /*Para que ocupe desde la segunda columna hasta la ultima*/
     width: 55%;
     height: auto;
     justify-self: end;
     filter: brightness(4);
 }
-
+/*Especificidad 023*/
 section[data-element="meteoPrediction"] article h4[data-element="fecha"] {
-    grid-row: 1/1;
-    grid-column: 1/1;
+    grid-row: 1/1; /*Para que este en la primera fila*/
+    grid-column: 1/1; /*Para que este en la primera columna*/
     text-align: center;
     align-self: center;
     width: 100%;
     margin: 0;
 }
-
+/*Especificidad 023*/
 section[data-element="meteoPrediction"] article p[data-element="temperatura"] {
-    grid-row: 2/2;
-    grid-column: 1/1;
+    grid-row: 2/2; /*Para que este en la segunda fila*/
+    grid-column: 1/1; /*Para que este en la primera columna*/
     width: 100%;
     margin: 0;
 }
-
+/*Especificidad 023*/
 section[data-element="meteoPrediction"] article p[data-element="tiempo"] {
-    grid-row: 3/3;
-    grid-column: 1/-1;
+    grid-row: 3/3; /*Para que este en la tercera fila*/
+    grid-column: 1/-1; /*Para que ocupe desde la primera columna hasta la ultima*/
     width: 100%;
     margin: 0;
 }
-
+/*Especificidad 023*/
 section[data-element="meteoPrediction"] article p[data-element="description"] {
-    grid-row: 4/4;
-    grid-column: 1/-1;
+    grid-row: 4/4; /*Para que este en la cuarta fila*/
+    grid-column: 1/-1; /*Para que ocupe desde la primera columna hasta la ultima*/
     width: 100%;
     margin: 0;
 }
-
+/*Especificidad 023*/
 section[data-element="meteoPrediction"] article p[data-element="humedad"] {
-    grid-row: 2/2;
-    grid-column: 2/-1;
+    grid-row: 2/2; /*Para que esté en la segunda fila*/
+    grid-column: 2/-1; /*Para que ocupe desde la segunda columna hasta la ultima*/
     width: 100%;
     margin: 0;
     font-size: .9em
 }
-
+/*Especificidad 023*/
 section[data-element="meteoPrediction"] article p[data-element="viento"] {
-    grid-row: 3/3;
-    grid-column: 2/-1;
+    grid-row: 3/3; /*Para que este en la última fila*/
+    grid-column: 2/-1; /*Para que ocupe desde la segunda columna hasta la ultima*/
     width: 100%;
     margin: 0;
     font-size: 0.9em

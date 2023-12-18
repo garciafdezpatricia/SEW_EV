@@ -17,7 +17,7 @@ class Pais {
 
     relleno() {
         this.gobierno = "República parlamentaria unitaria";
-        this.latitud = "41.3275"
+        this.latitud =  "41.3275"
         this.longitud = "19.8199"
         this.religionMayoritaria = "Islamismo"
     }
@@ -64,6 +64,16 @@ class Pais {
             } 
             else {
                 // si no hay una entrada para esa fecha, inicializar valores
+
+                // SI NO LLUEVE NO MANDA LA LLUVIA
+                let rain = "";
+                if (!entrada.rain){
+                    rain = "0";
+                }
+                else {
+                    rain = entrada.rain["3h"];
+                }
+
                 medias[fecha] = {
                     tempMax: entrada.main.temp_max,
                     tempMin: entrada.main.temp_min,
@@ -71,7 +81,7 @@ class Pais {
                     viento: entrada.wind.speed,
                     icono: entrada.weather[0].icon,
                     tiempo: entrada.weather[0].main,
-                    descripcion: entrada.weather[0].description,
+                    descripcion: rain,
                     entradas: 1
                 };
             }
@@ -148,7 +158,7 @@ class Pais {
                         date.attr("data-element", "fecha");
                         article.append(date);              
                         
-                        let tiempo = $("<p>").text(mapeoTiempo[medias[fecha].tiempo] + ": " + medias[fecha].descripcion);
+                        let tiempo = $("<p>").text(mapeoTiempo[medias[fecha].tiempo] + ". Lluvia (mm) " + medias[fecha].descripcion);
                         tiempo.attr("data-element", "tiempo");
                         article.append(tiempo);
                         
