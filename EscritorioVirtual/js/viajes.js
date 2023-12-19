@@ -84,16 +84,8 @@ class Viajes {
         var zoom ="&zoom=10";
         //Tamaño del mapa en pixeles (obligatorio)
         var tamaño= "&size=800x600";
-        //Escala (opcional)
-        //Formato (opcional): PNG,JPEG,GIF
-        //Tipo de mapa (opcional)
-        //Idioma (opcional)
-        //region (opcional)
         //marcadores (opcional)
         var marcador = "&markers=color:red%7Clabel:S%7C" + this.latitud + "," + this.longitud;
-        //rutas. path (opcional)
-        //visible (optional)
-        //style (opcional)
         var sensor = "&sensor=false"; 
         this.imagenMapa = url + centro + zoom + tamaño + marcador + sensor + "&key=" + this.apikey;
         ubicacion.innerHTML = "<img src='"+this.imagenMapa+"' alt='mapa estático google' />";
