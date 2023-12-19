@@ -102,8 +102,8 @@
             echo $carrusel->getPhotos();
         ?>
         <button onclick="viajes.getMapaEstaticoGoogle('estatico')">Obtener mapa estático</button>
-        <!-- <figure id="estatico"></figure>
-        <figure data-element="dinamico" id="dinamico"></figure> -->
+        <figure id="estatico"></figure>
+        <figure data-element="dinamico" id="dinamico"></figure>
         <section data-element="fileUpload">
             <h3>Carga de archivos</h3>
             <p>Carga el archivo rutasEsquema.xml para ver su contenido: </p>
@@ -125,7 +125,7 @@
         $("button[data-action='prev']").on("click", viajes.carruselAnterior());
 
     </script>
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOHT5uUmRE7AYHojYkyoz8xALNtuLMAF4&callback=initMap"> -->
-    <!-- </script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOHT5uUmRE7AYHojYkyoz8xALNtuLMAF4&callback=initMap"> -->
+    <!-- </script>
 </body>
 </html>
