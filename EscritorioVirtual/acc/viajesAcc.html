@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Patricia Garcia Fernandez">
+    <meta name="description" content="Documento con información sobre Albania">
+    <meta name="keywords" content="Viajes, Albania">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escritorio Virtual - Viajes</title>
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <link rel="stylesheet" type="text/css" href="estilo/viajes.css">
+    <link rel="stylesheet" type="text/css" href="estilo/carrusel.css">
+    <link rel="icon" href="multimedia/imagenes/favicon.ico">
+    <script src="js/viajes.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Datos con el contenido que aparece en el navegador -->
+    <header>
+        <h1>Escritorio Virtual</h1>
+        <nav>
+            <a href="index.html" accesskey="I" tabindex="1">Inicio</a>
+            <a href="sobremi.html" accesskey="S" tabindex="2">Sobre mi</a>
+            <a href="noticias.html" accesskey="N" tabindex="3">Noticias</a>
+            <a href="agenda.html" accesskey="A" tabindex="4">Agenda</a>
+            <a href="meteorología.html" accesskey="M" tabindex="5">Meteorología</a>
+            <a href="viajes.php" accesskey="V" tabindex="6">Viajes</a>
+            <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Viajes</h2>
+        <p>1€=102.826 Leks albaneses</p><article data-element="carrusel"><h3>Carrusel de imágenes</h3><img data-element="carruselImg" alt="Foto 0 de Tirana obtenida de Flickr" src="https://live.staticflickr.com/65535/53407877855_483b59c80c_b.jpg" style="transform: translateX(-300%);"><img data-element="carruselImg" alt="Foto 1 de Tirana obtenida de Flickr" src="https://live.staticflickr.com/65535/53403624403_604c756435_b.jpg" style="transform: translateX(-200%);"><img data-element="carruselImg" alt="Foto 2 de Tirana obtenida de Flickr" src="https://live.staticflickr.com/65535/53403760284_067c49f44c_b.jpg" style="transform: translateX(-100%);"><img data-element="carruselImg" alt="Foto 3 de Tirana obtenida de Flickr" src="https://live.staticflickr.com/65535/53402183720_e2b21d048f_b.jpg" style="transform: translateX(0%);"><img data-element="carruselImg" alt="Foto 4 de Tirana obtenida de Flickr" src="https://live.staticflickr.com/65535/53394659561_4a649bf232_b.jpg" style="transform: translateX(100%);"><img data-element="carruselImg" alt="Foto 5 de Tirana obtenida de Flickr" src="https://live.staticflickr.com/65535/53393736240_286f748aa4_b.jpg" style="transform: translateX(200%);"><img data-element="carruselImg" alt="Foto 6 de Tirana obtenida de Flickr" src="https://live.staticflickr.com/65535/53392922469_a07d54e6bb_b.jpg" style="transform: translateX(300%);"><img data-element="carruselImg" alt="Foto 7 de Tirana obtenida de Flickr" src="https://live.staticflickr.com/65535/53391742638_e7dfe679cb_b.jpg" style="transform: translateX(400%);"><img data-element="carruselImg" alt="Foto 8 de Tirana obtenida de Flickr" src="https://live.staticflickr.com/65535/53390669128_499ef38126_b.jpg" style="transform: translateX(500%);"><img data-element="carruselImg" alt="Foto 9 de Tirana obtenida de Flickr" src="https://live.staticflickr.com/65535/53390790109_1138cb0479_b.jpg" style="transform: translateX(600%);"><button onclick="viajes.carruselSiguiente()" data-action="next"> &gt; </button>
+            <button data-action="prev" onclick="viajes.carruselAnterior()"> &lt; </button></article>        <button onclick="viajes.getMapaEstaticoGoogle('estatico')">Obtener mapa estático</button>
+        <section data-element="fileUpload">
+            <h3>Carga de archivos</h3>
+            <label for="rutasEsquema">Carga el archivo rutasEsquema.xml para ver su contenido: </label>
+            <input id="rutasEsquema" type="file" accept=".xml" onchange="viajes.leerArchivoXML(this.files)">
+            <label for="archivosKML">Carga archivos KML para representarlos en el mapa dinámico</label>
+            <input id="archivosKML" type="file" accept=".kml" onchange="viajes.leerArchivoKML(this.files)" multiple="">
+            <label for="archivosSVG">Carga archivos SVG para representarlos en el documento</label>
+            <input id="archivosSVG" type="file" accept=".svg" onchange="viajes.leerArchivoSVG(this.files)" multiple="">
+        </section>
+    <section data-element="rutas"><h3>Rutas</h3><article data-element="infoRuta"><h4 data-element="nombre-ruta">Ruta 1: Valle de Theth</h4><p data-element="tipo-ruta">Tipo: Senderismo</p><p data-element="descripcion-ruta">Ruta para divisar el valle del Theth, el valle de Valbona junto con su parque natural y cascadas</p><p data-element="tiempo-duracion-ruta">Duración: PT8h</p><p data-element="personas-ruta">Personas adecuadas: Sin niños</p><p data-element="lugar-inicio-ruta">Lugar de inicio: Valbona</p><p data-element="fecha-inicio-ruta">Fecha inicio: 2023-09-01</p><p data-element="hora-inicio-ruta">Hora inicio: 2023-09-01T09:00:00</p><p data-element="medio-transporte-ruta">Medio transporte: A pie</p><p data-element="agencia-ruta">Agencia: Sin agencia</p><p data-element="coordenadas-ruta">Coordenadas: 42.446872, 19.882660</p><p data-element="altitud-ruta">Altitud: 950m</p><p data-element="recomendacion-ruta">Recomendación: 9/10</p><p>Referencias:</p><ul data-element="referencias"><li><a href="https://es.wikiloc.com/rutas-senderismo/valle-de-theth-okol-y-ki-shtrazes-desde-theth-78816286">Referencia 1</a></li><li><a href="https://es.wikiloc.com/rutas-senderismo/valle-de-theth-okol-y-ki-shtrazes-desde-theth-78816286">Referencia 2</a></li><li><a href="https://www.turismoalbania.es/theth/">Referencia 3</a></li></ul><section data-element="galeria"><h4>Galería de fotos</h4><img src="xml/rrethijubanit.jpg" alt="Foto de Rrethi i Jubanit"><img src="xml/valbonavalley.jpg" alt="Foto de Valle de Valbona"><img src="xml/livadhi.jpg" alt="Foto de Livadhi i Shkembit"><img src="xml/rrogamitWaterfall.jpg" alt="Foto de Ujevara e Rrogamit"><img src="xml/theth.jpg" alt="Foto de Theth"></section><section data-element="hitos"><h4>Hitos</h4><ul data-element="listaHitos"><li>Rrethi i Jubanit<ul><li>Mirador de Rrethi i Jubanit</li><li>Coordenadas: 19.871763, 42.440471</li><li>Altitud: 1229m</li><li>Distancia al hito anterior: 1.13km</li></ul></li><li>Valle de Valbona<ul><li>Valle de Valbona</li><li>Coordenadas: 19.873006, 42.426770</li><li>Altitud: 990m</li><li>Distancia al hito anterior: 1.5km</li></ul></li><li>Livadhi i Shkembit<ul><li>Zona de senderismo</li><li>Coordenadas: 19.865781, 42.420257</li><li>Altitud: 1022m</li><li>Distancia al hito anterior: 0.9km</li></ul></li><li>Ujevara e Rrogamit<ul><li>Cascada de Ujevara e Rrogamit</li><li>Coordenadas: 19.826642, 42.407887</li><li>Altitud: 1305m</li><li>Distancia al hito anterior: 3.4km</li></ul></li><li>Theth<ul><li>Villa de Theth</li><li>Coordenadas: 19.768166, 42.404576</li><li>Altitud: 820m</li><li>Distancia al hito anterior: 4.8km</li></ul></li></ul></section></article><article data-element="infoRuta"><h4 data-element="nombre-ruta">Ruta 2: Ruta gastronómica en Tirana</h4><p data-element="tipo-ruta">Tipo: Gastronómica</p><p data-element="descripcion-ruta">Ruta gastronómica en Tirana: desayuno, almuerzo y comida</p><p data-element="tiempo-duracion-ruta">Duración: PT8H</p><p data-element="personas-ruta">Personas adecuadas: Gente con ganas de comer</p><p data-element="lugar-inicio-ruta">Lugar de inicio: Tirana</p><p data-element="fecha-inicio-ruta">Fecha inicio: 2023-04-14</p><p data-element="hora-inicio-ruta">Hora inicio: 2023-04-14T09:00:00</p><p data-element="medio-transporte-ruta">Medio transporte: A pie</p><p data-element="agencia-ruta">Agencia: Sin agencia</p><p data-element="coordenadas-ruta">Coordenadas: 41.328444, 19.817940</p><p data-element="altitud-ruta">Altitud: 108m</p><p data-element="recomendacion-ruta">Recomendación: 9/10</p><p>Referencias:</p><ul data-element="referencias"><li><a href="https://www.tripadvisor.es/Restaurant_Review-g294446-d25152778-Reviews-Spicy_Restaurant-Tirana_Tirana_County.html">Referencia 1</a></li><li><a href="https://es.restaurantguru.com/Spicy-Restaurant-Tirana">Referencia 2</a></li><li><a href="https://al.sluurpy.com/tirana/restaurant/8657885/spicy-restaurant">Referencia 3</a></li></ul><section data-element="galeria"><h4>Galería de fotos</h4><img src="xml/spicy.jpg" alt="Foto de Spicy Restaurant"><img src="xml/otium.jpg" alt="Foto de Otium Restaurant"><img src="xml/oda.jpg" alt="Foto de Oda Restaurant"></section><section data-element="hitos"><h4>Hitos</h4><ul data-element="listaHitos"><li>Spicy Restaurant<ul><li>Restaurante de comida mediterránea</li><li>Coordenadas: 19.812073, 41.307617</li><li>Altitud: 121m</li><li>Distancia al hito anterior: 5km</li></ul></li><li>Otium Restaurant<ul><li>Restaurante de comida europea con opciones sin gluten</li><li>Coordenadas: 19.814207, 41.321814</li><li>Altitud: 107m</li><li>Distancia al hito anterior: 3.7km</li></ul></li><li>Oda Restaurant<ul><li>Restaurante de comida tradicional albanesa</li><li>Coordenadas: 19.824662, 41.331429</li><li>Altitud: 118m</li><li>Distancia al hito anterior: 1.9km</li></ul></li></ul></section></article><article data-element="infoRuta"><h4 data-element="nombre-ruta">Ruta 3: Ruta de visita de los lugares emblemáticos de Tirana</h4><p data-element="tipo-ruta">Tipo: Cultural</p><p data-element="descripcion-ruta">Ruta de museos y sitios emblemáticos de la ciudad de Tirana</p><p data-element="tiempo-duracion-ruta">Duración: PT6H</p><p data-element="personas-ruta">Personas adecuadas: Personas con aguante</p><p data-element="lugar-inicio-ruta">Lugar de inicio: Tirana</p><p data-element="fecha-inicio-ruta">Fecha inicio: 2023-11-26</p><p data-element="hora-inicio-ruta">Hora inicio: 2023-11-26T05:00:00</p><p data-element="medio-transporte-ruta">Medio transporte: A pie</p><p data-element="agencia-ruta">Agencia: Sin agencia</p><p data-element="coordenadas-ruta">Coordenadas: 41.328444, 19.817940</p><p data-element="altitud-ruta">Altitud: 108m</p><p data-element="recomendacion-ruta">Recomendación: 7/10</p><p>Referencias:</p><ul data-element="referencias"><li><a href="https://www.viajeroscallejeros.com/que-ver-en-tirana-albania/">Referencia 1</a></li><li><a href="https://www.lamochilademama.com/que-ver-en-tirana-dos-dias/">Referencia 2</a></li><li><a href="https://mochilaexpres.com/que-ver-hacer-en-tirana/">Referencia 3</a></li></ul><section data-element="galeria"><h4>Galería de fotos</h4><img src="xml/museo.jpg" alt="Foto de Museo Historico Nacional"><img src="xml/ethembey.jpg" alt="Foto de Mezquita de Et'hem Bey"><img src="xml/namazgah.jpg" alt="Foto de Mezquita Namazgah"></section><section data-element="hitos"><h4>Hitos</h4><ul data-element="listaHitos"><li>Museo Historico Nacional<ul><li>Museo más grande que ver en Albania</li><li>Coordenadas: 19.812073, 41.307617</li><li>Altitud: 121m</li><li>Distancia al hito anterior: 0.65km</li></ul></li><li>Mezquita de Et'hem Bey<ul><li>Mezquita del siglo XVIII en el centro de la ciudad</li><li>Coordenadas: 19.818895, 41.327671</li><li>Altitud: 112m</li><li>Distancia al hito anterior: 0.55km</li></ul></li><li>Mezquita Namazgah<ul><li>Mezquita más grande de los Balcanes y uno de los edificios más impresionantes que ver en Tirana</li><li>Coordenadas: 19.824506, 41.325597</li><li>Altitud: 111m</li><li>Distancia al hito anterior: 0.7km</li></ul></li></ul></section></article></section><section data-element="archivosSVG"><h4>Perfiles SVG</h4><svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+<polyline points="100,150 100,55.0 213.0,27.099999999999994 363.0,51.0 453.0,47.8 793.0,19.5 1273.0,68.0 1273.0,150 100,150" style="fill:white;stroke:red;stroke-width=4"></polyline>
+<text x="100" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Bunkers de Valbona
+</text>
+<text x="213.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Rrethi i Jubanit
+</text>
+<text x="363.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Valle de Valbona
+</text>
+<text x="453.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Livadhi i Shkembit
+</text>
+<text x="793.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Ujevara e Rrogamit
+</text>
+<text x="1273.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Theth
+</text>
+</svg><svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+<polyline points="100,150 100,139.2 600.0,137.9 970.0,139.3 1160.0,138.2 1160.0,150 100,150" style="fill:white;stroke:red;stroke-width=4"></polyline>
+<text x="100" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Plaza Skanderbeg
+</text>
+<text x="600.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Spicy Restaurant
+</text>
+<text x="970.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Otium Restaurant
+</text>
+<text x="1160.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Oda Restaurant
+</text>
+</svg><svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+<polyline points="100,150 100,139.2 165.0,137.9 220.0,138.8 290.0,138.9 290.0,150 100,150" style="fill:white;stroke:red;stroke-width=4"></polyline>
+<text x="100" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Plaza Skanderbeg
+</text>
+<text x="165.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Museo Historico Nacional
+</text>
+<text x="220.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Mezquita de Et'hem Bey
+</text>
+<text x="290.0" y="155" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+Mezquita Namazgah
+</text>
+</svg></section></main>
+    <script>
+        let viajes = new Viajes();
+        
+        function initMap() {
+            viajes.getMapaDinamicoGoogle();
+        }
+
+        $("button[data-action='next']").on("click", viajes.carruselSiguiente());
+        $("button[data-action='prev']").on("click", viajes.carruselAnterior());
+
+    </script>
+</body></html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Patricia Garcia Fernandez">
+    <meta name="description" content="Documento con la agenda F1">
+    <meta name="keywords" content="Agenda, F1, carreras">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escritorio Virtual - Agenda</title>
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <link rel="stylesheet" type="text/css" href="estilo/agenda.css">
+    <link rel="icon" href="multimedia/imagenes/favicon.ico">
+    <script src="js/agenda.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Datos con el contenido que aparece en el navegador -->
+    <header>
+        <h1>Escritorio Virtual</h1>
+        <nav>
+            <a href="index.html" accesskey="I" tabindex="1">Inicio</a>
+            <a href="sobremi.html" accesskey="S" tabindex="2">Sobre mi</a>
+            <a href="noticias.html" accesskey="N" tabindex="3">Noticias</a>
+            <a href="agenda.html" accesskey="A" tabindex="4">Agenda</a>
+            <a href="meteorología.html" accesskey="M" tabindex="5">Meteorología</a>
+            <a href="viajes.php" accesskey="V" tabindex="6">Viajes</a>
+            <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Agenda</h2>
+        <p>Clica en el siguiente botón para cargar todas las carreras de F1 del año 2023.</p>
+        <button onclick="agenda.cargarDatos()">Cargar carreras F1</button>
+    </main>
+    <script>
+        let agenda = new Agenda();
+    </script>
+
+<section data-element="carreras"><h3>Carreras F1</h3><article><p data-element="numero">#1</p><h4 data-element="nombreCarrera" lang="en">Bahrain Grand Prix</h4><p data-element="nombreCircuito" lang="en">Bahrain International Circuit</p><p data-element="coordenadasCircuito">26.0325, 50.5106</p><p data-element="fecha">Domingo 5/3/2023
+15:00:00Z</p><p data-element="lugar" lang="en">Sakhir, Bahrain</p><a href="http://en.wikipedia.org/wiki/Bahrain_International_Circuit" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#2</p><h4 data-element="nombreCarrera" lang="en">Saudi Arabian Grand Prix</h4><p data-element="nombreCircuito" lang="en">Jeddah Corniche Circuit</p><p data-element="coordenadasCircuito">21.6319, 39.1044</p><p data-element="fecha">Domingo 19/3/2023
+17:00:00Z</p><p data-element="lugar" lang="en">Jeddah, Saudi Arabia</p><a href="http://en.wikipedia.org/wiki/Jeddah_Street_Circuit" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#3</p><h4 data-element="nombreCarrera" lang="en">Australian Grand Prix</h4><p data-element="nombreCircuito" lang="en">Albert Park Grand Prix Circuit</p><p data-element="coordenadasCircuito">-37.8497, 144.968</p><p data-element="fecha">Domingo 2/4/2023
+05:00:00Z</p><p data-element="lugar" lang="en">Melbourne, Australia</p><a href="http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#4</p><h4 data-element="nombreCarrera" lang="en">Azerbaijan Grand Prix</h4><p data-element="nombreCircuito" lang="en">Baku City Circuit</p><p data-element="coordenadasCircuito">40.3725, 49.8533</p><p data-element="fecha">Domingo 30/4/2023
+11:00:00Z</p><p data-element="lugar" lang="en">Baku, Azerbaijan</p><a href="http://en.wikipedia.org/wiki/Baku_City_Circuit" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#5</p><h4 data-element="nombreCarrera" lang="en">Miami Grand Prix</h4><p data-element="nombreCircuito" lang="en">Miami International Autodrome</p><p data-element="coordenadasCircuito">25.9581, -80.2389</p><p data-element="fecha">Domingo 7/5/2023
+19:30:00Z</p><p data-element="lugar" lang="en">Miami, USA</p><a href="http://en.wikipedia.org/wiki/Miami_International_Autodrome" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#6</p><h4 data-element="nombreCarrera" lang="en">Monaco Grand Prix</h4><p data-element="nombreCircuito" lang="en">Circuit de Monaco</p><p data-element="coordenadasCircuito">43.7347, 7.42056</p><p data-element="fecha">Domingo 28/5/2023
+13:00:00Z</p><p data-element="lugar" lang="en">Monte-Carlo, Monaco</p><a href="http://en.wikipedia.org/wiki/Circuit_de_Monaco" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#7</p><h4 data-element="nombreCarrera" lang="en">Spanish Grand Prix</h4><p data-element="nombreCircuito" lang="en">Circuit de Barcelona-Catalunya</p><p data-element="coordenadasCircuito">41.57, 2.26111</p><p data-element="fecha">Domingo 4/6/2023
+13:00:00Z</p><p data-element="lugar" lang="en">Montmeló, Spain</p><a href="http://en.wikipedia.org/wiki/Circuit_de_Barcelona-Catalunya" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#8</p><h4 data-element="nombreCarrera" lang="en">Canadian Grand Prix</h4><p data-element="nombreCircuito" lang="en">Circuit Gilles Villeneuve</p><p data-element="coordenadasCircuito">45.5, -73.5228</p><p data-element="fecha">Domingo 18/6/2023
+18:00:00Z</p><p data-element="lugar" lang="en">Montreal, Canada</p><a href="http://en.wikipedia.org/wiki/Circuit_Gilles_Villeneuve" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#9</p><h4 data-element="nombreCarrera" lang="en">Austrian Grand Prix</h4><p data-element="nombreCircuito" lang="en">Red Bull Ring</p><p data-element="coordenadasCircuito">47.2197, 14.7647</p><p data-element="fecha">Domingo 2/7/2023
+13:00:00Z</p><p data-element="lugar" lang="en">Spielberg, Austria</p><a href="http://en.wikipedia.org/wiki/Red_Bull_Ring" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#10</p><h4 data-element="nombreCarrera" lang="en">British Grand Prix</h4><p data-element="nombreCircuito" lang="en">Silverstone Circuit</p><p data-element="coordenadasCircuito">52.0786, -1.01694</p><p data-element="fecha">Domingo 9/7/2023
+14:00:00Z</p><p data-element="lugar" lang="en">Silverstone, UK</p><a href="http://en.wikipedia.org/wiki/Silverstone_Circuit" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#11</p><h4 data-element="nombreCarrera" lang="en">Hungarian Grand Prix</h4><p data-element="nombreCircuito" lang="en">Hungaroring</p><p data-element="coordenadasCircuito">47.5789, 19.2486</p><p data-element="fecha">Domingo 23/7/2023
+13:00:00Z</p><p data-element="lugar" lang="en">Budapest, Hungary</p><a href="http://en.wikipedia.org/wiki/Hungaroring" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#12</p><h4 data-element="nombreCarrera" lang="en">Belgian Grand Prix</h4><p data-element="nombreCircuito" lang="en">Circuit de Spa-Francorchamps</p><p data-element="coordenadasCircuito">50.4372, 5.97139</p><p data-element="fecha">Domingo 30/7/2023
+13:00:00Z</p><p data-element="lugar" lang="en">Spa, Belgium</p><a href="http://en.wikipedia.org/wiki/Circuit_de_Spa-Francorchamps" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#13</p><h4 data-element="nombreCarrera" lang="en">Dutch Grand Prix</h4><p data-element="nombreCircuito" lang="en">Circuit Park Zandvoort</p><p data-element="coordenadasCircuito">52.3888, 4.54092</p><p data-element="fecha">Domingo 27/8/2023
+13:00:00Z</p><p data-element="lugar" lang="en">Zandvoort, Netherlands</p><a href="http://en.wikipedia.org/wiki/Circuit_Zandvoort" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#14</p><h4 data-element="nombreCarrera" lang="en">Italian Grand Prix</h4><p data-element="nombreCircuito" lang="en">Autodromo Nazionale di Monza</p><p data-element="coordenadasCircuito">45.6156, 9.28111</p><p data-element="fecha">Domingo 3/9/2023
+13:00:00Z</p><p data-element="lugar" lang="en">Monza, Italy</p><a href="http://en.wikipedia.org/wiki/Autodromo_Nazionale_Monza" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#15</p><h4 data-element="nombreCarrera" lang="en">Singapore Grand Prix</h4><p data-element="nombreCircuito" lang="en">Marina Bay Street Circuit</p><p data-element="coordenadasCircuito">1.2914, 103.864</p><p data-element="fecha">Domingo 17/9/2023
+12:00:00Z</p><p data-element="lugar" lang="en">Marina Bay, Singapore</p><a href="http://en.wikipedia.org/wiki/Marina_Bay_Street_Circuit" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#16</p><h4 data-element="nombreCarrera" lang="en">Japanese Grand Prix</h4><p data-element="nombreCircuito" lang="en">Suzuka Circuit</p><p data-element="coordenadasCircuito">34.8431, 136.541</p><p data-element="fecha">Domingo 24/9/2023
+05:00:00Z</p><p data-element="lugar" lang="en">Suzuka, Japan</p><a href="http://en.wikipedia.org/wiki/Suzuka_Circuit" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#17</p><h4 data-element="nombreCarrera" lang="en">Qatar Grand Prix</h4><p data-element="nombreCircuito" lang="en">Losail International Circuit</p><p data-element="coordenadasCircuito">25.49, 51.4542</p><p data-element="fecha">Domingo 8/10/2023
+17:00:00Z</p><p data-element="lugar" lang="en">Al Daayen, Qatar</p><a href="http://en.wikipedia.org/wiki/Losail_International_Circuit" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#18</p><h4 data-element="nombreCarrera" lang="en">United States Grand Prix</h4><p data-element="nombreCircuito" lang="en">Circuit of the Americas</p><p data-element="coordenadasCircuito">30.1328, -97.6411</p><p data-element="fecha">Domingo 22/10/2023
+19:00:00Z</p><p data-element="lugar" lang="en">Austin, USA</p><a href="http://en.wikipedia.org/wiki/Circuit_of_the_Americas" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#19</p><h4 data-element="nombreCarrera" lang="en">Mexico City Grand Prix</h4><p data-element="nombreCircuito" lang="en">Autódromo Hermanos Rodríguez</p><p data-element="coordenadasCircuito">19.4042, -99.0907</p><p data-element="fecha">Domingo 29/10/2023
+20:00:00Z</p><p data-element="lugar" lang="en">Mexico City, Mexico</p><a href="http://en.wikipedia.org/wiki/Aut%C3%B3dromo_Hermanos_Rodr%C3%ADguez" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#20</p><h4 data-element="nombreCarrera" lang="en">São Paulo Grand Prix</h4><p data-element="nombreCircuito" lang="en">Autódromo José Carlos Pace</p><p data-element="coordenadasCircuito">-23.7036, -46.6997</p><p data-element="fecha">Domingo 5/11/2023
+17:00:00Z</p><p data-element="lugar" lang="en">São Paulo, Brazil</p><a href="http://en.wikipedia.org/wiki/Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#21</p><h4 data-element="nombreCarrera" lang="en">Las Vegas Grand Prix</h4><p data-element="nombreCircuito" lang="en">Las Vegas Strip Street Circuit</p><p data-element="coordenadasCircuito">36.1147, -115.173</p><p data-element="fecha">Domingo 19/11/2023
+06:00:00Z</p><p data-element="lugar" lang="en">Las Vegas, United States</p><a href="https://en.wikipedia.org/wiki/Las_Vegas_Grand_Prix#Circuit" data-element="enlace">+Ver más de este circuito</a></article><article><p data-element="numero">#22</p><h4 data-element="nombreCarrera" lang="en">Abu Dhabi Grand Prix</h4><p data-element="nombreCircuito" lang="en">Yas Marina Circuit</p><p data-element="coordenadasCircuito">24.4672, 54.6031</p><p data-element="fecha">Domingo 26/11/2023
+13:00:00Z</p><p data-element="lugar" lang="en">Abu Dhabi, UAE</p><a href="http://en.wikipedia.org/wiki/Yas_Marina_Circuit" data-element="enlace">+Ver más de este circuito</a></article></section></body></html>

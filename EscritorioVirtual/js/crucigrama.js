@@ -265,19 +265,29 @@ class Crucigrama {
     createRecordForm() {
         // añadir con jquery un formulario debajo del crucigrama cuando se haya completado
         let form = $("<form>").attr("action", "#").attr("method", "post").attr("name", "record");
-        let nombre = $("<input>").attr("type", "text").attr("name", "nombre").attr("placeholder", "Nombre");
+        let nombreLabel = $("<label>").attr("for", "nombre").text("Introduce tu nombre:");
+        let nombre = $("<input>").attr("id", "nombre").attr("type", "text").attr("name", "nombre");
+        form.append(nombreLabel);
         form.append(nombre);
 
-        let apellidos = $("<input>").attr("type", "text").attr("name", "apellidos").attr("placeholder", "Apellidos");
+        let apellidosLabel = $("<label>").attr("for", "apellidos").text("Introduce tu nombre:");
+        let apellidos = $("<input>").attr("id", "apellidos").attr("type", "text").attr("name", "apellidos");
+        form.append(apellidosLabel);
         form.append(apellidos);
 
-        let nivel = $("<input>").attr("type", "text").attr("name", "nivel").attr("value", `${this.nivel}`).attr("readonly", "true");
+        let nivelLabel = $("<label>").attr("for", "nivel").text("Nivel de juego:");
+        let nivel = $("<input>").attr("id", "nivel").attr("type", "text").attr("name", "nivel").attr("value", `${this.nivel}`).attr("readonly", "true");
+        form.append(nivelLabel);
         form.append(nivel);
 
-        let tiempo = $("<input>").attr("type", "text").attr("name", "tiempo").attr("value", `${this.calculateSeconds()}`).attr("readonly", "true");
+        let tiempoLabel = $("<label>").attr("for", "tiempo").text("Tiempo tomado:");
+        let tiempo = $("<input>").attr("id", "tiempo").attr("type", "text").attr("name", "tiempo").attr("value", `${this.calculateSeconds()}`).attr("readonly", "true");
+        form.append(tiempoLabel);
         form.append(tiempo);
 
-        let boton = $("<input>").attr("type", "submit").attr("value", "Guardar");
+        let botonLabel = $("<label>").attr("for", "submit");
+        let boton = $("<input>").attr("id", "submit").attr("type", "submit").attr("value", "Guardar");
+        form.append(botonLabel);
         form.append(boton);
 
         $('article[data-element="crucigrama"]').after(form);

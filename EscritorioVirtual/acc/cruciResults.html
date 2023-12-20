@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+        <!-- Datos que describen el documento -->
+        <meta charset="UTF-8">
+        <meta name="author" content="Patricia Garcia Fernandez">
+        <meta name="description" content="Documento con el juego Crucigrama matemático">
+        <meta name="keywords" content="Juego, Crucigrama">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Escritorio Virtual - Crucigrama</title>
+        <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+        <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+        <link rel="stylesheet" type="text/css" href="estilo/crucigrama.css">
+        <link rel="icon" href="multimedia/imagenes/favicon.ico">
+        <script src="js/crucigrama.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- Datos con el contenido que aparece en el navegador -->
+    <header>
+        <h1>Escritorio Virtual</h1>
+        <nav>
+            <a href="index.html" accesskey="I" tabindex="1">Inicio</a>
+            <a href="sobremi.html" accesskey="S" tabindex="2">Sobre mi</a>
+            <a href="noticias.html" accesskey="N" tabindex="3">Noticias</a>
+            <a href="agenda.html" accesskey="A" tabindex="4">Agenda</a>
+            <a href="meteorología.html" accesskey="M" tabindex="5">Meteorología</a>
+            <a href="viajes.php" accesskey="V" tabindex="6">Viajes</a>
+            <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
+        </nav>
+    </header>
+    <article>
+        <h2>Salón de juegos</h2>
+        <p>Pulsa en los siguientes enlaces para acceder a los juegos especificados</p>
+        <ul>
+            <li><a href="memoria.html" accesskey="C" tabindex="8">Memorion</a></li>
+            <li><a href="sudoku.html" accesskey="K" tabindex="9">Sudoku</a></li>
+            <li><a href="crucigrama.php" accesskey="C" tabindex="10">Crucigrama matemático</a></li>
+            <li><a href="api.html" accesskey="T" tabindex="11">Lista de tareas</a></li>
+            <li><a href="php/biblioteca.php" accesskey="B" tabindex="12">Biblioteca</a></li>
+        </ul>
+    </article>
+    <main>
+        <h2>Crucigrama matemático</h2>
+        <section data-type="botonera">
+            <h2>Botonera</h2>
+            <button onclick="crucigrama.introduceElement(1)">1</button>
+            <button onclick="crucigrama.introduceElement(2)">2</button>
+            <button onclick="crucigrama.introduceElement(3)">3</button>
+            <button onclick="crucigrama.introduceElement(4)">4</button>
+            <button onclick="crucigrama.introduceElement(5)">5</button>
+            <button onclick="crucigrama.introduceElement(6)">6</button>
+            <button onclick="crucigrama.introduceElement(7)">7</button>
+            <button onclick="crucigrama.introduceElement(8)">8</button>
+            <button onclick="crucigrama.introduceElement(9)">9</button>
+            <button onclick="crucigrama.introduceElement('*')">*</button>
+            <button onclick="crucigrama.introduceElement('+')">+</button>
+            <button onclick="crucigrama.introduceElement('-')">-</button>
+            <button onclick="crucigrama.introduceElement('/')">/</button>
+        </section>
+        <article data-element="crucigrama">
+            <h3>Crucigrama</h3>
+        <p data-element="00" data-state="blocked">4</p><p data-element="01">*</p><p data-element="02"></p><p data-element="03">=</p><p data-element="04" data-state="blocked">12</p><p data-element="05" data-state="empty"></p><p data-element="06" data-state="empty"></p><p data-element="07" data-state="empty"></p><p data-element="08" data-state="blocked">5</p><p data-element="10" data-state="empty"></p><p data-element="11" data-state="empty"></p><p data-element="12">*</p><p data-element="13" data-state="empty"></p><p data-element="14">/</p><p data-element="15" data-state="empty"></p><p data-element="16" data-state="empty"></p><p data-element="17" data-state="empty"></p><p data-element="18">*</p><p data-element="20" data-state="blocked">4</p><p data-element="21">-</p><p data-element="22"></p><p data-element="23">=</p><p data-element="24"></p><p data-element="25" data-state="empty"></p><p data-element="26" data-state="blocked">15</p><p data-element="27" data-state="empty"></p><p data-element="28"></p><p data-element="30">*</p><p data-element="31" data-state="empty"></p><p data-element="32">=</p><p data-element="33" data-state="empty"></p><p data-element="34">=</p><p data-element="35" data-state="empty"></p><p data-element="36">/</p><p data-element="37" data-state="empty"></p><p data-element="38">=</p><p data-element="40"></p><p data-element="41" data-state="empty"></p><p data-element="42" data-state="blocked">3</p><p data-element="43" data-state="empty"></p><p data-element="44" data-state="blocked">4</p><p data-element="45">*</p><p data-element="46"></p><p data-element="47">=</p><p data-element="48" data-state="blocked">20</p><p data-element="50">=</p><p data-element="51" data-state="empty"></p><p data-element="52" data-state="empty"></p><p data-element="53" data-state="empty"></p><p data-element="54" data-state="empty"></p><p data-element="55" data-state="empty"></p><p data-element="56">=</p><p data-element="57" data-state="empty"></p><p data-element="58" data-state="empty"></p><p data-element="60" data-state="blocked">8</p><p data-element="61" data-state="empty"></p><p data-element="62" data-state="blocked">9</p><p data-element="63">-</p><p data-element="64"></p><p data-element="65">=</p><p data-element="66" data-state="blocked">3</p><p data-element="67" data-state="empty"></p><p data-element="68"></p><p data-element="70" data-state="empty"></p><p data-element="71" data-state="empty"></p><p data-element="72">-</p><p data-element="73" data-state="empty"></p><p data-element="74">+</p><p data-element="75" data-state="empty"></p><p data-element="76" data-state="empty"></p><p data-element="77" data-state="empty"></p><p data-element="78">*</p><p data-element="80" data-state="blocked">6</p><p data-element="81">/</p><p data-element="82"></p><p data-element="83">=</p><p data-element="84"></p><p data-element="85" data-state="empty"></p><p data-element="86" data-state="empty"></p><p data-element="87" data-state="empty"></p><p data-element="88"></p><p data-element="90" data-state="empty"></p><p data-element="91" data-state="empty"></p><p data-element="92">=</p><p data-element="93" data-state="empty"></p><p data-element="94">=</p><p data-element="95" data-state="empty"></p><p data-element="96" data-state="empty"></p><p data-element="97" data-state="empty"></p><p data-element="98">=</p><p data-element="100" data-state="empty"></p><p data-element="101" data-state="empty"></p><p data-element="102" data-state="blocked">6</p><p data-element="103" data-state="empty"></p><p data-element="104" data-state="blocked">8</p><p data-element="105">*</p><p data-element="106"></p><p data-element="107">=</p><p data-element="108" data-state="blocked">16</p></article>
+        <p>Resultado añadido!</p>        <ol><li>Manolo - Alvarez - Fácil - 0:0:31</li><li>Patricia - Garcia Fernandez - Fácil - 0:0:33</li><li>JJJJJJJJJ - LLLLLLLLLL - Fácil - 0:0:34</li><li>Nuria - González - Fácil - 0:0:35</li><li>Raquel - Rivaya - Fácil - 0:0:39</li><li>adald - asjdsña - Fácil - 0:0:40</li><li>Mar - Álvarez - Fácil - 0:0:48</li><li>Clara - Álvarez - Fácil - 0:0:48</li><li>Clara - Álvarez - Fácil - 0:0:48</li><li>pATRICIA - ASDAKSD - Fácil - 0:0:49</li>    </ol></main>
+    <script>
+        let crucigrama = new Crucigrama();
+        crucigrama.paintMathword();
+        addEventListener("keydown", crucigrama.boundHandleKeydown)
+    </script>
+    
+</body></html>

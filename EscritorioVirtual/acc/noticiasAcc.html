@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Patricia Garcia Fernandez">
+    <meta name="description" content="Documento con Noticias">
+    <meta name="keywords" content="Noticias, muro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escritorio Virtual - Noticias</title>
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <link rel="stylesheet" type="text/css" href="estilo/noticias.css">
+    <link rel="icon" href="multimedia/imagenes/favicon.ico">
+    <script src="js/noticias.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Escritorio Virtual</h1>
+        <nav>
+            <a href="index.html" accesskey="I" tabindex="1">Inicio</a>
+            <a href="sobremi.html" accesskey="S" tabindex="2">Sobre mi</a>
+            <a href="noticias.html" accesskey="N" tabindex="3">Noticias</a>
+            <a href="agenda.html" accesskey="A" tabindex="4">Agenda</a>
+            <a href="meteorología.html" accesskey="M" tabindex="5">Meteorología</a>
+            <a href="viajes.php" accesskey="V" tabindex="6">Viajes</a>
+            <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Noticias</h2>
+        <label for="cargarNoticias">Cargar las noticias</label>
+        <input id="cargarNoticias" type="file" onchange="noticias.readInputFile(this.files)">
+        <section data-element="muro"><h3>Muro de noticias</h3><article data-element="noticia"><h3 data-element="titulo">El aumento de la producción científica desborda de papeleo a la Universidad</h3><p data-element="subtitulo">El Rector promete cambiar el servicio de gestión y contratar personal</p><p data-element="texto">A la Universidad de Oviedo le desborda el papeleo por el gran salto dado en investigación</p><p data-element="autor">Mónica Salas</p></article><article data-element="noticia"><h3 data-element="titulo">La Universidad presume de equipos deportivos en una jornada ilusionante</h3><p data-element="subtitulo">La presentación tuvo lugar en el polideportivo universitario</p><p data-element="texto">Ayer, por primera vez, todos los equipos deportivos de la Universidad de Oviedo realizaron una presentación conjunta</p><p data-element="autor">Juan Sanchez</p></article><article data-element="noticia"><h3 data-element="titulo">Investigadores que se van por unos meses al otro lado, a la empresa</h3><p data-element="subtitulo">Deberían hacerlo todos los científicos, afirman un psicólogo y una informática</p><p data-element="texto">Una cosa es colaborar con una empresa y otra bien diferente es poder trabajar en ella durante unos meses</p><p data-element="autor">Manuel Rodriguez</p></article></section><section data-element="nuevaNoticia">
+            <h3>Nueva noticia</h3>
+            <label for="titulo">Introduce el título de la noticia: </label>
+            <input id="titulo" type="text" data-element="nuevoTitulo">
+            <label for="subtitulo">Introduce el subtítulo de la noticia: </label>
+            <input id="subtitulo" type="text" data-element="nuevoSubtitulo">
+            <label for="texto">Introduce el texto de la noticia: </label>
+            <input id="texto" type="text" data-element="nuevoTexto">
+            <label for="autor">Introduce el autor de la noticia: </label>
+            <input id="autor" type="text" data-element="nuevoAutor">
+            <button type="button" onclick="noticias.addNoticia()">Añadir noticia</button>
+        </section>
+    </main>
+    <script>
+        let noticias = new Noticias();
+    </script>
+
+</body></html>

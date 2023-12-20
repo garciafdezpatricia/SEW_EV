@@ -341,15 +341,17 @@ if (isset($_POST['consulta_inicial'])) {
         <form action="#" method="post" enctype="multipart/form-data">
             <label for="importarCSV">Importar CSV para la carga de datos y descargar datos insertados</label>
             <input id="importarCSV" name="importarCSV" type="file" accept=".csv" />
-            <input type="submit" name="importar_csv" value="Importar" />
+            <label for="cargar">Importar</label>
+            <input id="cargar" type="submit" name="importar_csv" value="Importar" />
         </form>
         <form action="#" method="post" >
             <label for="exportarCSV">Exportar datos de la biblioteca</label>
             <input id="exportarCSV" type="submit" name="exportar_csv" value="Exportar" />
         </form>
         <form action="#" method="post">
-            <label for="autor">Consultar libros del autor:</label>
+            <label for="autor">Nombre del autor:</label>
             <input id="autor" name="autor" type="text" placeholder="J.K Rowling, Tolkien..." />
+            <label for="consultarPorAutor">Consultar libros del autor</label>
             <input id="consultarPorAutor" type="submit" name="consultar_por_autor" value="Buscar" />
         </form>
         <form action="#" method="post">

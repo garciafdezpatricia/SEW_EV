@@ -28,7 +28,7 @@ section[data-element="fileUpload"] {
     gap: 0.5em;
 }
 /*Especificidad 012*/
-section[data-element="fileUpload"] p {
+section[data-element="fileUpload"] label {
     width: 100%;
 }
 /*Especificidad 011*/

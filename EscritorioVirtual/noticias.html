@@ -30,7 +30,8 @@
     </header>
     <main>
         <h2>Noticias</h2>
-        <input type="file" onchange="noticias.readInputFile(this.files)">
+        <label for="cargarNoticias">Cargar las noticias</label>
+        <input id="cargarNoticias" type="file" onchange="noticias.readInputFile(this.files)">
         <section data-element="nuevaNoticia">
             <h3>Nueva noticia</h3>
             <label for="titulo">Introduce el título de la noticia: </label>

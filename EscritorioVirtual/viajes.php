@@ -106,12 +106,12 @@
         <figure data-element="dinamico" id="dinamico"></figure>
         <section data-element="fileUpload">
             <h3>Carga de archivos</h3>
-            <p>Carga el archivo rutasEsquema.xml para ver su contenido: </p>
-            <input type="file" accept=".xml" onchange="viajes.leerArchivoXML(this.files)">
-            <p>Carga archivos KML para representarlos en el mapa dinámico</p>
-            <input type="file" accept=".kml"  onchange="viajes.leerArchivoKML(this.files)" multiple>
-            <p>Carga archivos SVG para representarlos en el documento</p>
-            <input type="file" accept=".svg"  onchange="viajes.leerArchivoSVG(this.files)" multiple>
+            <label for="rutasEsquema">Carga el archivo rutasEsquema.xml para ver su contenido: </label>
+            <input id="rutasEsquema" type="file" accept=".xml" onchange="viajes.leerArchivoXML(this.files)">
+            <label for="archivosKML">Carga archivos KML para representarlos en el mapa dinámico</label>
+            <input id="archivosKML" type="file" accept=".kml"  onchange="viajes.leerArchivoKML(this.files)" multiple>
+            <label for="archivosSVG">Carga archivos SVG para representarlos en el documento</label>
+            <input id="archivosSVG" type="file" accept=".svg"  onchange="viajes.leerArchivoSVG(this.files)" multiple>
         </section>
     </main>
     <script>
@@ -125,7 +125,7 @@
         $("button[data-action='prev']").on("click", viajes.carruselAnterior());
 
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOHT5uUmRE7AYHojYkyoz8xALNtuLMAF4&callback=initMap"> -->
-    <!-- </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOHT5uUmRE7AYHojYkyoz8xALNtuLMAF4&callback=initMap">
+    </script>
 </body>
 </html>

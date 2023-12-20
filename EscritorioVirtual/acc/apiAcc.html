@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
-    <head>
+<html lang="es"><head>
         <!-- Datos que describen el documento -->
-        <meta charset="UTF-8" />
-        <meta name="author" content="Patricia Garcia Fernandez"/>
-        <meta name="description" content="Documento con el juego del Sudoku"/>
-        <meta name="keywords" content ="Tareas"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="UTF-8">
+        <meta name="author" content="Patricia Garcia Fernandez">
+        <meta name="description" content="Documento con el juego del Sudoku">
+        <meta name="keywords" content="Tareas">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Escritorio Virtual - Lista de tareas</title>
-        <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
-        <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
-        <link rel="stylesheet" type="text/css" href="estilo/api.css" />
-        <link rel="icon" href="multimedia/imagenes/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+        <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+        <link rel="stylesheet" type="text/css" href="estilo/api.css">
+        <link rel="icon" href="multimedia/imagenes/favicon.ico">
         <script src="js/api.js"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     </head>
@@ -49,17 +48,17 @@
             <h4>Tablero</h4>
             <section data-element="to-do">
                 <h5 data-element="title-todo">PENDIENTES</h5>
-            </section>
+            <article data-element="tarea" draggable="true" data-state="to-do"><h6 data-element="titulo">SSII</h6><p data-element="texto">Estudiar teoría de redes bayesianas y aprendizaje automático</p></article><article data-element="tarea" draggable="true" data-state="to-do"><h6 data-element="titulo">DS</h6><p data-element="texto">Estudiar todos los patrones de teoría</p></article><article data-element="tarea" draggable="true" data-state="to-do"><h6 data-element="titulo">SEW</h6><p data-element="texto">Hacer bitácora del último seminario</p></article></section>
             <section data-element="in-progress">
                 <h5 data-element="title-progress">EN PROGRESO</h5>
-            </section>
+            <article data-element="tarea" draggable="true" data-state="in-progress"><h6 data-element="titulo">SEW</h6><p data-element="texto">Validar HTML de TODO el sitio web</p></article><article data-element="tarea" draggable="true" data-state="in-progress"><h6 data-element="titulo">CVVS</h6><p data-element="texto">Acabar reporting de incidencias</p></article><article data-element="tarea" draggable="true" data-state="in-progress"><h6 data-element="titulo">CVVS</h6><p data-element="texto">Acabar el seminario</p></article></section>
             <section data-element="done">
                 <h5 data-element="title-done">HECHAS</h5>
-            </section>
+            <article data-element="tarea" draggable="true" data-state="done"><h6 data-element="titulo">SIW</h6><p data-element="texto">Acabar práctica de Apache Superset</p></article><article data-element="tarea" draggable="true" data-state="done"><h6 data-element="titulo">IPS</h6><p data-element="texto">Acabar documentación</p></article></section>
         </section>
     </main>
     <script>
         let api = new ListaTareas();
     </script>
-    </body>
-</html>
+    
+</body></html>
