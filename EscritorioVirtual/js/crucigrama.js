@@ -285,7 +285,7 @@ class Crucigrama {
         form.append(tiempoLabel);
         form.append(tiempo);
 
-        let botonLabel = $("<label>").attr("for", "submit");
+        let botonLabel = $("<label>").attr("for", "submit").text("Guardar");
         let boton = $("<input>").attr("id", "submit").attr("type", "submit").attr("value", "Guardar");
         form.append(botonLabel);
         form.append(boton);
