@@ -224,6 +224,7 @@ class Crucigrama {
         else{
             this.boardInArray[fila][columna] = 0;
             celda.removeAttr("data-state");
+            window.alert("Incorrecto!");
         }
 
         if (this.check_win_condition()){
@@ -248,7 +249,7 @@ class Crucigrama {
         const isSelectedCell = $("p[data-state='clicked']");
         const isValid = regexp.test(value);
         // algunos teclados no tienen los operadores y tienen que ponerlos con shift
-        if (!isSelectedCell){
+        if (isSelectedCell && isSelectedCell.length === 0){
             window.alert("¡Debe seleccionar una celda antes!")
         }
         else if (value === "Shift"){
