@@ -159,6 +159,7 @@ section[data-element="meteoPrediction"] article {
 }
 /*Especificidad 013*/
 section[data-element="meteoPrediction"] article img {
+    /*Redefinicion por uso de short-hand*/
     grid-row: 1/1; /*Para que este en la primera fila*/
     grid-column: 2/-1; /*Para que ocupe desde la segunda columna hasta la ultima*/
     width: 55%;
@@ -168,6 +169,7 @@ section[data-element="meteoPrediction"] article img {
 }
 /*Especificidad 023*/
 section[data-element="meteoPrediction"] article h4[data-element="fecha"] {
+    /*Redefinicion por uso de short-hand*/
     grid-row: 1/1; /*Para que este en la primera fila*/
     grid-column: 1/1; /*Para que este en la primera columna*/
     text-align: center;
@@ -177,6 +179,7 @@ section[data-element="meteoPrediction"] article h4[data-element="fecha"] {
 }
 /*Especificidad 023*/
 section[data-element="meteoPrediction"] article p[data-element="temperatura"] {
+    /*Redefinicion por uso de short-hand*/
     grid-row: 2/2; /*Para que este en la segunda fila*/
     grid-column: 1/1; /*Para que este en la primera columna*/
     width: 100%;
@@ -184,6 +187,7 @@ section[data-element="meteoPrediction"] article p[data-element="temperatura"] {
 }
 /*Especificidad 023*/
 section[data-element="meteoPrediction"] article p[data-element="tiempo"] {
+    /*Redefinicion por uso de short-hand*/
     grid-row: 3/3; /*Para que este en la tercera fila*/
     grid-column: 1/-1; /*Para que ocupe desde la primera columna hasta la ultima*/
     width: 100%;
@@ -191,6 +195,7 @@ section[data-element="meteoPrediction"] article p[data-element="tiempo"] {
 }
 /*Especificidad 023*/
 section[data-element="meteoPrediction"] article p[data-element="description"] {
+    /*Redefinicion por uso de short-hand*/
     grid-row: 4/4; /*Para que este en la cuarta fila*/
     grid-column: 1/-1; /*Para que ocupe desde la primera columna hasta la ultima*/
     width: 100%;
@@ -198,6 +203,7 @@ section[data-element="meteoPrediction"] article p[data-element="description"] {
 }
 /*Especificidad 023*/
 section[data-element="meteoPrediction"] article p[data-element="humedad"] {
+    /*Redefinicion por uso de short-hand*/
     grid-row: 2/2; /*Para que esté en la segunda fila*/
     grid-column: 2/-1; /*Para que ocupe desde la segunda columna hasta la ultima*/
     width: 100%;
@@ -206,6 +212,7 @@ section[data-element="meteoPrediction"] article p[data-element="humedad"] {
 }
 /*Especificidad 023*/
 section[data-element="meteoPrediction"] article p[data-element="viento"] {
+    /*Redefinicion por uso de short-hand*/
     grid-row: 3/3; /*Para que este en la última fila*/
     grid-column: 2/-1; /*Para que ocupe desde la segunda columna hasta la ultima*/
     width: 100%;

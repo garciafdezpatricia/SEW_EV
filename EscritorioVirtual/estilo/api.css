@@ -28,7 +28,7 @@ section[data-element="to-do"], section[data-element="in-progress"], section[data
     border-top: 0.15em solid #0C4160;
     min-height: 90vh;
     background-color: #E8EEF2; /*El color del primer plano se hereda de body (no se escribe nada porque estas son las columnas del tablero de tareas */
-    grid-row: 2/2;
+    grid-row: 2/2; /*Redefinicion por uso de short-hand*/
 }
 /*Especificidad 011*/
 section[data-element="done"] {
