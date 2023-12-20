@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Patricia Garcia Fernandez">
+    <meta name="description" content="Documento con el tiempo en Albania">
+    <meta name="keywords" content="Meteorología, Albania">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escritorio Virtual - Meteorología</title>
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <link rel="icon" href="multimedia/imagenes/favicon.ico">
+    <script src="js/pais.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Escritorio Virtual</h1>
+        <nav>
+            <a href="index.html" accesskey="I" tabindex="1">Inicio</a>
+            <a href="sobremi.html" accesskey="S" tabindex="2">Sobre mi</a>
+            <a href="noticias.html" accesskey="N" tabindex="3">Noticias</a>
+            <a href="agenda.html" accesskey="A" tabindex="4">Agenda</a>
+            <a href="meteorología.html" accesskey="M" tabindex="5">Meteorología</a>
+            <a href="viajes.php" accesskey="V" tabindex="6">Viajes</a>
+            <a href="juegos.html" accesskey="J" tabindex="7">Juegos</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Meteorología</h2>
+    </main>
+    <script>
+        pais = new Pais("Albania", "Tirana", 1000000);
+        pais.relleno()
+        document.write("<p>");
+        document.write(pais.getNombrePais())
+        document.write(" es un país de Europa del Este cuya capital es ")
+        document.write(pais.getNombreCapital())
+        document.write(".</p>")
+        document.write("<p>Su poblacion, forma de gobierno y religión mayoritaria son las siguientes:</p>")
+        document.write(pais.getInformacionSecundaria())
+        pais.coordenadasPais();
+        pais.cargarDatos()
+    </script><p>Albania es un país de Europa del Este cuya capital es Tirana.</p><p>Su poblacion, forma de gobierno y religión mayoritaria son las siguientes:</p><ul><li>1000000</li><li>República parlamentaria unitaria</li><li>Islamismo</li></ul><p>Las coordenadas de Tirana son 19.8199, 41.3275</p>
+
+<section data-element="meteoPrediction"><h3>Predicciones</h3><article><img src="https://openweathermap.org/img/wn/02n@2x.png" alt="Icono del tiempo"><p data-element="temperatura">9.30ºC / 9.39ºC</p><p data-element="humedad">Humedad: 74.00%</p><p data-element="viento">Viento: 1.28m/s</p><h4 data-element="fecha">Jueves 21/12/2023</h4><p data-element="tiempo">Nuboso. Lluvia (mm) 0</p></article><article><img src="https://openweathermap.org/img/wn/03n@2x.png" alt="Icono del tiempo"><p data-element="temperatura">9.21ºC / 9.21ºC</p><p data-element="humedad">Humedad: 86.38%</p><p data-element="viento">Viento: 2.19m/s</p><h4 data-element="fecha">Viernes 22/12/2023</h4><p data-element="tiempo">Nuboso. Lluvia (mm) 0</p></article><article><img src="https://openweathermap.org/img/wn/03n@2x.png" alt="Icono del tiempo"><p data-element="temperatura">10.62ºC / 10.62ºC</p><p data-element="humedad">Humedad: 84.88%</p><p data-element="viento">Viento: 1.81m/s</p><h4 data-element="fecha">Sábado 23/12/2023</h4><p data-element="tiempo">Nuboso. Lluvia (mm) 0</p></article><article><img src="https://openweathermap.org/img/wn/02n@2x.png" alt="Icono del tiempo"><p data-element="temperatura">11.75ºC / 11.75ºC</p><p data-element="humedad">Humedad: 79.38%</p><p data-element="viento">Viento: 1.09m/s</p><h4 data-element="fecha">Domingo 24/12/2023</h4><p data-element="tiempo">Nuboso. Lluvia (mm) 0</p></article><article><img src="https://openweathermap.org/img/wn/01n@2x.png" alt="Icono del tiempo"><p data-element="temperatura">11.74ºC / 11.74ºC</p><p data-element="humedad">Humedad: 77.86%</p><p data-element="viento">Viento: 1.11m/s</p><h4 data-element="fecha">Lunes 25/12/2023</h4><p data-element="tiempo">Despejado. Lluvia (mm) 0</p></article></section></body></html>
